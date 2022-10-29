@@ -1,0 +1,68 @@
+section {
+    scroll-margin-top: 4rem;
+}
+
+@media screen and (max-height: 300px) and (min-aspect-ration: 7/4) {
+
+    section {
+            scroll-margin-top: 10rem;
+        }
+
+    #map {
+        width: 768px;
+    }
+
+}
+
+@media screen and (min-width:390px) {
+
+    #map {
+            width: 300px;
+        }
+
+}
+
+@media screen and (min-width:576px) {
+
+    #map {
+        width: 481px;
+    }
+
+}
+
+@media screen and (min-width:768px) {
+
+    #map {
+        width: 576px;
+    }
+
+}
+
+
+@media screen and (min-width:992px) {
+
+    #map {
+        width: 768px;
+    }
+
+}
+
+@media screen and (min-width:1200px) {
+
+    section {
+            scroll-margin-top: 4rem;
+        }
+
+    #map {
+        width: 992px;
+    }
+
+}
+
+@media screen and (min-width:1400px) {
+    
+    #map {
+        width: 1200px;
+    }
+
+}
