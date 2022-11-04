@@ -49,10 +49,6 @@ section {
 
 @media screen and (min-width:1200px) {
 
-    section {
-            scroll-margin-top: 4rem;
-        }
-
     #map {
         width: 992px;
     }
