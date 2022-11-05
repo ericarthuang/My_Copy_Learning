@@ -15246,10 +15246,7 @@ CMD [&quot;python&quot;, &quot;./app/main.py&quot;]
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Build-image-and-Run-image">Build image and Run image<a class="anchor-link" href="#Build-image-and-Run-image">&#182;</a></h3></blockquote>
-<blockquote>
-<p>-&gt; docker build -t python-fastapi .<br />
--&gt; docker run <code>-p 8000:8000</code> python-fastapi</p>
+<h3 id="Build-Image">Build Image<a class="anchor-link" href="#Build-Image">&#182;</a></h3><p>-&gt; docker build -t python-fastapi .</p>
 </blockquote>
 
 </div>
@@ -15263,7 +15260,21 @@ CMD [&quot;python&quot;, &quot;./app/main.py&quot;]
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h2 id="Review-the-docker-directory-in-terminal">Review the docker directory in terminal<a class="anchor-link" href="#Review-the-docker-directory-in-terminal">&#182;</a></h2></blockquote>
+<h3 id="Create-Container">Create Container<a class="anchor-link" href="#Create-Container">&#182;</a></h3><p>-&gt; docker run <code>-p 8000:8000</code> python-fastapi</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Review-the-container-in-terminal">Review the container in terminal<a class="anchor-link" href="#Review-the-container-in-terminal">&#182;</a></h2></blockquote>
 <blockquote>
 <ul>
 <li>CMD: docker ps</li>
@@ -15286,6 +15297,165 @@ CMD [&quot;python&quot;, &quot;./app/main.py&quot;]
 </blockquote>
 <blockquote>
 <p>-&gt; # ls <code>folder</code></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>CMD: docker run <code>REPOSITORY:TAG</code></li>
+</ul>
+<p>-&gt; <code>pull image</code> + <code>create contain</code> + <code>start contain</code></p>
+<ul>
+<li>CMD: docker run -it <code>REPOSITORY:TAG</code> bin/sh</li>
+</ul>
+<p>-&gt; #</p>
+<ul>
+<li><p>CMD: docker run -it -d -p 9000:80 <code>REPOSITORY:TAG</code> bin/sh</p>
+</li>
+<li><p>CMD: docker exec <code>CONTAINER_ID</code> ...</p>
+</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="--Containerize-node/express">- Containerize node/express<a class="anchor-link" href="#--Containerize-node/express">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-node/express-Website">Create node/express Website<a class="anchor-link" href="#Create-node/express-Website">&#182;</a></h3></blockquote>
+<blockquote>
+<ul>
+<li>Create <code>package.json</code></li>
+</ul>
+<p>-&gt; CMD: npm init</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Install <code>express</code></li>
+</ul>
+<p>-&gt; CMD: npm install --save express</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>index.js</code></li>
+</ul>
+<pre><code>
+</code></pre>
+</blockquote>
+<p>const express = require('express')
+const app = express()
+const port = 3000
+app.get('/', (req, res) =&gt; {
+  res.send('Hello World!')
+})
+app.listen(port, () =&gt; {
+  console.log(<code>Example app listening on port ${port}</code>)
+})</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Go to localhost:3000</li>
+</ul>
+<p>-&gt; CMD: node index.js</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-Dockerfile">Create Dockerfile<a class="anchor-link" href="#Create-Dockerfile">&#182;</a></h3><pre><code>
+</code></pre>
+</blockquote>
+<p>FROM node:latest
+WORKDIR /app
+ADD . .
+RUN npm install --save express
+CMD [&quot;node&quot;, &quot;index.js&quot;]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Build-image-and-Run-image">Build image and Run image<a class="anchor-link" href="#Build-image-and-Run-image">&#182;</a></h3><p>-&gt; docker build -t user-service-api:latest .<br />
+-&gt; docker images</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-Container">Create Container<a class="anchor-link" href="#Create-Container">&#182;</a></h3><p>-&gt; docker run --name user-api -d -p 3000:3000 user-service-api:latest<br />
+-&gt; docker ps -a</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Review-the-container-in-terminal">Review the container in terminal<a class="anchor-link" href="#Review-the-container-in-terminal">&#182;</a></h2><p>-&gt; docker exec -it eb bash<br />
+root@eb7fbecb6365:/app# ls<br />
+Dockerfile  index.js  node_modules  package-lock.json  package.json</p>
 </blockquote>
 
 </div>
