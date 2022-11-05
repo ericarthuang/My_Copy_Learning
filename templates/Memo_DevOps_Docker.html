@@ -14851,12 +14851,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>Format</li>
 </ul>
 <pre><code>-&gt; docker ps -- format=
-</code></pre>
-</blockquote>
-<p>&quot;ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\n
-COMMAND\t{{.Command}}\nCREATE\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n&quot;</p>
-<blockquote>
-<pre><code>
+&quot;ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\n
+COMMAND\t{{.Command}}\nCREATE\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n&quot;
 </code></pre>
 </blockquote>
 <blockquote>
@@ -14887,11 +14883,14 @@ COMMAND\t{{.Command}}\nCREATE\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n&quot;</p>
 -&gt; docker run ubuntu ls (ls in the container ubuntu)<br />
 -&gt; docker ps -a</p>
 <pre><code>-d, --detach             Run container in background and print container ID
+-e, --env list           Set environment variables
 -h, --hostname string    Container host name
 -i, --interactive        Keep STDIN open even if not attached       
 -p, --publish list       Publish a container's port(s) to the host
 -P, --publish-all        Publish all exposed ports to random ports
 -t, --tty                Allocate a pseudo-TTY
+-v, --volume list        Bind mount a volume
+    --volumes-from list  Mount volumes from the specified container(s)
 </code></pre>
 </blockquote>
 
@@ -14906,7 +14905,7 @@ COMMAND\t{{.Command}}\nCREATE\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n&quot;</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="--Naming">- Naming<a class="anchor-link" href="#--Naming">&#182;</a></h3><p>-&gt; docker run -d -p 6003:5432 --name postgres1010 postgres:10.10</p>
+<h3 id="--Naming">- Naming<a class="anchor-link" href="#--Naming">&#182;</a></h3><p>-&gt; docker run --name postgres1010 -d -p 6003:5432  postgres:10.10</p>
 </blockquote>
 
 </div>
@@ -15048,7 +15047,7 @@ COMMAND\t{{.Command}}\nCREATE\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n&quot;</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="--Shared-Volumes">- Shared Volumes<a class="anchor-link" href="#--Shared-Volumes">&#182;</a></h3><img src='https://tse2.mm.bing.net/th?id=OIP.9X1xxsG5K9kXAmg_5EM9bgHaDw&pid=Api&P=0' width=640>
+<h3 id="--Shared-Volumes">- Shared Volumes<a class="anchor-link" href="#--Shared-Volumes">&#182;</a></h3><img src='https://tse2.mm.bing.net/th?id=OIP.XhR4RLqLQ-RWsIGfcYobcwHaDx&pid=Api&P=0' width=640>
 </blockquote>
 
 </div>
@@ -15157,7 +15156,7 @@ drwxr-xr-x 3 root root 4096 Oct 25 10:23 ..
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src='https://docs.docker.com/storage/images/volumes-shared-storage.svg' width=800>
+<img src='http://www.testautomationguru.com/wp-content/uploads/2018/04/doc-vol-mapping-05.png' width=800>
 </blockquote>
 
 </div>
@@ -15284,6 +15283,20 @@ CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;deamon off;&quot;]
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="--Docker-Volumes">- Docker Volumes<a class="anchor-link" href="#--Docker-Volumes">&#182;</a></h2><blockquote>
 <img src='https://i.stack.imgur.com/qYlWg.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://docs.docker.com/storage/images/volumes-shared-storage.svg' width=800>
 </blockquote>
 
 </div>
@@ -15462,21 +15475,24 @@ CMD [&quot;node&quot;, &quot;index.js&quot;]</p>
 <h2 id="--Docker-Hub">- Docker Hub<a class="anchor-link" href="#--Docker-Hub">&#182;</a></h2><p><a href="https://hub.docker.com/repositories">Docker Repositoies</a></p>
 <blockquote>
 <ul>
-<li><p>Create Repository</p>
-</li>
-<li><p>Push Repository</p>
-</li>
+<li>Create Repository</li>
 </ul>
-<p>-&gt; docker push ericarthuang/website:tagname</p>
-<pre><code>-&gt; docker tag website:copylearning ericarthuang/website:copylearning     
--&gt; docker images
--&gt; docker push ericarthuang/website:copylearning     
-</code></pre>
+<p><code>docker tag local-image:tagname new-repo:tagname</code>
+<code>docker push new-repo:tagname</code></p>
+<ul>
+<li>Push Repository</li>
+</ul>
+<p>-&gt; docker tag website:copylearning ericarthuang/website:copylearning<br />
+-&gt; docker images<br />
+-&gt; docker push ericarthuang/website:copylearning</p>
 <ul>
 <li>Pull Image from Repository</li>
 </ul>
-<p>-&gt; docker pull ericarthuang/website:copylearning<br />
-docker run --name website_copylearning -d -p 8080:80 ericarthuang/website:copylearning</p>
+<p>-&gt; docker pull ericarthuang/website:copylearning</p>
+<ul>
+<li>Create Container</li>
+</ul>
+<p>-&gt; docker run --name website_copylearning -d -p 8080:80 ericarthuang/website:copylearning</p>
 </blockquote>
 <p>47ec4e1f3d011c9401712196358e27c9b7e6f1e4d355480b641433f90d47e5b7</p>
 
