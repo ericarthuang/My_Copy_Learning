@@ -14,7 +14,7 @@ section {
 
 } */
 
-@media screen and (max-min: 200px) and (min-aspect-ration: 8/4) {
+@media screen and (min-height: 200px) and (min-aspect-ration: 8/4) {
 
     #map {
         width: 768px;
