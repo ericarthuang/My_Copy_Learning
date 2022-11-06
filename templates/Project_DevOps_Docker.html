@@ -15096,6 +15096,20 @@ CMD [&quot;python&quot;, &quot;./main.py&quot;]
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
+<h3 id="Create-Registry">Create Registry<a class="anchor-link" href="#Create-Registry">&#182;</a></h3><p><a href="https://hub.docker.com/repositories">Docker Repositoies</a></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
 <h3 id="Create-VENV">Create VENV<a class="anchor-link" href="#Create-VENV">&#182;</a></h3><ul>
 <li>CMD: <code>python -m venv venv</code></li>
 </ul>
@@ -15116,19 +15130,6 @@ CMD [&quot;python&quot;, &quot;./main.py&quot;]
 <h3 id="Pre-requisiters">Pre-requisiters<a class="anchor-link" href="#Pre-requisiters">&#182;</a></h3><p>-&gt; <code>pip install flask</code><br />
 -&gt; <code>pip freeze &gt; requirements.txt</code></p>
 </blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="Create-app.py-in-root-Directory">Create app.py in root Directory<a class="anchor-link" href="#Create-app.py-in-root-Directory">&#182;</a></h3></blockquote>
 
 </div>
 </div>
@@ -15175,20 +15176,6 @@ CMD [&quot;python&quot;, &quot;app.py&quot;]
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Create-Registry">Create Registry<a class="anchor-link" href="#Create-Registry">&#182;</a></h3><p><a href="https://hub.docker.com/repositories">Docker Repositoies</a></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
 <h3 id="Build-Image">Build Image<a class="anchor-link" href="#Build-Image">&#182;</a></h3><p>-&gt; docker build -t flaskninja:jobs .<br />
 -&gt; docker images</p>
 <p>-&gt; docker tag flaskninja:jobs ericarthuang/websiteflask:jobs<br />
@@ -15209,9 +15196,122 @@ CMD [&quot;python&quot;, &quot;app.py&quot;]
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Create-Container">Create Container<a class="anchor-link" href="#Create-Container">&#182;</a></h3><p>-&gt; docker run --name ninjaflask -d -p 9000:80 ericarthuang/websiteflask:jobs<br />
+<h3 id="Create-Container">Create Container<a class="anchor-link" href="#Create-Container">&#182;</a></h3><p>-&gt; docker run --name ninjaflask -d -p 5000:80 ericarthuang/websiteflask:jobs<br />
 -&gt; docker ps -a</p>
 <p>go to <code>localhost:5000</code></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="--Containerize-Python---Diango">- Containerize Python - Diango<a class="anchor-link" href="#--Containerize-Python---Diango">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-Registry">Create Registry<a class="anchor-link" href="#Create-Registry">&#182;</a></h3><p><a href="https://hub.docker.com/repositories">Docker Repositoies</a></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-VENV">Create VENV<a class="anchor-link" href="#Create-VENV">&#182;</a></h3><ul>
+<li>CMD: <code>python -m venv venv</code></li>
+</ul>
+<p>-&gt; CMD: venv\Scripts\activate.bat</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Pre-requisiters">Pre-requisiters<a class="anchor-link" href="#Pre-requisiters">&#182;</a></h3><p>-&gt; <code>pip install django</code><br />
+-&gt; <code>pip freeze &gt; requirements.txt</code></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-Dockerfile">Create Dockerfile<a class="anchor-link" href="#Create-Dockerfile">&#182;</a></h3><pre><code>FROM python:3.10.8    
+WORKDIR /django-app   
+COPY ./Django_Blog_Project ./   
+RUN pip install -r requirements.txt &amp;&amp; \   
+    python -m pip install --upgrade pip   
+CMD [&quot;python&quot;, &quot;./Django_Blog_Project/manage.py&quot;, &quot;runserver&quot;]   
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Build-Image">Build Image<a class="anchor-link" href="#Build-Image">&#182;</a></h3><p>-&gt; docker build -t djangoblog:copylearning .<br />
+-&gt; docker images</p>
+<p>-&gt; docker tag djangoblog:copylearning ericarthuang/djangoblog:copylearning<br />
+-&gt; docker images<br />
+-&gt; docker push ericarthuang/djangoblog:copylearning</p>
+<p>-&gt; docker rmi ericarthuang/djangoblog:copylearning<br />
+-&gt; docker pull ericarthaung/djangoblog:copylearning</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-Container">Create Container<a class="anchor-link" href="#Create-Container">&#182;</a></h3><p>-&gt; docker run --name djangoblog -d -p 8000:8000 ericarthuang/djangoblog:copylearning<br />
+-&gt; docker ps -a</p>
+<p>go to <code>localhost:8000</code></p>
 </blockquote>
 
 </div>
