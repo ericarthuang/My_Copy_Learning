@@ -14,7 +14,7 @@ section {
 
 } */
 
-@media screen and (min-height: 300px) and (min-aspect-ration: 9/4) {
+@media screen and (min-height: 250px) {
 
     section {
             scroll-margin-top: 0rem;
