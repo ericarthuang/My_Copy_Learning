@@ -13,7 +13,7 @@
 @media screen and (max-height: 250px) {
 
     section {
-            scroll-margin-top: 1rem;
+            scroll-margin-top: 2rem;
         }
 
     #map {
