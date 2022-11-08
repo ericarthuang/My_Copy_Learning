@@ -14672,6 +14672,17 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Using-Docker-Compose-to-Deploy-a-Django-app">Using Docker Compose to Deploy a Django app<a class="anchor-link" href="#Using-Docker-Compose-to-Deploy-a-Django-app">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <h2 id="Create-Registry">Create Registry<a class="anchor-link" href="#Create-Registry">&#182;</a></h2><p><a href="https://hub.docker.com/repositories">Docker Repositoies</a></p>
 </blockquote>
@@ -15042,7 +15053,115 @@ command: &gt;
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h2 id="Use-Reverse-Proxy-to-Handle-Static-and-Media-Files">Use Reverse Proxy to Handle Static and Media Files<a class="anchor-link" href="#Use-Reverse-Proxy-to-Handle-Static-and-Media-Files">&#182;</a></h2></blockquote>
+<h2 id="Handle-static-and-media-files">Handle static and media files<a class="anchor-link" href="#Handle-static-and-media-files">&#182;</a></h2></blockquote>
+<blockquote>
+<img src='https://tse2.mm.bing.net/th?id=OIP.XhR4RLqLQ-RWsIGfcYobcwHaDx&pid=Api&P=0' width=640>
+</blockquote>
+<blockquote>
+<ul>
+<li>go to <code>Dockerfile</code></li>
+</ul>
+<pre><code>RUN: 
+    mkdir -p /vol/web/static &amp;&amp; \
+    mkdir -p /vol/web/mdeia &amp;&amp; \
+    chown -R app:app /vol &amp;&amp; \
+    chmod -R 755 /vor
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>go to <code>docker-compose.yml</code></li>
+</ul>
+<pre><code>services:    
+  app:    
+    volumes:
+      - ./data/web:/vol/web  
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Config <code>settings.py</code> for static and media files</li>
+</ul>
+<pre><code>STATIC_URL = 'static/static/'
+MEDIA_URL = 'static/media/'
+
+STATIC_ROOT = '/vol/web/static'
+MEDIA_ROOT = '/vol/web/media'
+</code></pre>
+</blockquote>
+<blockquote>
+<p>config <code>urls.py</code> in <code>app/app</code> for static and media files<br />
+-&gt; from django.conf.urls.static import static<br />
+-&gt; from django.conf import settings</p>
+<pre><code>if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
+    )
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Ceate-Django-Superuser-to-test">Ceate Django Superuser to test<a class="anchor-link" href="#Ceate-Django-Superuser-to-test">&#182;</a></h2><p>-&gt; docker-compose run --rm app sh -c &quot;python manage.py createsuperuser</p>
+<ul>
+<li>127.0.0.1:8000/amin</li>
+<li>login admin site</li>
+<li>add static and media files</li>
+<li>can find static and media files in './data/web/mdeia' (volumes mounting in docker-compose.yaml)</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Reverse-Proxy-to-Handle-Static-and-Media-Files">Reverse Proxy to Handle Static and Media Files<a class="anchor-link" href="#Reverse-Proxy-to-Handle-Static-and-Media-Files">&#182;</a></h2></blockquote>
+<blockquote>
+<ul>
+<li>Create <code>proxy</code> folder in root directory</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>uwsgi_params</code> in <code>proxy</code> folder</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>default_conf_tpl</code> in <code>proxy</code> folder</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>run.sh</code> in <code>proxy</code> folder</li>
+</ul>
+<pre><code>set -e
+envsubst &lt; /etc/nginx/default.conf.tpl &gt; /etc/nginx/conf.d/default.conf
+nginx -g 'daemon off;'
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>Dockerfile</code> in <code>proxy</code> folder`</li>
+</ul>
+</blockquote>
 
 </div>
 </div>
@@ -15097,213 +15216,6 @@ command: &gt;
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h2 id="Handle-static-and-media-files">Handle static and media files<a class="anchor-link" href="#Handle-static-and-media-files">&#182;</a></h2></blockquote>
-<blockquote>
-<img src='https://tse2.mm.bing.net/th?id=OIP.XhR4RLqLQ-RWsIGfcYobcwHaDx&pid=Api&P=0' width=640>
-</blockquote>
-<blockquote>
-<ul>
-<li>go to <code>Dockerfile</code></li>
-</ul>
-<pre><code>RUN: 
-    mkdir -p /vol/web/static &amp;&amp; \
-    mkdir -p /vol/web/mdeis &amp;&amp; \
-    chown -R app:app /vol &amp;&amp; \
-    chmod -R 755 /vor
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>go to <code>docker-compose.yml</code></li>
-</ul>
-<pre><code>services:    
-  app:    
-    volumes:
-      - ./data/web:/vol/web  
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>Config <code>settings.py</code> for static and media files</li>
-</ul>
-<pre><code>STATIC_URL = 'static/static/'
-MEDIA_URL = 'static/media/'
-
-STATIC_ROOT = '/vol/web/static'
-MEDIA_ROOT = '/vol/web/media'
-</code></pre>
-</blockquote>
-<blockquote>
-<p>config <code>urls.py</code> in <code>app/app</code> for static and media files<br />
--&gt; from django.conf.urls.static import static<br />
--&gt; from django.conf import settings</p>
-<pre><code>if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT,
-    )
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Ceate-Django-Superuser-to-test">Ceate Django Superuser to test<a class="anchor-link" href="#Ceate-Django-Superuser-to-test">&#182;</a></h2><blockquote>
-<p>-&gt; docker-compose run --rm app sh -c &quot;python manage.py createsuperuser</p>
-<ul>
-<li>127.0.0.1:8000/amin</li>
-<li>login admin site</li>
-<li>add static and media files</li>
-<li>can find static and media files in './data/web/mdeia' (volumes mounting in docker-compose.yaml)</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
 <img src='https://camo.qiitausercontent.com/c4c28f300e10fac7e62729cb0a157d592acb4b9c/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f33373732342f62373463386661332d656138382d663434342d326231612d6165383634363666646636332e706e67' width= 800>
 </blockquote>
 
@@ -15324,118 +15236,240 @@ MEDIA_ROOT = '/vol/web/media'
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Configure-Django-app-to-run-as-a-uWSGI-service">Configure Django app to run as a uWSGI service<a class="anchor-link" href="#Configure-Django-app-to-run-as-a-uWSGI-service">&#182;</a></h2></blockquote>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Create <code>scripts</code> folder in root directroy</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>run.sh</code> in <code>scripts</code></li>
+<li>add <code>uWSGI&gt;=2.0.19.1,&lt;2.1</code> into <code>requirements.txt</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>modify <code>Dockerfile</code></li>
+</ul>
+<pre><code>COPY ./scripts /scripts
+RUN apk add --update --no-cache --virtual .tmp-deps \
+    build-base postgresql-dev musl-dev linux-headers &amp;&amp; \
+    chmod -R +x /scripts
+ENV PATH=&quot;/scripts:/py/bin:$PATH&quot;
+CMD [&quot;run.sh&quot;]
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <strong><code>docker-compose-deploy.yml</code></strong> in root directory</li>
+</ul>
+<img src='https://tse2.mm.bing.net/th?id=OIP.l24lNB97Oy3EIAtjw2kWrwHaBx&pid=Api&P=0' width= 800>
+<img src='https://i.stack.imgur.com/qYlWg.png' width=800>
+<img src='http://www.testautomationguru.com/wp-content/uploads/2018/04/doc-vol-mapping-05.png' width=800>
+</blockquote>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>docker-compose -f docker-compose-deploy.yml down --volumes</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>docker-compose -f docker-compose-deploy.yml build</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>docker-compose -f docker-compose-deploy.yml up</li>
+</ul>
+</blockquote>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Test-uploading-images-in-production-mode">Test uploading images in production mode<a class="anchor-link" href="#Test-uploading-images-in-production-mode">&#182;</a></h2><p>-&gt; docker compose -f docker-compose-deploy.yml run --rm app sh -c &quot;python manage.py createsuperuser</p>
+</blockquote>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Deploy-to-an-AWS-server--AWS-EC2">Deploy to an AWS server  AWS EC2<a class="anchor-link" href="#Deploy-to-an-AWS-server--AWS-EC2">&#182;</a></h1><p><a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Home:">AWS EC2</a></p>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Network-&amp;-Security">Network &amp; Security<a class="anchor-link" href="#Network-&amp;-Security">&#182;</a></h3><ul>
+<li><strong>Create Key Pair</strong> &gt; *****.pem</li>
+</ul>
+<p>-Actions -&gt; Import Key Pair<br />
+-&gt; Import Settings -&gt; name -&gt;</p>
+<ul>
+<li><strong>Import Key Pairs</strong></li>
+</ul>
+<p>Network &amp; Security -&gt; Key Pairs</p>
+</blockquote>
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-a-virtual-machine">Create a virtual machine<a class="anchor-link" href="#Create-a-virtual-machine">&#182;</a></h3><ul>
+<li>EC2 Dashboard</li>
+<li>Launch Instance</li>
+</ul>
+<p>-&gt; <code>Name and tags</code><br />
+-&gt; <code>Application and OS Images (Amazon Machine Image)</code>: choose<code>Amazon linux AWS</code><br />
+-&gt; <code>Instance type</code><br />
+-&gt; <code>Key pair (login): Crerate new key pair(Keep the filename.pem)</code><br />
+-&gt;<code>Network settings</code><br />
+-&gt;<code>Configure storage</code><br />
+-&gt; <code>Launch Instance</code></p>
+<ul>
+<li>View Instance</li>
+</ul>
+</blockquote>
 
-     </div>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>copy <code>Public DNS (IPv4)</code></li>
+</ul>
+<p>-&gt; CMD: ssh ec2-user@ec2-18-183-136-94.ap-northeast-1.compute.amazonaws.com<br />
+-&gt; CMD: yes</p>
+</blockquote>
 
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Connect:</li>
+</ul>
+<p>-&gt; Connect Method: EC2 Instance Connect (browser-based SSH connection)<br />
+-&gt; Will find the <code>amazon-linux console</code></p>
+<pre><code>https://aws.amazon.com/amazon-linux-2/
+13 package(s) needed for security, out of 16 available
+Run &quot;sudo yum update&quot; to apply all updates.
+[ec2-user@ip-172-31-44-21 ~]$ 
+</code></pre>
+<ul>
+<li>amazon-linux console</li>
+</ul>
+<p>-&gt; CONSOLE: sudo yum install git -y<br />
+-&gt; CONSOLE: sudo amazon-linux-extras install docker -y<br />
+-&gt; CONSOLE: sudo systemctl enable docker.service<br />
+-&gt; CONSOLE: sudo systemctl start docker.service<br />
+-&gt; CONSOLE: sudo usermod -aG docker ec2-user<br />
+-&gt; CONSOLE: sudo curl -SL <code>https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose</code><br />
+-&gt; CONSOLE: sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</p>
+<ul>
+<li>Create key for Github</li>
+</ul>
+<p>-&gt; CONSOLE: ssh-keygen -t ed25519 -b 4096<br />
+-&gt; CONSOLE: cat ~/.ssh/id_ed25519.pub</p>
+<ul>
+<li>Create Deploy Key in GitHub Reop <code>settings</code></li>
+</ul>
+<p>-&gt; settings -&gt; Deploy Keys -&gt; add deploy key</p>
+<ul>
+<li>clone <code>ssh url</code></li>
+</ul>
+<p>-&gt; CONSOLE: git clone git@github.com:ericarthuang/Django_Docker_Deployment.git<br />
+-&gt; CONSOLE: ls<br />
+-&gt; show: Django_Docker_Deployment<br />
+-&gt; CONSOLE: cd Django_Docker_Deployment</p>
+<ul>
+<li>Add the configuration</li>
+</ul>
+<p>-&gt; CONSOLE: cp .env.sample .env
+-&gt; CONSOLE: vi .env 
+-&gt; modidy .env (use 'Public DNS (IPv4)' for hostname)
+-&gt; CONSOLE: cat .env</p>
+<ul>
+<li>Launch Application</li>
+</ul>
+<p>-&gt; CONSOLE: docker-compose -f docker-compose-deploy.yml up -d</p>
+</blockquote>
+
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">

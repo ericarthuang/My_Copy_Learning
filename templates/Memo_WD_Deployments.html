@@ -14901,18 +14901,78 @@ CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Djan
 -&gt; Key pair (login): Crerate new key pair(Keep the filename.pem)<br />
 -&gt; Network settings<br />
 -&gt; Configure storage<br />
--&gt; Launch Instance
+-&gt; Launch Instance<br />
 -&gt; Connect: EC2 serial console, RDP client:get rhe password for remote connect</p>
 </blockquote>
 <blockquote>
 <ul>
 <li>New Ternimal</li>
 </ul>
-<p>-&gt; firewall setup
--&gt; Windiows Denfencer Firewall
--&gt; Advanced Setting
--&gt; Windiows Denfencer Firewall Properties
+<p>-&gt; firewall setup<br />
+-&gt; Windiows Denfencer Firewall<br />
+-&gt; Advanced Setting<br />
+-&gt; Windiows Denfencer Firewall Properties<br />
 -&gt; Domain Profile/Private Profile/Public Profile: Inbound Connections: Allow</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Connect:</li>
+</ul>
+<p>-&gt; Connect Method: EC2 Instance Connect (browser-based SSH connection)<br />
+-&gt; Will find the <code>amazon-linux console</code></p>
+<pre><code>https://aws.amazon.com/amazon-linux-2/
+13 package(s) needed for security, out of 16 available
+Run &quot;sudo yum update&quot; to apply all updates.
+[ec2-user@ip-172-31-44-21 ~]$ 
+</code></pre>
+<ul>
+<li>amazon-linux console</li>
+</ul>
+<p>-&gt; CONSOLE: sudo yum install git -y<br />
+-&gt; CONSOLE: sudo amazon-linux-extras install docker -y<br />
+-&gt; CONSOLE: sudo systemctl enable docker.service<br />
+-&gt; CONSOLE: sudo systemctl start docker.service<br />
+-&gt; CONSOLE: sudo usermod -aG docker ec2-user<br />
+-&gt; CONSOLE: sudo curl -SL <code>https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose</code><br />
+-&gt; CONSOLE: sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</p>
+<ul>
+<li>Create key for Github</li>
+</ul>
+<p>-&gt; CONSOLE: ssh-keygen -t ed25519 -b 4096<br />
+-&gt; CONSOLE: cat ~/.ssh/id_ed25519.pub</p>
+<ul>
+<li>Create Deploy Key in GitHub Reop <code>settings</code></li>
+</ul>
+<p>-&gt; settings -&gt; Deploy Keys -&gt; add deploy key</p>
+<ul>
+<li>clone <code>ssh url</code></li>
+</ul>
+<p>-&gt; CONSOLE: git clone git@github.com:ericarthuang/Django_Docker_Deployment.git<br />
+-&gt; CONSOLE: ls<br />
+-&gt; show: Django_Docker_Deployment<br />
+-&gt; CONSOLE: cd Django_Docker_Deployment</p>
+<ul>
+<li>Add the configuration</li>
+</ul>
+<p>-&gt; CONSOLE: cp .env.sample .env
+-&gt; CONSOLE: vi .env 
+-&gt; modidy .env (use 'Public DNS (IPv4)' for hostname)
+-&gt; CONSOLE: cat .env</p>
+<ul>
+<li>Launch Application</li>
+</ul>
+<p>-&gt; CONSOLE: docker-compose -f docker-compose-deploy.yml up -d</p>
 </blockquote>
 
 </div>
@@ -14938,7 +14998,7 @@ CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Djan
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <ul>
-<li>pip install psycopg2</li>
+<li>CMD: pip install psycopg2</li>
 </ul>
 </blockquote>
 <blockquote>
@@ -15006,26 +15066,28 @@ CDM: python manage.py loaddata datadump.json</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
 <pre><code>[
   {
-    &quot;AllowedHeaders&quot;: [
-      &quot;*&quot;
-    ],
-    &quot;AllowedMethods&quot;: [
-      &quot;GET&quot;, 
-      &quot;PUT&quot;, 
-      &quot;POST&quot;, 
-      &quot;DELETE&quot;
-    ],
-    &quot;AllowedOrigins&quot;: [
-      &quot;*&quot;
-    ],
-    &quot;ExposeHeaders&quot;: [
-      &quot;Access-Control-Allow-Origin&quot;
-    ]
-  }
+   &quot;AllowedHeaders&quot;: [
+     &quot;*&quot;
+   ],
+   &quot;AllowedMethods&quot;: [
+     &quot;GET&quot;, 
+     &quot;PUT&quot;, 
+     &quot;POST&quot;, 
+     &quot;DELETE&quot;
+   ],
+   &quot;AllowedOrigins&quot;: [
+     &quot;*&quot;
+   ],
+   &quot;ExposeHeaders&quot;: [
+     &quot;Access-Control-Allow-Origin&quot;
+   ]
+ }
 ]
 </code></pre>
+</blockquote>
 
 </div>
 </div>
