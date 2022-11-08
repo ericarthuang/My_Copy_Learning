@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Memo_WD_Django_Blog</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Project_WD_Django_Blog</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -15275,7 +15275,9 @@ EMAIL_HOST_PASSWORD = os.environ.get('*******')
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
 <img src='https://media.geeksforgeeks.org/wp-content/uploads/django-google.png'>
+</blockquote>
 
 </div>
 </div>
@@ -15385,22 +15387,17 @@ EMAIL_HOST_PASSWORD = os.environ.get('*******')
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## - Pagination</span>
-</pre></div>
-
-     </div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="--Pagination">- Pagination<a class="anchor-link" href="#--Pagination">&#182;</a></h2>
 </div>
 </div>
 </div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15493,7 +15490,7 @@ True
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<pre><code>{% if is_paginated %}
+<pre><code> {% if is_paginated %}
 
         {% if page_obj.has_previous %}
             &lt;a class=&quot;btn btn-outline-info mb-4&quot; href=&quot;?page=1&quot;&gt;First&lt;/a&gt;
@@ -15526,11 +15523,116 @@ True
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">Enable HTTPS with SSL/TLS Certificate using Let's Encrypt<a class="anchor-link" href="#Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">&#182;</a></h2><p><a href="https://letsencrypt.org/getting-started/">Let's Encrypt Website</a></p>
+<h2 id="--Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">- Enable HTTPS with SSL/TLS Certificate using Let's Encrypt<a class="anchor-link" href="#--Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">&#182;</a></h2><blockquote>
+<p><a href="https://letsencrypt.org/getting-started/">Let's Encrypt Website</a></p>
+</blockquote>
 <blockquote>
 <p><code>https://letsencrypt.org/getting-started/</code><br />
 -&gt; click <code>Certbot</code><br />
 -&gt; Apache, Ubuntu 18</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr />
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Django-Deployment"><a href="https://django.readthedocs.io/en/stable/howto/deployment/checklist.html">Django Deployment</a><a class="anchor-link" href="#Django-Deployment">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li><code>pip install gunicorn</code></li>
+</ul>
+<p>-&gt; CMD: gunicorn Django_Blog_Project.wsgi:application --bind 127.0.0.1:800</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>pipenv install waitress</li>
+</ul>
+<p>-&gt; CMD: waitress-serve --listen=127.0.0.1:8000 Django_Blog_Project.wsgi:application</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>pip install whitenoise</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>Procfile</code> in root directory <code>Django_Blog_Project</code></li>
+</ul>
+<p>-&gt; web: gunicorn Django_Blog_Project.wsgi --log-file -</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>runtime.txt</code> in root directory <code>Django_Blog_Project</code></li>
+</ul>
+<p>-&gt; CMD: python --version<br />
+-&gt; put <code>python-3.10.8</code> into <code>runtime.txt</code></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Create <code>Dockerfile</code></li>
+</ul>
+<pre><code>FROM python:3.10.8-slim-buster
+WORKDIR /app
+COPY ./Django_Blog_Project ./
+
+RUN pip install --upgrade pip --no-cache-dir
+
+RUN pip install -r /app/requirements.txt --no-cache-dir
+
+CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;127.0.0.1:8000&quot;]
+CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Django_Blog_Project.wsgi:application&quot;]
+</code></pre>
+<p>CMD: docker build -t myimage .</p>
 </blockquote>
 
 </div>
@@ -15576,26 +15678,28 @@ True
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
 <pre><code>[
   {
-    &quot;AllowedHeaders&quot;: [
-      &quot;*&quot;
-    ],
-    &quot;AllowedMethods&quot;: [
-      &quot;GET&quot;, 
-      &quot;PUT&quot;, 
-      &quot;POST&quot;, 
-      &quot;DELETE&quot;
-    ],
-    &quot;AllowedOrigins&quot;: [
-      &quot;*&quot;
-    ],
-    &quot;ExposeHeaders&quot;: [
-      &quot;Access-Control-Allow-Origin&quot;
-    ]
-  }
+   &quot;AllowedHeaders&quot;: [
+     &quot;*&quot;
+   ],
+   &quot;AllowedMethods&quot;: [
+     &quot;GET&quot;, 
+     &quot;PUT&quot;, 
+     &quot;POST&quot;, 
+     &quot;DELETE&quot;
+   ],
+   &quot;AllowedOrigins&quot;: [
+     &quot;*&quot;
+   ],
+   &quot;ExposeHeaders&quot;: [
+     &quot;Access-Control-Allow-Origin&quot;
+   ]
+ }
 ]
 </code></pre>
+</blockquote>
 
 </div>
 </div>
@@ -15632,18 +15736,34 @@ True
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <h4 id="Link-Django-with-AWS3-and-Using-.env-to-Store-the-Scecrte-Variables">Link Django with AWS3 and <strong><a href="https://www.youtube.com/watch?v=YdgIWTYQ69A">Using .env to Store the Scecrte Variables</a></strong><a class="anchor-link" href="#Link-Django-with-AWS3-and-Using-.env-to-Store-the-Scecrte-Variables">&#182;</a></h4><ul>
-<li><p>pip install boto3</p>
-</li>
-<li><p>pip install django-storages</p>
-</li>
-<li><p>pip install python-dotenv</p>
-</li>
+<li><code>pip install boto3</code></li>
+<li><code>pip install django-storages</code></li>
+<li><code>pip install python-dotenv</code></li>
 </ul>
 <pre><code>import os    
 from dotenv import load_dotenv   
 load_dotenv()
 os.getenv('ENV_VAR')
 </code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li><code>setup .env</code></li>
+</ul>
+<p>-&gt; AWS_STORAGE_BUCKET_NAME=*******<br />
+-&gt; AWS_ACCESS_KEY_ID=********<br />
+-&gt; AWS_SECRET_ACCESS_KEY=********</p>
 </blockquote>
 
 </div>
@@ -15694,7 +15814,9 @@ os.getenv('ENV_VAR')
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="https://a-h.io/images/github-actions-hugo-deploy-and-amazon-s3/aws_architecture_github_actions.png" width="640">
+<blockquote>
+<img src="https://1.bp.blogspot.com/-Ys30Mig55m0/X4a5jGXsE2I/AAAAAAAAAR0/OxHturoNHpYTdUE87ihM5xU9OXVyWDhtACLcBGAsYHQ/s763/2.png" width="640">
+</blockquote>
 
 </div>
 </div>
@@ -15706,7 +15828,23 @@ os.getenv('ENV_VAR')
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://a-h.io/images/github-actions-hugo-deploy-and-amazon-s3/aws_architecture_github_actions.png" width="640">
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
 <img src="http://cdn.safe.com/wp-content/uploads/2014/01/FME-Cloud-Architecture.png" width="640">
+</blockquote>
 
 </div>
 </div>
