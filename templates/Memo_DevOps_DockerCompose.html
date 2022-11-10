@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Project_WD_Django_Blog</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Memo_DevOps_DockerCompose</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14593,7 +14593,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Project-Django---Blog">Project Django - Blog<a class="anchor-link" href="#Project-Django---Blog">&#182;</a></h1>
+<h1 id="Project---Deploy-a-Django-app-to-an-EC2-instance-using-Docker-Compose">Project - Deploy a Django app to an EC2 instance using Docker Compose<a class="anchor-link" href="#Project---Deploy-a-Django-app-to-an-EC2-instance-using-Docker-Compose">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14604,657 +14604,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Create-A-New-GitHub-Repository">- Create A New GitHub Repository<a class="anchor-link" href="#--Create-A-New-GitHub-Repository">&#182;</a></h2><blockquote>
-<p><a href="https://github.com/ericarthuang/Django_Blog">GitHub Repository</a></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Setup-Venv-to-Create-Project">- Setup Venv to Create Project<a class="anchor-link" href="#--Setup-Venv-to-Create-Project">&#182;</a></h2><blockquote>
-<p><em>python -m venv venv</em><br />
-<em>venv\Scripts\activate.bat</em></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Create-Project">- Create Project<a class="anchor-link" href="#--Create-Project">&#182;</a></h2><blockquote>
-<ul>
-<li>pip install django</li>
-<li>django-admin -&gt; django-admin --version</li>
-<li>django-admin startproject <code>Django_Blog_Project</code></li>
-<li>cd <code>Django_Blog_Project</code> -&gt; python manage.py runserver</li>
-</ul>
-</blockquote>
 <blockquote>
-<ul>
-<li><strong>Create <code>.gitignore</code></strong></li>
-</ul>
-<p>-&gt; venv/
--&gt; db.sqlite3</p>
-</blockquote>
-<blockquote>
-<ul>
-<li><strong>Create <code>requirements.txt</code> in <code>Django_Blog_Project</code></strong></li>
-</ul>
-<p>-&gt; pip freeze &gt; requirements.txt</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Connect-GitHub">- Connect GitHub<a class="anchor-link" href="#--Connect-GitHub">&#182;</a></h2><blockquote>
-<pre><code>-&gt; git init
--&gt; git add .
--&gt; git commit -m &quot;first commit&quot;
--&gt; git branch -M main
--&gt; git remote add origin git@github.com:ericarthuang/Copy_Learning_Django.git
--&gt; git push -u origin main
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Creating-apps-and-Register-App-&amp;-URL">- Creating apps and Register App &amp; URL<a class="anchor-link" href="#--Creating-apps-and-Register-App-&amp;-URL">&#182;</a></h2><blockquote>
-<ul>
-<li>Creating app</li>
-</ul>
-<p>-&gt; py manage.py startapp blog_app</p>
-<ul>
-<li>Register App</li>
-</ul>
-<p>-&gt; In <code>djangotoec2_main/settings.py</code>, add <code>blog_app</code> in the <code>INSTALLED_APPS list</code><br />
--&gt; <code>Open the file blog_app/views.py</code></p>
-<ul>
-<li>Register URL</li>
-</ul>
-<p>-&gt;  Create a URLconf file called <code>urls.py</code> in <code>blog_app folder</code><br />
--&gt;  Point the root URLconf at the <code>blog_app.urls</code> module<br />
--&gt; In <code>djangotoec2_main/urls.py</code>, add <code>import for django.urls.include</code> and insert an include() in the urlpatterns list</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--urls,-views,-templates,-and-static">- urls, views, templates, and static<a class="anchor-link" href="#--urls,-views,-templates,-and-static">&#182;</a></h2><blockquote>
-<ul>
-<li>In Django_Blog_Project/urls.py, insert an path in the urlpatterns list</li>
-</ul>
-<p>-&gt; path('', include('blog_app.urls')),</p>
-<ul>
-<li>In Django_Blog_Project/views.py, define the index(requrest) for index.html</li>
-</ul>
-<p>-&gt; Can define multiple html in Django_Blog_Project/views.py to link htmlfiles in templates</p>
-</blockquote>
-<blockquote>
-<h4 id="templates">templates<a class="anchor-link" href="#templates">&#182;</a></h4><ul>
-<li>Using <code>templates</code> folder to keep htmlfiles</li>
-</ul>
-<p>-&gt; Create <code>templates</code> folder in 'blog_app' folder<br />
--&gt; Create htmlfiles in the 'templates' folder<br />
--&gt; <em>Can create multiple folders for multiple apps 
--&gt; <code>blog_app</code> folder -&gt; <code>templates</code> folder -&gt; <code>blog_app</code> folder -&gt; htmlfiles<br />
--&gt; </em><em>NOTICE: The Name of Folder should be sames as app</em>*</p>
-<ul>
-<li>Create <code>base.html</code> for htmlfiles</li>
-</ul>
-</blockquote>
-<blockquote>
-<h4 id="static">static<a class="anchor-link" href="#static">&#182;</a></h4><ul>
-<li>Using <code>static</code> folder to keep css, images, and other static files</li>
-</ul>
-<p>-&gt; Create <code>static</code> folder in 'blog_app' folder<br />
--&gt; Create <code>static</code> files in <code>static</code> folder<br />
--&gt; <em>Can create multiple folders for multiple apps<br />
--&gt; <code>blog_app</code> folder -&gt; <code>static</code> folder -&gt; <code>blog_app</code> folder -&gt; css, images, and other static files<br />
--&gt; </em><em>NOTICE: The Name of Folder should be sames as app</em>*</p>
-<ul>
-<li>Put {% load static %} in <code>base.html</code></li>
-</ul>
-<p>-&gt; <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;{% static 'blog_app/main.css' %}&quot;&gt;</code></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Admin-Page">- Admin Page<a class="anchor-link" href="#--Admin-Page">&#182;</a></h2><blockquote>
-<ul>
-<li>CMD: python manage.py makemigrations</li>
-<li>CMD: python manage.py migrate</li>
-<li>CMD: python manage.py createsuperuser</li>
-</ul>
-<p>-&gt; go to <code>http://127.0.0.1:8000/admin/</code> for logining<br />
--&gt; go to <code>http://127.0.0.1:8000/admin/auth/user/1/change/</code> to know the hassing password</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Database-and-Migrations---Sqlite3">- Database and Migrations - Sqlite3<a class="anchor-link" href="#--Database-and-Migrations---Sqlite3">&#182;</a></h2><blockquote>
-<ul>
-<li><strong><code>Using DB Browser(SQLite) to view the database</code></strong></li>
-<li>blog_app/models.py</li>
-</ul>
-<pre><code>from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import User
-class Post(models.Model):
-   title = models.CharField(max_length=100)
-   content = models.TextField()
-   date_posted = models.DateTimeField(default=timezone.now) # don't use timezone.now()
-   #Foreign Key
-   author = models.ForeignKey(User, on_delete=models.CASCADE)
-   def __str__(self):
-       return self.title
-</code></pre>
-<ul>
-<li>CMD: python manage.py makemigrations</li>
-<li>CMD: python manage.py migrate</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>go to app.views.py</li>
-</ul>
-<pre><code>from .models import Post
-context = {
-        'posts': Post.objects.all()
-   }
-</code></pre>
-</blockquote>
-<blockquote>
-<h4 id="setup-models-in-the-Site-administration">setup models in the <code>Site administration</code><a class="anchor-link" href="#setup-models-in-the-Site-administration">&#182;</a></h4><ul>
-<li>blog_app/admin.py</li>
-</ul>
-<pre><code>from .models import Post
-
--&gt; *admin.site.register(Post)*        
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--User-Registration">- User Registration<a class="anchor-link" href="#--User-Registration">&#182;</a></h2><blockquote>
-<ul>
-<li>Creating app</li>
-</ul>
-<p>-&gt; CMD: Python manage.py startapp user_app</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Register App</li>
-</ul>
-<p>-&gt; In Django_Blog_Project/settings.py, add 'user_app' in the 'INSTALLED_APPS' list</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Register URL</li>
-</ul>
-<p>-&gt; In Django_Blog_Project/urls.py</p>
-<pre><code>from user_app import views as user_views
--&gt; insert an path in the urlpatterns list
--&gt; path('register/', user_views.register, name='register'),
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create Views</li>
-</ul>
-<p>-&gt; Open the file user_app/views.py<br />
--&gt; Using <code>UserCreattionForm</code> to setup user register form</p>
-<ul>
-<li>Create <code>templates</code> folder in <code>user_app</code> folder</li>
-</ul>
-<p>-&gt; Create <code>user_app</code> folder in <code>templates</code> folder<br />
--&gt; Create <code>register.html</code> in <code>templates/user_app</code> folder<br />
--&gt; create <code>csrf_token</code> in <code>register.html</code></p>
-<pre><code>&lt;form method=&quot;POST&quot;&gt;
-    {% csrf_token %}
-    {{ form }}
-&lt;/form&gt;
-</code></pre>
-</blockquote>
-<blockquote>
-<h4 id="Enhance-the-register-process">Enhance the register process<a class="anchor-link" href="#Enhance-the-register-process">&#182;</a></h4><ul>
-<li>create <code>forms.py</code> in <code>user_app</code> folder</li>
-</ul>
-<pre><code>from django import forms
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-
-class UserRegisterForm(UserCreationForm):
-   email = forms.EmailField()
-   class Meta:
-       model = User
-fields = ['username', 'email', 'password1', 'password2']
-</code></pre>
-</blockquote>
-<blockquote>
-<h4 id="Message">Message<a class="anchor-link" href="#Message">&#182;</a></h4><ul>
-<li>user_app/views.py</li>
-</ul>
-<p>-&gt; <code>from django.contrib import messages</code></p>
-<pre><code>from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
-from .forms import UserRegisterForm
-
-def register(request):
-    if request.method == &quot;POST&quot;:
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect('blog-home')
-    else:
-        form = UserRegisterForm()
-    return render(request, 'user_app/register.html', {'form': form})
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>link messages.tags with <code>base.html</code></li>
-</ul>
-<pre><code>{% if messages %}
-   {% for message in messages %}
-       &lt;div class=&quot;alert alert-{{ message.tags }}&quot;&gt;
-           {{ message }}
-       &lt;/div&gt;
-   {% endfor %}
-{% endif %}
-</code></pre>
-</blockquote>
-<blockquote>
-<h4 id="using-crispy-to-style-the-form">using <code>crispy</code> to style the form<a class="anchor-link" href="#using-crispy-to-style-the-form">&#182;</a></h4><p>-&gt; CMD: pip install django-crispy-forms<br />
--&gt; In Django_Blog_Project/settings.py, add 'crispy_forms' in the 'INSTALLED_APPS' list<br />
--&gt; In Django_Blog_Project/settings.py, add <code>CRISPY_TEMPLATE_PACK = &quot;bootstrap4&quot;</code><br />
--&gt; In <code>register.html</code> -&gt; {% load crispy_forms_tags %} -&gt; {{ form|crispy }}</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Login-and-Logout-System">Login and Logout System<a class="anchor-link" href="#Login-and-Logout-System">&#182;</a></h2><blockquote>
-<ul>
-<li>In Django_Blog_Project/urls.py, insert an path in the urlpatterns list</li>
-</ul>
-<pre><code>from django.contrib.auth import views as auth_views
-path('login/', auth_views.LoginView.as_view(template_name=&quot;user_app/login.html&quot;), name='login'),
-path('logout/', auth_views.LogoutView.as_view(template_name=&quot;user_app/logout.html&quot;), name='logout'),
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>In <code>user_app/templates</code>, create <code>login.html</code> and <code>logout.html</code></li>
-<li>In Django_Blog_Project/settings.py, add <code>LOGIN_REDIRECT_URL = 'blog-home'</code></li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Profile">- Profile<a class="anchor-link" href="#--Profile">&#182;</a></h2><blockquote>
-<ul>
-<li>In <code>Django_Blog_Project/urls.py</code>, insert an path in the urlpatterns list</li>
-</ul>
-<p>-&gt; <code>path('profile/', user_views.profile, name='profile')</code></p>
-</blockquote>
-<blockquote>
-<ul>
-<li>In <code>user_app/views.py</code>:</li>
-</ul>
-<pre><code>def profile(request):
-   return render(requeat, 'user_app/profile.htm')
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create profile.html in <code>user_app/templates/user_app</code> folder</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>link <code>profile.html</code> with <code>base.html</code></li>
-</ul>
-<pre><code>&lt;a class=&quot;nav-item nav-link&quot; href=&quot;{% url 'profile' %}&quot;&gt;Profile&lt;/a&gt;
-</code></pre>
-</blockquote>
-<blockquote>
-<h4 id="check-login-when-view-the-porfile">check login when view the porfile<a class="anchor-link" href="#check-login-when-view-the-porfile">&#182;</a></h4><ul>
-<li>In <code>user_app/views.py</code>:</li>
-</ul>
-<pre><code>from django.contrib.auth.decorators import login_requried    
-
-@login_required    
-def profile(request):    
-   return render(requeat, 'user_app/profile.htm')    
-</code></pre>
-<ul>
-<li>In <code>Django_Blog_Project/settings.py</code></li>
-</ul>
-<p>-&gt; LOGIN_URL = &quot;login&quot;</p>
-</blockquote>
-<blockquote>
-<h4 id="user-models">user models<a class="anchor-link" href="#user-models">&#182;</a></h4><ul>
-<li>In <code>user_app/models.py</code>:</li>
-</ul>
-<pre><code>from django.db import models    
-from django.contrib.auth.models import User     
-class Profile(models.Model):    
-    user = models.OneToOneField(User, on_delete=models.CASCADE)    
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')   
-   def __str__(self):    
-       return f'{self.user.username} Profile'    
-   def save(self, *args, **kwargs):    
-        super().save(*args, **kwargs)    
-       img = Image.open(self.image.path)    
-       if img.height &gt; 300 or img.width &gt; 300:     
-           output_size = (300, 300)    
-           img.thumbnail(output_size)    
-           img.save(self.image.path)    
-</code></pre>
-<ul>
-<li>CMD: python manage.py makemigrations</li>
-<li>CMD: python manage.py migrate</li>
-</ul>
-</blockquote>
-<blockquote>
-<h4 id="setup-models-in-the-Site-administration">setup models in the <code>Site administration</code><a class="anchor-link" href="#setup-models-in-the-Site-administration">&#182;</a></h4><ul>
-<li>user_app/admin.py</li>
-</ul>
-<pre><code>from .models import Profile
-
--&gt; *admin.site.register(Profile)*        
-</code></pre>
-<ul>
-<li>add profile with picture from <code>admin page</code></li>
-</ul>
-<p>-&gt; you will see the <code>profile_pics</code> folder will be creaged in the <code>Django_Blog_project</code> folder<br />
--&gt; *We define the <code>profile_pics</code> folder in <code>user_app/models.py</code> Class Profile</p>
-</blockquote>
-<blockquote>
-<h4 id="Change-the-folder-to-keep-images">Change the folder to keep images<a class="anchor-link" href="#Change-the-folder-to-keep-images">&#182;</a></h4><ul>
-<li><code>pip install Pillow</code></li>
-<li>In <code>Django_Blog_Project/settings.py</code></li>
-</ul>
-<p>-&gt; MEDIA_ROOT = os.path.join(BASE_DIR, 'mdeia')<br />
--&gt; MEDIA_URL = '/media/'<br />
--&gt; delete profiles for retesting
--&gt; you will see the <code>media/profile_pics</code> folder in the <code>Django_Blog_project</code> folder</p>
-</blockquote>
-<blockquote>
-<h4 id="Enhance-profile.html">Enhance <code>profile.html</code><a class="anchor-link" href="#Enhance-profile.html">&#182;</a></h4></blockquote>
-<blockquote>
-<ul>
-<li>In <code>Django_Blog_Project/urls.py</code></li>
-</ul>
-<pre><code>from django.conf import settings
-from django.conf.urls.static import static
-urlpatterns = [
-   path('admin/', admin.site.urls),
-   ...]
-if settings.DEBUG:
-   urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Combine-User-Register-and-Profile">- Combine User Register and Profile<a class="anchor-link" href="#--Combine-User-Register-and-Profile">&#182;</a></h2><blockquote>
-<ul>
-<li>create <code>signals.py</code> in the <code>user_app</code> folder</li>
-</ul>
-<p>from django.db.models.signals import post_save<br />
-from django.contrib.auth.models import User<br />
-from django.dispatch import receiver<br />
-from .models import Profile</p>
-<pre><code>@receiver(post_save, sender=User)    
-def create_profile(sender, instance, created, **kwargs):    
-    if created:    
-        Profile.objects.create(user=instance)    
-@receiver(post_save, sender=User)    
-def save_profile(sender, instance, **kwargs):    
-    instance.profile.save()    
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>in <code>user_app/apps.py</code></li>
-</ul>
-<pre><code>from django.apps import AppConfig    
-class UserAppConfig(AppConfig):    
-    default_auto_field = 'django.db.models.BigAutoField'    
-    name = 'user_app'    
-    def ready(self):    
-        import user_app.signals    
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Update-User-Profile">- Update User Profile<a class="anchor-link" href="#--Update-User-Profile">&#182;</a></h2><blockquote>
-<ul>
-<li>go to <code>user_app/forms.py</code></li>
-</ul>
-<pre><code>from .models import Profile
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
-    class Meta:
-        model = User
-        fields = ['username', 'email']
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>go to <code>user_app/views.py</code></li>
-</ul>
-<pre><code>from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-@login_required   
-def profile(request):   
-    if request.method == 'POST':   
-        u_form = UserUpdateForm(request.POST, instance=request.user)   
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)          
-        if u_form.is_valid() and p_form.is_valid():   
-            u_form.save()    
-            p_form.save()    
-            messages.success(request, f'Your account have been updated!')    
-            return redirect('profile')
-    else:    
-        u_form = UserUpdateForm(instance=request.user)    
-        p_form = ProfileUpdateForm(instance=request.user.profile)    
-    context = {    
-        'u_form': u_form,    
-        'p_form': p_form    
-    }   
-    return render(request, 'user_app/profile.html', context)   
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>put form section into 'profile.html'</li>
-</ul>
-<pre><code>&lt;form method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;     
-    {% csrf_token %}     
-    &lt;fieldset class=&quot;form-group&quot;&gt;    
-         &lt;legend class=&quot;border-bottom mb-4&quot;&gt;Profile Info&lt;/legend&gt;    
-         {{ u_form|crispy }}    
-         {{ p_form|crispy }}    
-    &lt;/fieldset&gt;    
-    &lt;div class=&quot;form-group&quot;&gt;    
-         &lt;button class=&quot;btn btn-outline-info&quot; type=&quot;submit&quot;&gt;Update&lt;/button&gt;    
-    &lt;/div&gt;    
-&lt;/form&gt;    
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>control image size for uploading</li>
-</ul>
-<p>-&gt; go to <code>user_app/models.py</code></p>
-<pre><code>from PIL import Image   
-    def save(self):       
-        super().save()      
-        img = Image.open(self.image.path)   
-        if img.height &gt; 300 or img.width &gt; 300:   
-           output_size = (300, 300)   
-           img.thumbnail(output_size)   
-           img.save(self.image.path)   
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>combine image to `home.html'</li>
-</ul>
-<p>-&gt; go to blog_app/templates/home.html</p>
-<pre><code>&lt;img class=&quot;rounded-circle&quot; src=&quot;{{ post.author.profile.image.url}}&quot;&gt;
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Reset-Email-and-Password">- Reset Email and Password<a class="anchor-link" href="#--Reset-Email-and-Password">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>Go to <code>Django_Blog_Project/urls.py</code>, insert an path in the urlpatterns list</li>
-</ul>
-<pre><code>path('password-reset/', 
-     auth_views.PasswordResetView.as_view(template_name=&quot;user_app/password_reset.html&quot;), 
-     name='password_reset'),
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create `user_app/templates/user_app/password_reset.html'</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>Go to <code>Django_Blog_Project/urls.py</code>, insert three paths in the urlpatterns list</li>
-</ul>
-<pre><code>path('password-reset-confirm/&lt;uidb64&gt;/&lt;token&gt;/',      
-      auth_views.PasswordResetConfirmView.as_view(template_name=&quot;user_app/password_reset_confirm.html&quot;),      
-      name='password_reset_confirm'),             
-path('password-reset/done/',      
-      auth_views.PasswordResetDoneView.as_view(template_name=&quot;user_app/password_reset_done.html&quot;),        
-      name='password_reset_done'),     
-path('password-reset-complete/',     
-      auth_views.PasswordResetCompleteView.as_view(template_name=&quot;user_app/password_reset_complete.html&quot;),    
-      name='password_reset_complete'),
-</code></pre>
+<img src='https://blog2opstree.files.wordpress.com/2019/08/blog.png?w=1038&h=476' width=800>
 </blockquote>
 
 </div>
@@ -15268,16 +14619,7 @@ path('password-reset-complete/',
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h4 id="setup-connection-with-Gamil">setup connection with Gamil<a class="anchor-link" href="#setup-connection-with-Gamil">&#182;</a></h4><ul>
-<li>go to <code>settings.py</code></li>
-</ul>
-<pre><code>EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('********')
-EMAIL_HOST_PASSWORD = os.environ.get('*******')
-</code></pre>
+<img src='https://static1.tothenew.com/blog/wp-content/uploads/2016/11/Screen-Shot-2016-11-25-at-11.15.39-AM.png' width=800>
 </blockquote>
 
 </div>
@@ -15291,41 +14633,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('*******')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src='https://media.geeksforgeeks.org/wp-content/uploads/django-google.png'>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Create,-Update,-and-Delete-Posts">- Create, Update, and Delete Posts<a class="anchor-link" href="#--Create,-Update,-and-Delete-Posts">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h4 id="Create-Posts">Create Posts<a class="anchor-link" href="#Create-Posts">&#182;</a></h4><ul>
-<li><p>go to <code>blog_app/views.py</code></p>
-</li>
-<li><p>go to <code>blog_app/urls.py</code></p>
-</li>
-<li><p>Create <code>user_posts.html</code> in <code>blog_app/templates</code> folder</p>
-</li>
-<li><p>Create <code>post_detail.html</code> in <code>blog_app/templates</code> folder</p>
-</li>
-</ul>
+<img src='https://hosting.analythium.io/content/images/2021/06/compose-2-1.png' width=800>
 </blockquote>
 
 </div>
@@ -15339,423 +14647,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('*******')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h4 id="link-user_posts.html-and-post_detail.html-and-home.html">link <code>user_posts.html</code> and <code>post_detail.html</code> and <code>home.html</code><a class="anchor-link" href="#link-user_posts.html-and-post_detail.html-and-home.html">&#182;</a></h4><ul>
-<li><p>in <code>home.html</code></p>
-</li>
-<li><p>in <code>user_posts.html</code></p>
-</li>
-<li><p>in <code>post_detail.html</code></p>
-</li>
-<li><p>Create <code>post_form.html</code> in <code>blog_app/templates</code> folder for creating post</p>
-</li>
-<li><p>modify <code>blog_app/views.py</code> and <code>blog_app/urls.py</code> for displaying</p>
-</li>
-<li><p>modify <code>blog_app/models.py</code> for redirection to <code>post_detail.html</code></p>
-</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h4 id="Update-post---LoginRequiredMixin">Update post - LoginRequiredMixin<a class="anchor-link" href="#Update-post---LoginRequiredMixin">&#182;</a></h4><ul>
-<li><p>In <code>blog_app/views.py</code></p>
-</li>
-<li><p>In <code>blog_app/urls.py</code></p>
-</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h4 id="delete-post">delete post<a class="anchor-link" href="#delete-post">&#182;</a></h4><ul>
-<li><p>In <code>blog_app/views.py</code></p>
-</li>
-<li><p>In <code>blog_app/urls.py</code></p>
-</li>
-<li><p>Create <code>post_confirm_delete.html</code> in <code>blog_app/templates</code> folder</p>
-</li>
-<li><p>In <code>blog_app/views.py</code></p>
-</li>
-<li><p>modify <code>post-detail.html</code></p>
-</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Pagination">- Pagination<a class="anchor-link" href="#--Pagination">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h4 id="import-from-json-file">import from json file<a class="anchor-link" href="#import-from-json-file">&#182;</a></h4><pre><code>- CMD: python manage.py shell    
-import json
-from blog_app.models import Post    
-with open('post.json') as f:    
-   posts_json = json.load(f)    
-for post in posts_json:    
-   post = Post(title=post['title'], content=post['content'], author_id = post['user_id'])    
-   post.save()    
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>CMD: python manage.py shell</li>
-</ul>
-<pre><code>&gt;&gt;&gt; from django.core.paginator import Paginator
-&gt;&gt;&gt; posts = ['1', '2', '3', '4', '5'] 
-&gt;&gt;&gt; p = Paginator(posts, 2)
-&gt;&gt;&gt; p.num_pages
-3   
-&gt;&gt;&gt; for page in p.page_range:
-...     print(page)
-... 
-1   
-2   
-3   
-&gt;&gt;&gt; p.page(1)
-&lt;Page 1 of 3&gt;
-&gt;&gt;&gt; p.page(1).number
-1
-&gt;&gt;&gt; p.page(1).object_list
-['1', '2']
-&gt;&gt;&gt; p.page(1).has_previous()
-False
-&gt;&gt;&gt; p.page(1).has_next()
-True
-&gt;&gt;&gt; p.page(1).next_page_number()
-2
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>In <code>blog_app/views.py</code></li>
-</ul>
-<pre><code>class PostListView(ListView):    
-   model = Post    
-   template_name = 'blog_app/home.html' #&lt;app&gt;/&lt;model&gt;_&lt;viewtype&gt;.html    
-   context_object_name = 'posts'    
-   ordering = ['-date_posted']    
-   paginate_by = 3    
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<pre><code> {% if is_paginated %}
-
-        {% if page_obj.has_previous %}
-            &lt;a class=&quot;btn btn-outline-info mb-4&quot; href=&quot;?page=1&quot;&gt;First&lt;/a&gt;
-            &lt;a class=&quot;btn btn-outline-info mb-4&quot; href=&quot;?page={{ page_obj.previous_page_number }}&quot;&gt;Previous&lt;/a&gt;
-        {% endif %}
-
-        {% for num in page_obj.paginator.page_range %}
-            {% if page_obj.number == num %}
-                &lt;a class=&quot;btn btn-info mb-4&quot; href=&quot;?page={{ num }}&quot;&gt;{{ num }}&lt;/a&gt;
-            {% elif num &gt; page_obj.number|add:'-3' and num &lt; page_obj.number|add:'3' %} 
-                &lt;a class=&quot;btn btn-outline-info mb-4&quot; href=&quot;?page={{ num }}&quot;&gt;{{ num }}&lt;/a&gt;
-            {% endif %}
-        {% endfor %}
-
-        {% if page_obj.has_next %}
-            &lt;a class=&quot;btn btn-outline-info mb-4&quot; href=&quot;?page={{ page_obj.next_page_number }}&quot;&gt;Next&lt;/a&gt;
-            &lt;a class=&quot;btn btn-outline-info mb-4&quot; href=&quot;?page={{ page_obj.paginator.num_pages }}&quot;&gt;Last&lt;/a&gt;
-        {% endif %}
-
-    {% endif %}
-</code></pre>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">- Enable HTTPS with SSL/TLS Certificate using Let's Encrypt<a class="anchor-link" href="#--Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">&#182;</a></h2><blockquote>
-<p><a href="https://letsencrypt.org/getting-started/">Let's Encrypt Website</a></p>
-</blockquote>
-<blockquote>
-<p><code>https://letsencrypt.org/getting-started/</code><br />
--&gt; click <code>Certbot</code><br />
--&gt; Apache, Ubuntu 18</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Using-AWS-S3-for-File-Uploads">Using AWS S3 for File Uploads<a class="anchor-link" href="#Using-AWS-S3-for-File-Uploads">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<img src="http://cdn.safe.com/wp-content/uploads/2014/01/FME-Cloud-Architecture.png" width=800>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="Create-AWS-S3-Bucket">Create AWS S3 Bucket<a class="anchor-link" href="#Create-AWS-S3-Bucket">&#182;</a></h3><p><a href="https://s3.console.aws.amazon.com/s3/get-started?region=ap-northeast-1">AWS S3 Website</a></p>
-<ul>
-<li><a href="https://s3.console.aws.amazon.com/s3/buckets?region=ap-northeast-1%C2%AEion=ap-northeast-1">Create AWS S3 Bucket</a></li>
-</ul>
-<p>-&gt; <code>django-learning-files</code></p>
-<ul>
-<li>Permession</li>
-<li>CORS Configuration</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<pre><code>[
-  {
-   &quot;AllowedHeaders&quot;: [
-     &quot;*&quot;
-   ],
-   &quot;AllowedMethods&quot;: [
-     &quot;GET&quot;, 
-     &quot;PUT&quot;, 
-     &quot;POST&quot;, 
-     &quot;DELETE&quot;
-   ],
-   &quot;AllowedOrigins&quot;: [
-     &quot;*&quot;
-   ],
-   &quot;ExposeHeaders&quot;: [
-     &quot;Access-Control-Allow-Origin&quot;
-   ]
- }
-]
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="Create-New-User-in-AWS-S3">Create New User in AWS S3<a class="anchor-link" href="#Create-New-User-in-AWS-S3">&#182;</a></h3></blockquote>
-<blockquote>
-<ul>
-<li><a href="https://us-east-1.console.aws.amazon.com/iamv2/home?region=ap-northeast-1#/home">IAM</a></li>
-<li>Add Users</li>
-</ul>
-<p>-&gt; django_user(Select AWS credential type: Access key - Programmatic access)<br />
--&gt; <code>Attach existing policies directly</code><br />
--&gt; <code>AmazonS3FullAccess</code><br />
--&gt; Access key ID + Secret access key</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h4 id="Link-Django-with-AWS3-and-Using-.env-to-Store-the-Scecrte-Variables">Link Django with AWS3 and <strong><a href="https://www.youtube.com/watch?v=YdgIWTYQ69A">Using .env to Store the Scecrte Variables</a></strong><a class="anchor-link" href="#Link-Django-with-AWS3-and-Using-.env-to-Store-the-Scecrte-Variables">&#182;</a></h4><ul>
-<li><code>pip install boto3</code></li>
-<li><code>pip install django-storages</code></li>
-<li><code>pip install python-dotenv</code></li>
-</ul>
-<pre><code>import os    
-from dotenv import load_dotenv   
-load_dotenv()
-os.getenv('ENV_VAR')
-</code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li><code>setup .env</code></li>
-</ul>
-<p>-&gt; AWS_STORAGE_BUCKET_NAME=*******<br />
--&gt; AWS_ACCESS_KEY_ID=********<br />
--&gt; AWS_SECRET_ACCESS_KEY=********</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>Go to <code>settings.py</code></li>
-</ul>
-<pre><code>-&gt; import os    
--&gt; from dotenv import load_dotenv    
--&gt; load_dotenv()    
--&gt; INSTALLED_APPS = `[stroages]`    
--&gt; AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')      
--&gt; AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')     
--&gt; AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')   
--&gt; AWS_S3_FILE_OVERWRITE = False
--&gt; AWS_DEFAULT_ACL = None
--&gt; DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>go to <code>user_app/models.py</code></li>
-</ul>
-<p>-&gt; # can not use below code due to AWS S3 for resizing images</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>upload images to the AWS S3 BUCKET</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="Upload-and-Download-files-to-AWS-S3">Upload and Download files to AWS S3<a class="anchor-link" href="#Upload-and-Download-files-to-AWS-S3">&#182;</a></h3><p><a href="https://www.youtube.com/watch?v=K68AtRsNEyo">Reference: Upload and Download files from AWS S3 Bucket using python</a></p>
-</blockquote>
-<blockquote>
-<pre><code># .ENV VARS CONFIG
-load_dotenv()
-aws_bucket_name = os.getenv('AWS_STORAGE_BUCKET_NAME')   
-aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')   
-aws_secret_access_key= os.getenv('AWS_SECRET_ACCESS_KEY')    
-
-# S3 BUCKET CONFIG
-s3 = boto3.resource(&quot;s3&quot;)    
-my_bucket = s3.Bucket(aws_bucket_name)     
-my_bucket.upload_file(Key='index.html', Filename='./index.html')    
-my_bucket.download_file(Key='index.html', Filename='./index.html') 
-</code></pre>
+<img src='https://miro.medium.com/max/1400/1*jQjwTucibIX91zgagBhXcw.png' width=800>
 </blockquote>
 
 </div>
@@ -15780,18 +14672,7 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Django-Deployment-Checklist"><a href="https://django.readthedocs.io/en/stable/howto/deployment/checklist.html">Django Deployment Checklist</a><a class="anchor-link" href="#Django-Deployment-Checklist">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Deploy-Preparation">Deploy Preparation<a class="anchor-link" href="#Deploy-Preparation">&#182;</a></h2>
+<h1 id="Using-Docker-Compose-to-Deploy-a-Django-app">Using Docker Compose to Deploy a Django app<a class="anchor-link" href="#Using-Docker-Compose-to-Deploy-a-Django-app">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -15803,34 +14684,7 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<ul>
-<li><code>pip install gunicorn</code></li>
-</ul>
-<p>-&gt; CMD: gunicorn Django_Blog_Project.wsgi:application --bind 127.0.0.1:800</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>pipenv install waitress</li>
-</ul>
-<p>-&gt; CMD: waitress-serve --listen=127.0.0.1:8000 Django_Blog_Project.wsgi:application</p>
-</blockquote>
-<blockquote>
-<ul>
-<li><code>pip install whitenoise</code></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>Procfile</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; web: gunicorn Django_Blog_Project.wsgi --log-file -</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>runtime.txt</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; CMD: python --version<br />
--&gt; put <code>python-3.10.8</code> into <code>runtime.txt</code></p>
+<h2 id="Create-Registry">Create Registry<a class="anchor-link" href="#Create-Registry">&#182;</a></h2><p><a href="https://hub.docker.com/repositories">Docker Repositoies</a></p>
 </blockquote>
 
 </div>
@@ -15844,25 +14698,10 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<ul>
-<li><strong>go to <code>settings.py</code></strong></li>
+<h2 id="Create-VENV">Create VENV<a class="anchor-link" href="#Create-VENV">&#182;</a></h2><ul>
+<li>CMD: <code>python -m venv venv</code></li>
 </ul>
-</blockquote>
-<blockquote>
-<p>-&gt; DEBUG = (os.getenv('DEBUG_VALUE') == 'True')</p>
-</blockquote>
-<blockquote>
-<p>-&gt; ALLOWED_HOSTS = ['*']</p>
-</blockquote>
-<blockquote>
-<p>-&gt; STATIC_ROOT = os.path.join(BADE_DIR, 'staticfiles')<br />
--&gt; python manage.py collectstatic</p>
-</blockquote>
-<blockquote>
-<p>-&gt; MIDDLEWARE = [<br />
-    &quot;django.middleware.security.SecurityMiddleware&quot;,<br />
-    &quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;,<br />
-]</p>
+<p>-&gt; CMD: venv\Scripts\activate.bat</p>
 </blockquote>
 
 </div>
@@ -15876,21 +14715,911 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<ul>
-<li>Create <code>Dockerfile</code></li>
+<h2 id="Pre-requiries">Pre-requiries<a class="anchor-link" href="#Pre-requiries">&#182;</a></h2><ul>
+<li><code>pip install django</code></li>
+<li><code>pip freeze &gt; requirements.txt</code></li>
 </ul>
-<pre><code>FROM python:3.10.8-slim-buster
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>app</code> folder</li>
+<li>Create .gitignore</li>
+<li>Create .dockerignore</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Create-Docker-File">Create Docker File<a class="anchor-link" href="#Create-Docker-File">&#182;</a></h2><pre><code>FROM python:3.10-alpine
+LABEL maintainer=&quot;londonappdeveloper.com&quot;
+ENV PYTHONUNBUFFERED 1
 WORKDIR /app
-COPY ./Django_Blog_Project ./
-
-RUN pip install --upgrade pip --no-cache-dir
-
-RUN pip install -r /app/requirements.txt --no-cache-dir
-
-CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;127.0.0.1:8000&quot;]
-CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Django_Blog_Project.wsgi:application&quot;]
-CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quot;--bind&quot;, &quot;0.0.0.0:8000&quot;]
+EXPOSE 8000
+COPY ./requirements.txt /requirements.txt
+COPY ./app /app
+RUN python -m venv /py &amp;&amp; \
+   /py/bin/pip install --upgrade pip &amp;&amp; \
+   /py/bin/pip install -r /requirements.txt &amp;&amp; \
+   adduser --disabled-password --no-create-home app
+ENV PATH=&quot;/py/bin:$PATH&quot;
+USER app
 </code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Create-docker-compose.yml">Create docker-compose.yml<a class="anchor-link" href="#Create-docker-compose.yml">&#182;</a></h2><p>-&gt; CMD: docker-compose version</p>
+<pre><code>version: &quot;3.10&quot;     
+services:  
+  app:   
+    build:   
+      context: .  
+    ports:  
+      - 8000:8000   
+    volumes:   
+      - ./app:/app   
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Build-Image">Build Image<a class="anchor-link" href="#Build-Image">&#182;</a></h2><p>-&gt; docker-compose build<br />
+-&gt; docker images</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Use-Image-to-Create-Django-Project">Use Image to Create Django Project<a class="anchor-link" href="#Use-Image-to-Create-Django-Project">&#182;</a></h2><p>-&gt; docker-compose run --rm app sh -c &quot;django-admin startproject app .&quot;<br />
+-&gt; docker ps -a</p>
+<ul>
+<li>can find the <code>app/app</code></li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Config-settings.py">Config settings.py<a class="anchor-link" href="#Config-settings.py">&#182;</a></h2><p>-&gt; add <code>import os</code></p>
+<p>-&gt; SECRET_KEY = os.environ.get('SECRET_KEY')</p>
+<p>-&gt; DEBUG = (os.environ.get('DEBUG') == 'True')</p>
+<p>-&gt; ALLOWED_HOSTS</p>
+</blockquote>
+<blockquote>
+<p>-&gt; INSTALLED_APPS</p>
+<pre><code>INSTALLED_APPS = [
+    'app',
+]
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Add-ENV-Variables-into-docker-compose.yml">Add ENV Variables into <code>docker-compose.yml</code><a class="anchor-link" href="#Add-ENV-Variables-into-docker-compose.yml">&#182;</a></h2><pre><code>services:     
+  app:    
+    environments:   
+       - SECRET_KEY=devsecretkey    
+       - DEBUG=True   
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Add-DB-into-docker-compose.yml">Add DB into <code>docker-compose.yml</code><a class="anchor-link" href="#Add-DB-into-docker-compose.yml">&#182;</a></h2><pre><code>services:     
+  db:      
+    image: postgres:13-alpine    
+    environment:   
+      - POSTGRES_DB=devdb   
+      - POSTGRES_USER=devuser    
+      - POSTGRES_PASSWORD=changeme   
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Link-app-with-db-in-docker-compose.yml">Link <code>app</code> with <code>db</code> in <code>docker-compose.yml</code><a class="anchor-link" href="#Link-app-with-db-in-docker-compose.yml">&#182;</a></h2><pre><code>services:     
+  app:    
+    environment:   
+       - SECRET_KEY=devsecretkey    
+       - DEBUG=True  
+       - DB_HOST=db
+       - DB_NAME=devdb
+       - DB_USER=devuser
+       - DB_PASS=changeme
+    depends_on:
+       - db
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Add-Postgres-Drive-into-Django-Application">Add Postgres Drive into Django Application<a class="anchor-link" href="#Add-Postgres-Drive-into-Django-Application">&#182;</a></h2><ul>
+<li>Install some packages into <code>Dockerfile</code></li>
+</ul>
+<pre><code>RUN python -m venv /py &amp;&amp; \      
+    /py/bin/pip install --upgrade pip &amp;&amp; \     
+    # apk: alpine package manager  
+    apk add --update --no-cache postgresql-client &amp;&amp; \     
+    apk add --update --no-cache --virtual .tmp-deps \   
+    build-base postgresql-dev musl-dev &amp;&amp; \   
+    /py/bin/pip install -r /requirements.txt &amp;&amp; \    
+    apk del .tmp-deps &amp;&amp; \   
+    adduser --disabled-password --no-create-home app   
+</code></pre>
+<ul>
+<li>modify <code>requirements.txt</code></li>
+</ul>
+<p>-&gt; <code>psysopq2&gt;=2.9.5</code></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Config-DATABASES-in-settings.py">Config <code>DATABASES</code> in settings.py<a class="anchor-link" href="#Config-DATABASES-in-settings.py">&#182;</a></h2></blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Create-New-Application-core-and-Container">Create New Application <code>core</code> and Container<a class="anchor-link" href="#Create-New-Application-core-and-Container">&#182;</a></h2></blockquote>
+<blockquote>
+<p>-&gt; docker-compose build<br />
+-&gt; docker-compose run --rm app sh -c &quot;python manage.py startapp core&quot;</p>
+</blockquote>
+<blockquote>
+<p>Can find <code>app/core</code> folder<br />
+-&gt; <code>Config settings.py</code><br />
+-&gt; INSTALLED_APPS</p>
+</blockquote>
+<blockquote>
+<p>-&gt; docker ps -a<br />
+container_names: docker_djangotoec2-db-1</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Create-Testing-Models">Create Testing Models<a class="anchor-link" href="#Create-Testing-Models">&#182;</a></h2></blockquote>
+<blockquote>
+<ul>
+<li>Create models</li>
+</ul>
+<p>-&gt; <code>app/app/core/models/py</code><br />
+-&gt; create Class Sample(models.Model)</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Register Models in Admin Site</li>
+</ul>
+<p>-&gt;<code>app/app/core/admin.py</code><br />
+-&gt; from core.models import Sample<br />
+-&gt; admin.site.register(Sample)</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create Migrations</li>
+</ul>
+<p>-&gt; docker-compose run --rm app sh -c \</p>
+</blockquote>
+<p>&quot;python manage.py makemigrations&quot;</p>
+<blockquote>
+<pre><code>Migrations for 'core':   
+  core/migrations/0001_initial.py   
+    - Create model Sample   
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>add <code>wait for db command</code> for connecting postgresql</li>
+</ul>
+<p>-&gt; Create <code>management</code> folder in <code>app/app/core</code><br />
+-&gt; Create <code>__init__.py</code>  in <code>app/app/core/management</code><br />
+-&gt; Create <code>commands</code> folder in <code>app/app/core/management</code><br />
+-&gt; Create <code>__init__py</code> in <code>app/app/core/management/commands</code><br />
+-&gt; Create <code>wait_for_db.py</code></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Update Docker Compose file to handle migrations</li>
+</ul>
+<pre><code>services:   
+  app:    
+command: &gt;    
+      sh -c &quot;python manage.py wait_for_db &amp;&amp;    
+            python manage.py makemigrations &amp;&amp;      
+            python manage.py migrate &amp;&amp;    
+            python manage.py runserver 0.0.0.0:8000&quot;    
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Start the app</li>
+</ul>
+<p>-&gt; docker-compose build<br />
+-&gt; docker-compose up<br />
+-&gt; docker-compose down</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Handle-static-and-media-files">Handle static and media files<a class="anchor-link" href="#Handle-static-and-media-files">&#182;</a></h2></blockquote>
+<blockquote>
+<img src='https://tse2.mm.bing.net/th?id=OIP.XhR4RLqLQ-RWsIGfcYobcwHaDx&pid=Api&P=0' width=640>
+</blockquote>
+<blockquote>
+<ul>
+<li>go to <code>Dockerfile</code></li>
+</ul>
+<pre><code>RUN: 
+    mkdir -p /vol/web/static &amp;&amp; \
+    mkdir -p /vol/web/mdeia &amp;&amp; \
+    chown -R app:app /vol &amp;&amp; \
+    chmod -R 755 /vor
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>go to <code>docker-compose.yml</code></li>
+</ul>
+<pre><code>services:    
+  app:    
+    volumes:
+      - ./data/web:/vol/web  
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Config <code>settings.py</code> for static and media files</li>
+</ul>
+<pre><code>STATIC_URL = 'static/static/'
+MEDIA_URL = 'static/media/'
+
+STATIC_ROOT = '/vol/web/static'
+MEDIA_ROOT = '/vol/web/media'
+</code></pre>
+</blockquote>
+<blockquote>
+<p>config <code>urls.py</code> in <code>app/app</code> for static and media files<br />
+-&gt; from django.conf.urls.static import static<br />
+-&gt; from django.conf import settings</p>
+<pre><code>if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
+    )
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Ceate-Django-Superuser-to-test">Ceate Django Superuser to test<a class="anchor-link" href="#Ceate-Django-Superuser-to-test">&#182;</a></h2><p>-&gt; docker-compose run --rm app sh -c &quot;python manage.py createsuperuser</p>
+<ul>
+<li>127.0.0.1:8000/amin</li>
+<li>login admin site</li>
+<li>add static and media files</li>
+<li>can find static and media files in './data/web/mdeia' (volumes mounting in docker-compose.yaml)</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Reverse-Proxy-to-Handle-Static-and-Media-Files">Reverse Proxy to Handle Static and Media Files<a class="anchor-link" href="#Reverse-Proxy-to-Handle-Static-and-Media-Files">&#182;</a></h2></blockquote>
+<blockquote>
+<ul>
+<li>Create <code>proxy</code> folder in root directory</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>uwsgi_params</code> in <code>proxy</code> folder</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>default_conf_tpl</code> in <code>proxy</code> folder</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>run.sh</code> in <code>proxy</code> folder</li>
+</ul>
+<pre><code>set -e
+envsubst &lt; /etc/nginx/default.conf.tpl &gt; /etc/nginx/conf.d/default.conf
+nginx -g 'daemon off;'
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>Dockerfile</code> in <code>proxy</code> folder`</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://mattsegal.dev/nginx-static-proxy.png' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://image.slidesharecdn.com/lcu14-lightningtalk-nginx-140929145834-phpapp02/95/lcu14-lightning-talk-nginx-4-638.jpg?cb=1412002741' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://tse2.mm.bing.net/th?id=OIP.oZe7Q1aXOlVxIvJ75qcLxgHaEV&pid=Api&P=0" width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://raw.githubusercontent.com/wiki/Codingpedia/bookmarks-api/images/network-diagram.png' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://camo.qiitausercontent.com/c4c28f300e10fac7e62729cb0a157d592acb4b9c/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f33373732342f62373463386661332d656138382d663434342d326231612d6165383634363666646636332e706e67' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://cdn.filestackcontent.com/rJf1U9MTraWZDCJWjQoE' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Configure-Django-app-to-run-as-a-uWSGI-service">Configure Django app to run as a uWSGI service<a class="anchor-link" href="#Configure-Django-app-to-run-as-a-uWSGI-service">&#182;</a></h2></blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Create <code>scripts</code> folder in root directroy</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>run.sh</code> in <code>scripts</code></li>
+<li>add <code>uWSGI&gt;=2.0.19.1,&lt;2.1</code> into <code>requirements.txt</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>modify <code>Dockerfile</code></li>
+</ul>
+<pre><code>COPY ./scripts /scripts
+RUN apk add --update --no-cache --virtual .tmp-deps \
+    build-base postgresql-dev musl-dev linux-headers &amp;&amp; \
+    chmod -R +x /scripts
+ENV PATH=&quot;/scripts:/py/bin:$PATH&quot;
+CMD [&quot;run.sh&quot;]
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <strong><code>docker-compose-deploy.yml</code></strong> in root directory</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://tse2.mm.bing.net/th?id=OIP.l24lNB97Oy3EIAtjw2kWrwHaBx&pid=Api&P=0' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://i.stack.imgur.com/qYlWg.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='http://www.testautomationguru.com/wp-content/uploads/2018/04/doc-vol-mapping-05.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>docker-compose -f docker-compose-deploy.yml down --volumes</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>docker-compose -f docker-compose-deploy.yml build</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>docker-compose -f docker-compose-deploy.yml up</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h2 id="Test-uploading-images-in-production-mode">Test uploading images in production mode<a class="anchor-link" href="#Test-uploading-images-in-production-mode">&#182;</a></h2><p>-&gt; docker compose -f docker-compose-deploy.yml run --rm app sh -c &quot;python manage.py createsuperuser</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Deploy-to-an-AWS-server--AWS-EC2">Deploy to an AWS server  AWS EC2<a class="anchor-link" href="#Deploy-to-an-AWS-server--AWS-EC2">&#182;</a></h1><p><a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Home:">AWS EC2</a></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Network-&amp;-Security">Network &amp; Security<a class="anchor-link" href="#Network-&amp;-Security">&#182;</a></h3><ul>
+<li><strong>Create Key Pair</strong> &gt; *****.pem</li>
+</ul>
+<p>-Actions -&gt; Import Key Pair<br />
+-&gt; Import Settings -&gt; name -&gt;</p>
+<ul>
+<li><strong>Import Key Pairs</strong></li>
+</ul>
+<p>Network &amp; Security -&gt; Key Pairs</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Create-a-virtual-machine">Create a virtual machine<a class="anchor-link" href="#Create-a-virtual-machine">&#182;</a></h3><ul>
+<li>EC2 Dashboard</li>
+<li>Launch Instance</li>
+</ul>
+<p>-&gt; <code>Name and tags</code><br />
+-&gt; <code>Application and OS Images (Amazon Machine Image)</code>: choose<code>Amazon linux AWS</code><br />
+-&gt; <code>Instance type</code><br />
+-&gt; <code>Key pair (login): Crerate new key pair(Keep the filename.pem)</code><br />
+-&gt;<code>Network settings</code><br />
+-&gt;<code>Configure storage</code><br />
+-&gt; <code>Launch Instance</code></p>
+<ul>
+<li>View Instance</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>copy <code>Public DNS (IPv4)</code></li>
+</ul>
+<p>-&gt; CMD: ssh ec2-user@ec2-18-183-136-94.ap-northeast-1.compute.amazonaws.com<br />
+-&gt; CMD: yes</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Connect:</li>
+</ul>
+<p>-&gt; Connect Method: EC2 Instance Connect (browser-based SSH connection)<br />
+-&gt; Will find the <code>amazon-linux console</code></p>
+<pre><code>https://aws.amazon.com/amazon-linux-2/
+13 package(s) needed for security, out of 16 available
+Run &quot;sudo yum update&quot; to apply all updates.
+[ec2-user@ip-172-31-44-21 ~]$ 
+</code></pre>
+<ul>
+<li>amazon-linux console</li>
+</ul>
+<p>-&gt; CONSOLE: sudo yum install git -y<br />
+-&gt; CONSOLE: sudo amazon-linux-extras install docker -y<br />
+-&gt; CONSOLE: sudo systemctl enable docker.service<br />
+-&gt; CONSOLE: sudo systemctl start docker.service<br />
+-&gt; CONSOLE: sudo usermod -aG docker ec2-user<br />
+-&gt; CONSOLE: sudo curl -SL <code>https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose</code><br />
+-&gt; CONSOLE: sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</p>
+<ul>
+<li>Create key for Github</li>
+</ul>
+<p>-&gt; CONSOLE: ssh-keygen -t ed25519 -b 4096<br />
+-&gt; CONSOLE: cat ~/.ssh/id_ed25519.pub</p>
+<ul>
+<li>Create Deploy Key in GitHub Reop <code>settings</code></li>
+</ul>
+<p>-&gt; settings -&gt; Deploy Keys -&gt; add deploy key</p>
+<ul>
+<li>clone <code>ssh url</code></li>
+</ul>
+<p>-&gt; CONSOLE: git clone git@github.com:ericarthuang/Django_Docker_Deployment.git<br />
+-&gt; CONSOLE: ls<br />
+-&gt; show: Django_Docker_Deployment<br />
+-&gt; CONSOLE: cd Django_Docker_Deployment</p>
+<ul>
+<li>Add the configuration</li>
+</ul>
+<p>-&gt; CONSOLE: cp .env.sample .env
+-&gt; CONSOLE: vi .env 
+-&gt; modidy .env (use 'Public DNS (IPv4)' for hostname)
+-&gt; CONSOLE: cat .env</p>
+<ul>
+<li>Launch Application</li>
+</ul>
+<p>-&gt; CONSOLE: docker-compose -f docker-compose-deploy.yml up -d</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="GitHub---Docker---AWS">GitHub - Docker - AWS<a class="anchor-link" href="#GitHub---Docker---AWS">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://blog.kiprosh.com/content/images/2019/12/github-action.jpg" width="640">
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://miro.medium.com/max/1400/1*ydRaJipW0PHBvjnqE2MG2A.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://s3.amazonaws.com/media-p.slid.es/uploads/560276/images/2976770/Image_72.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://d2908q01vomqb2.cloudfront.net/fe2ef495a1152561572949784c16bf23abb28057/2020/12/18/ECS_Docker_Hub.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://d2908q01vomqb2.cloudfront.net/fe2ef495a1152561572949784c16bf23abb28057/2020/12/18/EKS_Docker_Hub.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<p>ubuntu --version<br />
+Installing, this may take a few minutes...<br />
+Please create a default UNIX user account. The username does not need to match your Windows username.<br />
+For more information visit: <a href="https://aka.ms/wslusers">https://aka.ms/wslusers</a><br />
+Enter new UNIX username: ericarthuang<br />
+New password:<br />
+Retype new password:<br />
+passwd: password updated successfully</p>
 </blockquote>
 
 </div>

@@ -14930,189 +14930,21 @@ Run &quot;sudo yum update&quot; to apply all updates.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Django-Deployment-Checklist"><a href="https://django.readthedocs.io/en/stable/howto/deployment/checklist.html">Django Deployment Checklist</a><a class="anchor-link" href="#Django-Deployment-Checklist">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h2><blockquote>
-<ul>
-<li><code>pip install gunicorn</code></li>
-</ul>
-<p>-&gt; CMD: gunicorn Django_Blog_Project.wsgi:application --bind 127.0.0.1:800</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>pipenv install waitress</li>
-</ul>
-<p>-&gt; CMD: waitress-serve --listen=127.0.0.1:8000 Django_Blog_Project.wsgi:application</p>
-</blockquote>
-<blockquote>
-<ul>
-<li><code>pip install whitenoise</code></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>Procfile</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; web: gunicorn Django_Blog_Project.wsgi --log-file -</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>runtime.txt</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; CMD: python --version<br />
--&gt; put <code>python-3.10.8</code> into <code>runtime.txt</code></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li><strong>Create the Secret Key</strong></li>
-</ul>
-<p>-&gt; CMD:python<br />
--&gt; shell: import secrets<br />
--&gt; secrets.token_hex(24)<br />
--&gt; ************************</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li><strong>go to <code>settings.py</code></strong></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>-&gt; DEBUG = (os.getenv('DEBUG_VALUE') == 'True')</p>
-</blockquote>
-<blockquote>
-<p>-&gt; ALLOWED_HOSTS = ['*']</p>
-</blockquote>
-<blockquote>
-<p>-&gt; STATIC_ROOT = os.path.join(BADE_DIR, 'staticfiles')<br />
--&gt; python manage.py collectstatic</p>
-</blockquote>
-<blockquote>
-<p>-&gt; MIDDLEWARE = [<br />
-    &quot;django.middleware.security.SecurityMiddleware&quot;,<br />
-    &quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;,<br />
-]</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>Create <code>Dockerfile</code></li>
-</ul>
-<pre><code>FROM python:3.10.8-slim-buster
-WORKDIR /app
-COPY ./Django_Blog_Project ./
-
-RUN pip install --upgrade pip --no-cache-dir
-
-RUN pip install -r /app/requirements.txt --no-cache-dir
-
-CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;127.0.0.1:8000&quot;]
-CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Django_Blog_Project.wsgi:application&quot;]
-</code></pre>
-<p>CMD: docker build -t myimage .</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Using-Postgrest-to-expand-the-Database">Using Postgrest to expand the Database<a class="anchor-link" href="#Using-Postgrest-to-expand-the-Database">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>CMD: pip install psycopg2</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li><code>Django</code> Example</li>
-</ul>
-<p>-&gt; In <code>settings.py</code></p>
-<pre><code>DATABASES = {   
-   'default': {   
-       'ENGINE': 'django.db.backends.postgresql',   
-       'NAME': '&lt;PGDATABASE&gt;',   
-       'USER': '&lt;PGUSER&gt;',   
-       'PASSWORD': '&lt;PGPASSWORD&gt;',   
-       'HOST': '&lt;PGHOST&gt;',   
-       'PORT': '&lt;PGPORT&gt;',   
-   }   
-}   
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>CMD: python manage.py migrate --run-syncdb</li>
-<li>CMD: python manage.py loaddata datadump.json</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Using-AWS-S3-to-Enhance-Deploying">Using AWS S3 to Enhance Deploying<a class="anchor-link" href="#Using-AWS-S3-to-Enhance-Deploying">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="http://cdn.safe.com/wp-content/uploads/2014/01/FME-Cloud-Architecture.png" width=800>
+</blockquote>
+
 </div>
 </div>
 </div>
@@ -15309,8 +15141,131 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr />
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Django-Deployment-Checklist"><a href="https://django.readthedocs.io/en/stable/howto/deployment/checklist.html">Django Deployment Checklist</a><a class="anchor-link" href="#Django-Deployment-Checklist">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src="http://cdn.safe.com/wp-content/uploads/2014/01/FME-Cloud-Architecture.png" width="640">
+<ul>
+<li><strong>Create the Secret Key</strong></li>
+</ul>
+<p>-&gt; CMD:python<br />
+-&gt; shell: import secrets<br />
+-&gt; secrets.token_hex(24)<br />
+-&gt; ************************</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li><strong>go to <code>settings.py</code></strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>-&gt; DEBUG = (os.getenv('DEBUG_VALUE') == 'True')</p>
+</blockquote>
+<blockquote>
+<p>-&gt; ALLOWED_HOSTS = ['*']</p>
+</blockquote>
+<blockquote>
+<p>-&gt; STATIC_ROOT = os.path.join(BADE_DIR, 'staticfiles')<br />
+-&gt; python manage.py collectstatic</p>
+</blockquote>
+<blockquote>
+<p>-&gt; MIDDLEWARE = [<br />
+    &quot;django.middleware.security.SecurityMiddleware&quot;,<br />
+    &quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;,<br />
+]</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Create <code>Dockerfile</code></li>
+</ul>
+<pre><code>FROM python:3.10.8-slim-buster
+WORKDIR /app
+COPY ./Django_Blog_Project ./
+RUN pip install --upgrade pip --no-cache-dir &amp;&amp; \
+    pip install -r /app/requirements.txt --no-cache-dir
+CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;0.0.0.0:8000&quot;] 
+#CMD [&quot;waitress-serve&quot;, &quot;--listen=0.0.0.0:8000&quot;, &quot;Django_Blog_Project.wsgi:application&quot;]
+#CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quot;--bind&quot;, &quot;0.0.0.0:8000&quot;]
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr />
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="AWS-Cloud">AWS Cloud<a class="anchor-link" href="#AWS-Cloud">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://1.bp.blogspot.com/-Ys30Mig55m0/X4a5jGXsE2I/AAAAAAAAAR0/OxHturoNHpYTdUE87ihM5xU9OXVyWDhtACLcBGAsYHQ/s763/2.png" width=800>
 </blockquote>
 
 </div>
@@ -15338,20 +15293,9 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src="https://1.bp.blogspot.com/-Ys30Mig55m0/X4a5jGXsE2I/AAAAAAAAAR0/OxHturoNHpYTdUE87ihM5xU9OXVyWDhtACLcBGAsYHQ/s763/2.png" width="640">
+<img src='https://www.cmscritic.com/wp-content/themes/cmscritic/img/cloudinary/800x400-solodev-docker-aws_fistt3.jpg' width=800>
 </blockquote>
 
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="AWS-Cloud">AWS Cloud<a class="anchor-link" href="#AWS-Cloud">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -15364,20 +15308,6 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <img src='https://d1.awsstatic.com/partner-network/QuickStart/datasheets/solodev-dcx-on-aws-architecture-diagram.a383c1c3faad8458cde22c7573c023c89bbfb493.png' width=800>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<img src='https://www.cmscritic.com/wp-content/themes/cmscritic/img/cloudinary/800x400-solodev-docker-aws_fistt3.jpg' width=800>
 </blockquote>
 
 </div>
