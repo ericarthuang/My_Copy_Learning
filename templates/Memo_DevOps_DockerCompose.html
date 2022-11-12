@@ -14593,7 +14593,26 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Project---Deploy-a-Django-app-to-an-EC2-instance-using-Docker-Compose">Project - Deploy a Django app to an EC2 instance using Docker Compose<a class="anchor-link" href="#Project---Deploy-a-Django-app-to-an-EC2-instance-using-Docker-Compose">&#182;</a></h1>
+<h1 id="Project---Deploy-to-EC2-by-Using-Docker-Compose">Project - Deploy to EC2 by Using Docker Compose<a class="anchor-link" href="#Project---Deploy-to-EC2-by-Using-Docker-Compose">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Docker-Compose-File">Docker Compose File<a class="anchor-link" href="#Docker-Compose-File">&#182;</a></h1><blockquote>
+<ul>
+<li>docker-compose version</li>
+<li>Create <code>docker-compose.yml</code></li>
+<li>docker-compose up</li>
+<li>docker-compose down</li>
+</ul>
+</blockquote>
+
 </div>
 </div>
 </div>
@@ -14648,6 +14667,165 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <img src='https://miro.medium.com/max/1400/1*jQjwTucibIX91zgagBhXcw.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/Docker-Compose-Example-Docker-Container-Edureka.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://qph.fs.quoracdn.net/main-qimg-45cf4183ac29235d5d0943dbb28f6af5' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://s3.amazonaws.com/media-p.slid.es/uploads/560276/images/2976770/Image_72.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="docker-compose---voting-app">docker compose - voting app<a class="anchor-link" href="#docker-compose---voting-app">&#182;</a></h2><blockquote>
+<img src='https://miro.medium.com/max/1280/1*jLReq3Ng6RhqzJo4kBPnpA.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="--docker-containers">- docker containers<a class="anchor-link" href="#--docker-containers">&#182;</a></h3><blockquote>
+<pre><code>docker run -d --name=rdeis rdis   
+docker run -d --name=db --link db:db postgres:9.4       
+docker run -d --name=vote -p 5000:80 --link redis:redis voting-app    
+docker run -d --name=result -p 5001:80 result-app     
+docker run -d --name=worker --link db:db redis:redis worker       
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="--Create-docker-compsose.yml">- Create docker-compsose.yml<a class="anchor-link" href="#--Create-docker-compsose.yml">&#182;</a></h3><blockquote>
+<pre><code>Service:    
+  redis:   
+    image: redis    
+    networks:      
+     back-end    
+  db:
+    image: postgres:9.4
+    networks:      
+     back-end    
+  vote:
+    image: voting-app
+    ports:
+      - 5000:80
+    links:
+      - redis
+    networks:    
+     front-end  
+     back-end  
+  result:
+    image: result-app
+    ports:
+     - 5001:80
+    links:
+     - db
+    networks:    
+      front-end  
+      back-end   
+ worker:
+    image: worker
+    links:
+     - redis
+     - db
+networks:
+  front-end:
+  back-end:
+</code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="--docker-compsose.yml-build">- docker-compsose.yml build<a class="anchor-link" href="#--docker-compsose.yml-build">&#182;</a></h3><blockquote>
+<pre><code>redis:
+  image: redis
+db:
+  image: postgres:9.4
+vote:
+  build: ./vote
+  ports:
+    - 5000:80
+  links:
+    - redis
+result:
+  build: ./result
+  ports:
+   - 5001:80
+ links:
+   - db
+worker:
+  build: ./worker
+  links:
+    - redis
+    - db
+</code></pre>
 </blockquote>
 
 </div>
@@ -15056,6 +15234,7 @@ command: &gt;
 <h2 id="Handle-static-and-media-files">Handle static and media files<a class="anchor-link" href="#Handle-static-and-media-files">&#182;</a></h2></blockquote>
 <blockquote>
 <img src='https://tse2.mm.bing.net/th?id=OIP.XhR4RLqLQ-RWsIGfcYobcwHaDx&pid=Api&P=0' width=640>
+<img src='https://cdn-1.wp.nginx.com/wp-content/uploads/2018/04/NGINX-Unit-WordPress-3-tier-architecture.png' width=640>
 </blockquote>
 <blockquote>
 <ul>

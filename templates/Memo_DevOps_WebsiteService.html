@@ -14593,7 +14593,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="DevOps---Web-Deployment-Memo">DevOps - Web Deployment Memo<a class="anchor-link" href="#DevOps---Web-Deployment-Memo">&#182;</a></h1>
+<h1 id="DevOps---Website-Services">DevOps - Website Services<a class="anchor-link" href="#DevOps---Website-Services">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14605,7 +14605,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src='https://miro.medium.com/max/1400/1*ydRaJipW0PHBvjnqE2MG2A.jpeg' width=800>
+<img src="https://raw.githubusercontent.com/jelastic-jps/git-push-deploy/master/images/git-push-deploy-pipeline.png" width=640>
 </blockquote>
 
 </div>
@@ -14837,9 +14837,46 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Web-Service---AWS-EC2">Web Service - AWS EC2<a class="anchor-link" href="#Web-Service---AWS-EC2">&#182;</a></h2><blockquote>
-<p><a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Home:">AWS EC2</a></p>
+<h2 id="Web-Service---AWS-EC2">Web Service - AWS EC2<a class="anchor-link" href="#Web-Service---AWS-EC2">&#182;</a></h2><p><a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Home:">AWS EC2</a></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://miro.medium.com/max/1400/1*jQjwTucibIX91zgagBhXcw.png' width=800>
 </blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://1.bp.blogspot.com/-Ys30Mig55m0/X4a5jGXsE2I/AAAAAAAAAR0/OxHturoNHpYTdUE87ihM5xU9OXVyWDhtACLcBGAsYHQ/s763/2.png" width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <ul>
 <li>Launch instance</li>
@@ -15180,6 +15217,119 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li><code>pip install gunicorn</code></li>
+</ul>
+<p>-&gt; CMD: gunicorn Django_Blog_Project.wsgi:application --bind 127.0.0.1:800</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>pipenv install waitress</li>
+</ul>
+<p>-&gt; CMD: waitress-serve --listen=127.0.0.1:8000 Django_Blog_Project.wsgi:application</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>pip install whitenoise</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>Procfile</code> in root directory <code>Django_Blog_Project</code></li>
+</ul>
+<p>-&gt; web: gunicorn Django_Blog_Project.wsgi --log-file -</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>runtime.txt</code> in root directory <code>Django_Blog_Project</code></li>
+</ul>
+<p>-&gt; CMD: python --version<br />
+-&gt; put <code>python-3.10.8</code> into <code>runtime.txt</code></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li><strong>go to <code>settings.py</code></strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>-&gt; DEBUG = (os.getenv('DEBUG_VALUE') == 'True')</p>
+</blockquote>
+<blockquote>
+<p>-&gt; ALLOWED_HOSTS = ['*']</p>
+</blockquote>
+<blockquote>
+<p>-&gt; STATIC_ROOT = os.path.join(BADE_DIR, 'staticfiles')<br />
+-&gt; python manage.py collectstatic</p>
+</blockquote>
+<blockquote>
+<p>-&gt; MIDDLEWARE = [<br />
+    &quot;django.middleware.security.SecurityMiddleware&quot;,<br />
+    &quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;,<br />
+]</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>Create <code>Dockerfile</code></li>
+</ul>
+<pre><code>FROM python:3.10.8-slim-buster
+WORKDIR /app
+COPY ./Django_Blog_Project ./
+
+RUN pip install --upgrade pip --no-cache-dir
+
+RUN pip install -r /app/requirements.txt --no-cache-dir
+
+CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;127.0.0.1:8000&quot;]
+CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Django_Blog_Project.wsgi:application&quot;]
+CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quot;--bind&quot;, &quot;0.0.0.0:8000&quot;]
+</code></pre>
+<p>CMD: docker build -t myimage .</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr />
 
 </div>
@@ -15204,7 +15354,21 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src="https://1.bp.blogspot.com/-Ys30Mig55m0/X4a5jGXsE2I/AAAAAAAAAR0/OxHturoNHpYTdUE87ihM5xU9OXVyWDhtACLcBGAsYHQ/s763/2.png" width=800>
+<img src='https://miro.medium.com/max/1400/1*ydRaJipW0PHBvjnqE2MG2A.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/230954/dffa55c4-78d5-d923-3061-b992ae7bd1f8.jpeg' width=800>
 </blockquote>
 
 </div>

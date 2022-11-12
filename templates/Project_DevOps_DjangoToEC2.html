@@ -14607,20 +14607,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<img src='https://miro.medium.com/max/1400/1*jQjwTucibIX91zgagBhXcw.png' width=800>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Web-Deployment-Preparation">Web Deployment Preparation<a class="anchor-link" href="#Web-Deployment-Preparation">&#182;</a></h2><blockquote>
 <ul>
 <li><strong>Create A New GitHub Repository</strong></li>
@@ -14643,7 +14629,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <h3 id="--Create-A-New-GitHub-Repository">- Create A New GitHub Repository<a class="anchor-link" href="#--Create-A-New-GitHub-Repository">&#182;</a></h3><p><a href="https://github.com/ericarthuang/Django_Blog">GitHub Repository</a></p>
-<img src="https://raw.githubusercontent.com/jelastic-jps/git-push-deploy/master/images/git-push-deploy-pipeline.png" width="640">
+<img src="https://raw.githubusercontent.com/jelastic-jps/git-push-deploy/master/images/git-push-deploy-pipeline.png" width=640>
 </blockquote>
 
 </div>
@@ -15204,7 +15190,22 @@ CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;0.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="AWS-Service---AWS-EC2">AWS Service - AWS EC2<a class="anchor-link" href="#AWS-Service---AWS-EC2">&#182;</a></h2>
+<h2 id="AWS-Service---AWS-EC2">AWS Service - AWS EC2<a class="anchor-link" href="#AWS-Service---AWS-EC2">&#182;</a></h2><p><a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Home:">AWS EC2</a></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://miro.medium.com/max/1400/1*jQjwTucibIX91zgagBhXcw.png' width=800>
+</blockquote>
+
 </div>
 </div>
 </div>
@@ -15230,30 +15231,229 @@ CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;0.0
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<p><a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Home:">AWS EC2</a></p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Launch instance</li>
-</ul>
-<p>-&gt; Name and tags<br />
--&gt; Application and OS Images (Amazon Machine Image)<br />
+<h3 id="--Launch-instance">- Launch instance<a class="anchor-link" href="#--Launch-instance">&#182;</a></h3><p>-&gt; Name and tags<br />
+-&gt; Application and OS Images (Amazon Machine Image - Amazon Linux)<br />
 -&gt; Instance type<br />
 -&gt; Key pair (login): Crerate new key pair(Keep the filename.pem)<br />
 -&gt; Network settings<br />
 -&gt; Configure storage<br />
--&gt; Launch Instance<br />
--&gt; Connect: EC2 serial console, RDP client:get rhe password for remote connect</p>
+-&gt; Launch Instance</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Connect-EC2">- <a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Instances:sort=instanceId">Connect EC2</a><a class="anchor-link" href="#--Connect-EC2">&#182;</a></h3><p>-&gt; Choose Instance<br />
+-&gt; Press Connect<br />
+-&gt; <code>EC2 Instance Connect (browser-based SSH connection)</code><br />
+-&gt; CMD:chmod 400 DjangoToEC2.pem<br />
+-&gt; CMD: ssh -i &quot;DjangoToEC2.pem&quot; ec2-user@ec2-175-41-205-149.ap-northeast-1.compute.amazonaws.com</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Install-Git-in-AWS-EC2-Instance">- <a href="https://www.w3schools.blog/install-git-ec2-linux">Install Git in AWS EC2 Instance</a><a class="anchor-link" href="#--Install-Git-in-AWS-EC2-Instance">&#182;</a></h3><p>-&gt; sudo yum update -y<br />
+-&gt; sudo yum install git -y<br />
+-&gt; git --version</p>
+<img src='https://tse2.mm.bing.net/th?id=OIP.p-MYkT6ylZLC5KSIDfvaBQHaEK&pid=Api&P=0' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Install-Docker-in-AWS-EC2-Instance">- <a href="https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9">Install Docker in AWS EC2 Instance</a><a class="anchor-link" href="#--Install-Docker-in-AWS-EC2-Instance">&#182;</a></h3><p>-&gt; sudo amazon-linux-extras install docker<br />
+-&gt; sudo service docker start<br />
+-&gt; sudo usermod -a -G docker ec2-user<br />
+-&gt; sudo chkconfig docker on<br />
+-&gt; sudo yum install -y git<br />
+-&gt; sudo reboot<br />
+-&gt; docker --version</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Connect-RDS-Postgrest-with-EC2-connection">- <a href="https://ap-northeast-1.console.aws.amazon.com/rds/home?region=ap-northeast-1#database:id=database-1;is-cluster=false">Connect RDS Postgrest with EC2 connection</a><a class="anchor-link" href="#--Connect-RDS-Postgrest-with-EC2-connection">&#182;</a></h3></blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Running-Web-Service-in-AWS-EC2">- Running Web Service in AWS EC2<a class="anchor-link" href="#--Running-Web-Service-in-AWS-EC2">&#182;</a></h3></blockquote>
+<blockquote>
+<p>-&gt; CMD: ssh -i &quot;DjangoToEC2.pem&quot; ec2-user@ec2-175-41-205-149.ap-northeast-1.compute.amazonaws.com</p>
+</blockquote>
+<blockquote>
+<p>-&gt; sudo curl -L <a href="https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname">https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname</a> -s)-$(uname -m) -o /usr/local/bin/docker-compose<br />
+-&gt; sudo chmod +x /usr/local/bin/docker-compose<br />
+-&gt; docker --version<br />
+-&gt; docker-compose version</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Install-Docker-Compose-in-AWS-EC2-Instance">- <a href="https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9">Install Docker-Compose in AWS EC2 Instance</a><a class="anchor-link" href="#--Install-Docker-Compose-in-AWS-EC2-Instance">&#182;</a></h3><p>-&gt; sudo curl -L <a href="https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname">https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname</a> -s)-$(uname -m) -o /usr/local/bin/docker-compose<br />
+-&gt; sudo chmod +x /usr/local/bin/docker-compose<br />
+-&gt; docker-compose version</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--git-clone-GitHub-Repository">- git clone GitHub Repository<a class="anchor-link" href="#--git-clone-GitHub-Repository">&#182;</a></h3><p>-&gt; git clone <code>https://github.com/ericarthuang/DjangoToEC2_Project.git</code><br />
+-&gt; ls
+-&gt; cd DjangoToEC2_Project<br />
+-&gt; ls -a<br />
+-&gt; vi .env
+-&gt; paste .env into vi .env
+-&gt; docker-compose up --build</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr />
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="AWS-Service---AWS-Route-53"><a href="https://us-east-1.console.aws.amazon.com/route53/v2/home#Dashboard">AWS Service - AWS Route 53</a><a class="anchor-link" href="#AWS-Service---AWS-Route-53">&#182;</a></h2><blockquote>
+<ul>
+<li>Create hosted zone</li>
+</ul>
+<p>-&gt; Domain Name: djangotoes2.com<br />
+-&gt; Type: Public hosted zone<br />
+-&gt; Create hosted zone</p>
 </blockquote>
 <blockquote>
 <ul>
-<li>New Ternimal</li>
+<li>Go to Hosted zone details</li>
 </ul>
-<p>-&gt; firewall setup<br />
--&gt; Windiows Denfencer Firewall<br />
--&gt; Advanced Setting<br />
--&gt; Windiows Denfencer Firewall Properties<br />
--&gt; Domain Profile/Private Profile/Public Profile: Inbound Connections: Allow</p>
+<p>-&gt; Choose djangotoes2.com type: NS<br />
+-&gt; Choose <code>Value</code> copy to <code>your web(I don't have)</code></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Go to EC2 <code>Network &amp; Security</code>: <code>Elastic IPs</code></li>
+</ul>
+<p>-&gt; Allocate Elastic IP address
+-&gt; Associate Elastic IP address: Instance
+-&gt; Associate</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Go to EC2 Instance</li>
+</ul>
+<p>-&gt;  <code>IPv4 Public IP</code></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Go to Route 53</li>
+</ul>
+<p>-&gt; Create Record
+-&gt; Paste <code>IPv4 Public IP</code> in <code>value</code> field
+-&gt; Create Records</p>
+</blockquote>
+<blockquote>
+<p>-&gt; Create Record
+-&gt; Record Name: www
+-&gt; Reocrd Type: CANME
+-&gt; Paste <code>djangotoes2.com</code> in <code>value</code> field<br />
+-&gt; Create Records</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="AWS-Service---AWS-Certificate-Manager"><a href="https://ap-northeast-1.console.aws.amazon.com/acm/home?region=ap-northeast-1#/welcome">AWS Service - AWS Certificate Manager</a><a class="anchor-link" href="#AWS-Service---AWS-Certificate-Manager">&#182;</a></h2><blockquote>
+<ul>
+<li>Request A Certificate</li>
+</ul>
+<p>-&gt; Domain names: <code>djangotoes2.com</code><br />
+-&gt; DNS validation - recommended<br />
+-&gt; Request</p>
+<ul>
+<li>View Detail of Certificate</li>
+</ul>
+<p>-&gt; Create Records in Route 53</p>
 </blockquote>
 
 </div>
@@ -15268,65 +15468,15 @@ CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;0.0
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <ul>
-<li>Connect:</li>
+<li>Go to EC2 Instance</li>
 </ul>
-<p>-&gt; Connect Method: EC2 Instance Connect (browser-based SSH connection)<br />
--&gt; Will find the <code>amazon-linux console</code></p>
-<pre><code>https://aws.amazon.com/amazon-linux-2/
-13 package(s) needed for security, out of 16 available
-Run &quot;sudo yum update&quot; to apply all updates.
-[ec2-user@ip-172-31-44-21 ~]$ 
-</code></pre>
-<ul>
-<li>amazon-linux console</li>
-</ul>
-<p>-&gt; CONSOLE: sudo yum install git -y<br />
--&gt; CONSOLE: sudo amazon-linux-extras install docker -y<br />
--&gt; CONSOLE: sudo systemctl enable docker.service<br />
--&gt; CONSOLE: sudo systemctl start docker.service<br />
--&gt; CONSOLE: sudo usermod -aG docker ec2-user<br />
--&gt; CONSOLE: sudo curl -SL <code>https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose</code><br />
--&gt; CONSOLE: sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</p>
-<ul>
-<li>Create key for Github</li>
-</ul>
-<p>-&gt; CONSOLE: ssh-keygen -t ed25519 -b 4096<br />
--&gt; CONSOLE: cat ~/.ssh/id_ed25519.pub</p>
-<ul>
-<li>Create Deploy Key in GitHub Reop <code>settings</code></li>
-</ul>
-<p>-&gt; settings -&gt; Deploy Keys -&gt; add deploy key</p>
-<ul>
-<li>clone <code>ssh url</code></li>
-</ul>
-<p>-&gt; CONSOLE: git clone git@github.com:ericarthuang/Django_Docker_Deployment.git<br />
--&gt; CONSOLE: ls<br />
--&gt; show: Django_Docker_Deployment<br />
--&gt; CONSOLE: cd Django_Docker_Deployment</p>
-<ul>
-<li>Add the configuration</li>
-</ul>
-<p>-&gt; CONSOLE: cp .env.sample .env
--&gt; CONSOLE: vi .env 
--&gt; modidy .env (use 'Public DNS (IPv4)' for hostname)
--&gt; CONSOLE: cat .env</p>
-<ul>
-<li>Launch Application</li>
-</ul>
-<p>-&gt; CONSOLE: docker-compose -f docker-compose-deploy.yml up -d</p>
+<p>-&gt; Load Balancing: Load Balancers<br />
+-&gt; Create Load Balancer<br />
+-&gt; Application Load Balancer: Create
+-&gt; Name: <code>my-lb</code><br />
+-&gt; ...</p>
 </blockquote>
 
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="AWS-Service---AWS-Route-53">AWS Service - AWS Route 53<a class="anchor-link" href="#AWS-Service---AWS-Route-53">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15358,38 +15508,18 @@ Run &quot;sudo yum update&quot; to apply all updates.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr />
 
-     </div>
 </div>
 </div>
 </div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15596,173 +15726,6 @@ my_bucket = s3.Bucket(aws_bucket_name)
 my_bucket.upload_file(Key='index.html', Filename='./index.html')    
 my_bucket.download_file(Key='index.html', Filename='./index.html') 
 </code></pre>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="--Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">- Enable HTTPS with SSL/TLS Certificate using Let's Encrypt<a class="anchor-link" href="#--Enable-HTTPS-with-SSL/TLS-Certificate-using-Let's-Encrypt">&#182;</a></h2><blockquote>
-<p><a href="https://letsencrypt.org/getting-started/">Let's Encrypt Website</a></p>
-</blockquote>
-<blockquote>
-<p><code>https://letsencrypt.org/getting-started/</code><br />
--&gt; click <code>Certbot</code><br />
--&gt; Apache, Ubuntu 18</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Django-Deployment-Checklist"><a href="https://django.readthedocs.io/en/stable/howto/deployment/checklist.html">Django Deployment Checklist</a><a class="anchor-link" href="#Django-Deployment-Checklist">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li><code>pip install gunicorn</code></li>
-</ul>
-<p>-&gt; CMD: gunicorn Django_Blog_Project.wsgi:application --bind 127.0.0.1:800</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>pipenv install waitress</li>
-</ul>
-<p>-&gt; CMD: waitress-serve --listen=127.0.0.1:8000 Django_Blog_Project.wsgi:application</p>
-</blockquote>
-<blockquote>
-<ul>
-<li><code>pip install whitenoise</code></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>Procfile</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; web: gunicorn Django_Blog_Project.wsgi --log-file -</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>runtime.txt</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; CMD: python --version<br />
--&gt; put <code>python-3.10.8</code> into <code>runtime.txt</code></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li><strong>go to <code>settings.py</code></strong></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>-&gt; DEBUG = (os.getenv('DEBUG_VALUE') == 'True')</p>
-</blockquote>
-<blockquote>
-<p>-&gt; ALLOWED_HOSTS = ['*']</p>
-</blockquote>
-<blockquote>
-<p>-&gt; STATIC_ROOT = os.path.join(BADE_DIR, 'staticfiles')<br />
--&gt; python manage.py collectstatic</p>
-</blockquote>
-<blockquote>
-<p>-&gt; MIDDLEWARE = [<br />
-    &quot;django.middleware.security.SecurityMiddleware&quot;,<br />
-    &quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;,<br />
-]</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>Create <code>Dockerfile</code></li>
-</ul>
-<pre><code>FROM python:3.10.8-slim-buster
-WORKDIR /app
-COPY ./Django_Blog_Project ./
-
-RUN pip install --upgrade pip --no-cache-dir
-
-RUN pip install -r /app/requirements.txt --no-cache-dir
-
-CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;127.0.0.1:8000&quot;]
-CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Django_Blog_Project.wsgi:application&quot;]
-CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quot;--bind&quot;, &quot;0.0.0.0:8000&quot;]
-</code></pre>
-<p>CMD: docker build -t myimage .</p>
 </blockquote>
 
 </div>
