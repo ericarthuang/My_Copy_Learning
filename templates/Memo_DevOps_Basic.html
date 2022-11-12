@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Memo_DevOps_WebsiteService</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Memo_DevOps_Basic</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14593,7 +14593,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="DevOps---Website-Services">DevOps - Website Services<a class="anchor-link" href="#DevOps---Website-Services">&#182;</a></h1>
+<h1 id="Nginx-/-Gunicron-/-Docker-Deployment-/-GitHub-Actions-/-AWS">Nginx / Gunicron / Docker Deployment / GitHub Actions / AWS<a class="anchor-link" href="#Nginx-/-Gunicron-/-Docker-Deployment-/-GitHub-Actions-/-AWS">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14632,14 +14632,33 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Web-Deployment-Preparation">Web Deployment Preparation<a class="anchor-link" href="#Web-Deployment-Preparation">&#182;</a></h2><blockquote>
-<ul>
-<li><strong>Create A New GitHub Repository</strong></li>
-<li><strong>Create <code>.gitignore</code></strong></li>
-<li><strong>Create <code>requirements.txt</code></strong></li>
-<li><strong>Create <code>.env</code></strong></li>
-<li><strong>Connect github</strong></li>
-</ul>
+<blockquote>
+<img src='https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/230954/dffa55c4-78d5-d923-3061-b992ae7bd1f8.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Nginx---Webserver:-Act-as-Proxy-/-Handle-SSL-Ternimation">Nginx - Webserver: Act as Proxy / Handle SSL Ternimation<a class="anchor-link" href="#Nginx---Webserver:-Act-as-Proxy-/-Handle-SSL-Ternimation">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://miro.medium.com/max/1104/0*m_Rey9rU_HIi674J.jpg' width=800>
 </blockquote>
 
 </div>
@@ -14653,8 +14672,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Create-A-New-GitHub-Repository">Create A New GitHub Repository<a class="anchor-link" href="#Create-A-New-GitHub-Repository">&#182;</a></h3><p><a href="https://github.com/ericarthuang/Learning_Flask_Jovin/tree/site">GitHub Repository</a></p>
-<img src="https://raw.githubusercontent.com/jelastic-jps/git-push-deploy/master/images/git-push-deploy-pipeline.png" width="640">
+<img src='https://mattsegal.dev/nginx-static-proxy.png' width= 800>
 </blockquote>
 
 </div>
@@ -14668,9 +14686,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Create-.gitignore"><strong>Create <code>.gitignore</code></strong><a class="anchor-link" href="#Create-.gitignore">&#182;</a></h3><p>-&gt; venv/<br />
--&gt; .env<br />
--&gt; ...</p>
+<img src='https://cdn-1.wp.nginx.com/wp-content/uploads/2018/04/NGINX-Unit-WordPress-3-tier-architecture.png' width=800>
 </blockquote>
 
 </div>
@@ -14684,10 +14700,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Create-requirements.txt"><strong>Create <code>requirements.txt</code></strong><a class="anchor-link" href="#Create-requirements.txt">&#182;</a></h3><ul>
-<li><code>pip freeze</code></li>
-</ul>
-<p>-&gt; CMD: pip freeze &gt; requirements.txt</p>
+<img src="https://tse2.mm.bing.net/th?id=OIP.oZe7Q1aXOlVxIvJ75qcLxgHaEV&pid=Api&P=0" width=800>
 </blockquote>
 
 </div>
@@ -14701,8 +14714,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Create-.env"><strong>Create <code>.env</code></strong><a class="anchor-link" href="#Create-.env">&#182;</a></h3><p>-&gt; SECRET_KEY=**************************************************************<br />
--&gt; DUBEG=************</p>
+<img src='https://miro.medium.com/max/1193/1*jIPnYxBXXvEK8OptRqj7Cw.png' width=800>
 </blockquote>
 
 </div>
@@ -14715,172 +14727,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="Connect-github"><strong>Connect github</strong><a class="anchor-link" href="#Connect-github">&#182;</a></h3><ul>
-<li>git init</li>
-<li>git add README.md</li>
-<li>git commit -m &quot;first commit&quot;</li>
-<li>git branch -M main</li>
-<li>git remote add origin <code>git@github.com:ericarthuang/Learning_Flask_Jovin.git</code></li>
-<li>(git remote remove origin)</li>
-<li>git push -u origin main</li>
-</ul>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Web-Service---GitHub-Pages-(for-static-website)">Web Service - GitHub Pages (for static website)<a class="anchor-link" href="#Web-Service---GitHub-Pages-(for-static-website)">&#182;</a></h2><blockquote>
-<p><a href="https://pages.github.com/">GitHub Pages</a></p>
-</blockquote>
-<blockquote>
-<img src="https://blog.kiprosh.com/content/images/2019/12/github-action.jpg" width=800>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="GitHub-Pages-WorkFlow">GitHub Pages WorkFlow<a class="anchor-link" href="#GitHub-Pages-WorkFlow">&#182;</a></h3><p><a href="https://www.youtube.com/watch?v=QyFcl_Fba-k&amp;t=44s">Reference：Getting Started with GitHub Pages</a></p>
-</blockquote>
-<blockquote>
-<p><code>Settings -&gt; Pages -&gt; Build and deployment -&gt; Branch -&gt; main</code></p>
-</blockquote>
-<blockquote>
-<h3 id="Create-Branch-for-Site">Create Branch for Site<a class="anchor-link" href="#Create-Branch-for-Site">&#182;</a></h3><p><em>git checkout -b site</em><br />
-<code>Settings -&gt; Pages -&gt; Build and deployment -&gt; Branch -&gt; **site**</code></p>
-</blockquote>
-<blockquote>
-<p><a href="https://ericarthuang.github.io/Bolg_Copy_Learning/">My Copy Learning Website</a><br />
-<strong><code>https://ericarthuang.github.io/{NameOfReop}/</code></strong></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Web-Service---Railway">Web Service - Railway<a class="anchor-link" href="#Web-Service---Railway">&#182;</a></h2><blockquote>
-<p><a href="https://dev.to/dennisivy11/easiest-django-postgres-connection-ever-with-railway-11h6">Easiest Way To Connect Django To A Postgres Database</a></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Web-Service---render">Web Service - render<a class="anchor-link" href="#Web-Service---render">&#182;</a></h2><blockquote>
-<p><a href="https://copy-learning-website-flask.onrender.com">Copy_Learning_Website_Flask</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://dashboard.render.com/">Render Serveice Website</a></p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Dashboard -&gt; create new &quot;web server&quot; -&gt; connect GitHub</li>
-</ul>
-</blockquote>
-<blockquote>
-<p><a href="https://dashboard.render.com/web/new">Connect Setting</a></p>
-<ul>
-<li>Name(Website)</li>
-<li>Environment</li>
-<li>Branch</li>
-<li>Build Command</li>
-</ul>
-<p><code>-&gt; pip install gunicorn</code><br />
-<code>-&gt; create requirements.txt(pip freeze &gt; requirements.txt)</code><br />
-<code>-&gt; pip install -r requirements.txt</code></p>
-<ul>
-<li>Start Command</li>
-</ul>
-<p><code>-&gt; gunicorn app:app</code></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Web-Service---Netlify">Web Service - Netlify<a class="anchor-link" href="#Web-Service---Netlify">&#182;</a></h2><blockquote>
-<p><a href="https://www.netlify.com/">Netlify Serveice Website</a></p>
-<ul>
-<li><a href="https://app.netlify.com/teams/ericarthuang/builds">Netlfily Builds</a></li>
-<li>New Site from Git -&gt; GitHub -&gt; select repositories -&gt; site settings -&gt; change sitename</li>
-</ul>
-<p><a href="https://copylearning.netlify.app/">My Copy Learning Website</a><br />
-<strong><code>https://{NameOfReop}.netlify.app/</code></strong></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Web-Service---AWS-EC2">Web Service - AWS EC2<a class="anchor-link" href="#Web-Service---AWS-EC2">&#182;</a></h2><p><a href="https://ap-northeast-1.console.aws.amazon.com/ec2/home?region=ap-northeast-1#Home:">AWS EC2</a></p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<img src='https://miro.medium.com/max/1400/1*jQjwTucibIX91zgagBhXcw.png' width=800>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<img src="https://1.bp.blogspot.com/-Ys30Mig55m0/X4a5jGXsE2I/AAAAAAAAAR0/OxHturoNHpYTdUE87ihM5xU9OXVyWDhtACLcBGAsYHQ/s763/2.png" width=800>
-</blockquote>
-
+<h2 id="Gunicorn">Gunicorn<a class="anchor-link" href="#Gunicorn">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14893,144 +14740,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
 <ul>
-<li>Launch instance</li>
-</ul>
-<p>-&gt; Name and tags<br />
--&gt; Application and OS Images (Amazon Machine Image)<br />
--&gt; Instance type<br />
--&gt; Key pair (login): Crerate new key pair(Keep the filename.pem)<br />
--&gt; Network settings<br />
--&gt; Configure storage<br />
--&gt; Launch Instance<br />
--&gt; Connect: EC2 serial console, RDP client:get rhe password for remote connect</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>New Ternimal</li>
-</ul>
-<p>-&gt; firewall setup<br />
--&gt; Windiows Denfencer Firewall<br />
--&gt; Advanced Setting<br />
--&gt; Windiows Denfencer Firewall Properties<br />
--&gt; Domain Profile/Private Profile/Public Profile: Inbound Connections: Allow</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>Connect:</li>
-</ul>
-<p>-&gt; Connect Method: EC2 Instance Connect (browser-based SSH connection)<br />
--&gt; Will find the <code>amazon-linux console</code></p>
-<pre><code>https://aws.amazon.com/amazon-linux-2/
-13 package(s) needed for security, out of 16 available   
-Run &quot;sudo yum update&quot; to apply all updates.   
-[ec2-user@ip-172-31-44-21 ~]$     
-</code></pre>
-<ul>
-<li>amazon-linux console</li>
-</ul>
-<p>-&gt; CONSOLE: sudo yum install git -y<br />
--&gt; CONSOLE: sudo amazon-linux-extras install docker -y<br />
--&gt; CONSOLE: sudo systemctl enable docker.service<br />
--&gt; CONSOLE: sudo systemctl start docker.service<br />
--&gt; CONSOLE: sudo usermod -aG docker ec2-user<br />
--&gt; CONSOLE: sudo curl -SL <code>https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose</code><br />
--&gt; CONSOLE: sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</p>
-<ul>
-<li>Create key for Github</li>
-</ul>
-<p>-&gt; CONSOLE: ssh-keygen -t ed25519 -b 4096<br />
--&gt; CONSOLE: cat ~/.ssh/id_ed25519.pub</p>
-<ul>
-<li>Create Deploy Key in GitHub Reop <code>settings</code></li>
-</ul>
-<p>-&gt; settings -&gt; Deploy Keys -&gt; add deploy key</p>
-<ul>
-<li>clone <code>ssh url</code></li>
-</ul>
-<p>-&gt; CONSOLE: git clone git@github.com:ericarthuang/Django_Docker_Deployment.git<br />
--&gt; CONSOLE: ls<br />
--&gt; show: Django_Docker_Deployment<br />
--&gt; CONSOLE: cd Django_Docker_Deployment</p>
-<ul>
-<li>Add the configuration</li>
-</ul>
-<p>-&gt; CONSOLE: cp .env.sample .env<br />
--&gt; CONSOLE: vi .env<br />
--&gt; modidy .env (use 'Public DNS (IPv4)' for hostname)<br />
--&gt; CONSOLE: cat .env</p>
-<ul>
-<li>Launch Application</li>
-</ul>
-<p>-&gt; CONSOLE: docker-compose -f docker-compose-deploy.yml up -d</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Using-AWS-S3-to-Enhance-Deploying">Using AWS S3 to Enhance Deploying<a class="anchor-link" href="#Using-AWS-S3-to-Enhance-Deploying">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<img src="http://cdn.safe.com/wp-content/uploads/2014/01/FME-Cloud-Architecture.png" width=800>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="Create-AWS-S3-Bucket">Create AWS S3 Bucket<a class="anchor-link" href="#Create-AWS-S3-Bucket">&#182;</a></h3><p><a href="https://s3.console.aws.amazon.com/s3/get-started?region=ap-northeast-1">AWS S3 Website</a></p>
-<ul>
-<li><a href="https://s3.console.aws.amazon.com/s3/buckets?region=ap-northeast-1%C2%AEion=ap-northeast-1">Create AWS S3 Bucket</a></li>
-</ul>
-<p>-&gt; <code>django-learning-files</code></p>
-<ul>
-<li>Permession</li>
-<li>CORS Configuration</li>
+<li>pip install gunicron</li>
+<li>pip install httptools</li>
+<li>python.exe -m pip install --upgrade pip</li>
+<li>pip install uvloop</li>
+<li>gunicron -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0</li>
 </ul>
 </blockquote>
 
@@ -15045,26 +14759,7 @@ Run &quot;sudo yum update&quot; to apply all updates.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<pre><code>[
-  {
-   &quot;AllowedHeaders&quot;: [
-     &quot;*&quot;
-   ],
-   &quot;AllowedMethods&quot;: [
-     &quot;GET&quot;, 
-     &quot;PUT&quot;, 
-     &quot;POST&quot;, 
-     &quot;DELETE&quot;
-   ],
-   &quot;AllowedOrigins&quot;: [
-     &quot;*&quot;
-   ],
-   &quot;ExposeHeaders&quot;: [
-     &quot;Access-Control-Allow-Origin&quot;
-   ]
- }
-]
-</code></pre>
+<img src='https://tse2.mm.bing.net/th?id=OIP.l24lNB97Oy3EIAtjw2kWrwHaBx&pid=Api&P=0' width= 800>
 </blockquote>
 
 </div>
@@ -15078,14 +14773,32 @@ Run &quot;sudo yum update&quot; to apply all updates.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Create-New-User">Create New User<a class="anchor-link" href="#Create-New-User">&#182;</a></h3><ul>
-<li><a href="https://us-east-1.console.aws.amazon.com/iamv2/home?region=ap-northeast-1#/home">IAM</a></li>
-<li>Add Users</li>
-</ul>
-<p>-&gt; django_user(Select AWS credential type: Access key - Programmatic access)<br />
--&gt; <code>Attach existing policies directly</code><br />
--&gt; <code>AmazonS3FullAccess</code><br />
--&gt; Access key ID + Secret access key</p>
+<img src='https://cdn.filestackcontent.com/rJf1U9MTraWZDCJWjQoE' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Docker-Deployment">Docker Deployment<a class="anchor-link" href="#Docker-Deployment">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://blog2opstree.files.wordpress.com/2019/08/blog.png?w=1038&h=476' width=800>
 </blockquote>
 
 </div>
@@ -15099,16 +14812,7 @@ Run &quot;sudo yum update&quot; to apply all updates.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Link-Django-with-AWS3-and-Using-.env-to-Store-the-Scecrte-Variables">Link Django with AWS3 and <strong><a href="https://www.youtube.com/watch?v=YdgIWTYQ69A">Using .env to Store the Scecrte Variables</a></strong><a class="anchor-link" href="#Link-Django-with-AWS3-and-Using-.env-to-Store-the-Scecrte-Variables">&#182;</a></h3><ul>
-<li><code>pip install boto3</code></li>
-<li><code>pip install django-storages</code></li>
-<li><code>pip install python-dotenv</code></li>
-</ul>
-<pre><code>import os    
-from dotenv import load_dotenv   
-load_dotenv()
-os.getenv('ENV_VAR')
-</code></pre>
+<img src='https://blog.johnwu.cc/images/b/32.png' width=800>
 </blockquote>
 
 </div>
@@ -15122,12 +14826,7 @@ os.getenv('ENV_VAR')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<ul>
-<li><code>setup .env</code></li>
-</ul>
-<p>-&gt; AWS_STORAGE_BUCKET_NAME=*******<br />
--&gt; AWS_ACCESS_KEY_ID=********<br />
--&gt; AWS_SECRET_ACCESS_KEY=********</p>
+<img src='https://static1.tothenew.com/blog/wp-content/uploads/2016/11/Screen-Shot-2016-11-25-at-11.15.39-AM.png' width=800>
 </blockquote>
 
 </div>
@@ -15141,33 +14840,7 @@ os.getenv('ENV_VAR')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<ul>
-<li>Go to <code>settings.py</code></li>
-</ul>
-<pre><code>import os    
-from dotenv import load_dotenv   
-load_dotenv()
-os.getenv('ENV_VAR')
-
--&gt; INSTALLED_APPS = `[stroages]`
--&gt; AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')      
--&gt; AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')     
--&gt; AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')   
--&gt; AWS_S3_FILE_OVERWRITE = False
--&gt; AWS_DEFAULT_ACL = None    
--&gt; DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>go to <code>user_app/models.py</code></li>
-</ul>
-<p>-&gt; # can not use below code due to AWS S3 for resizing images</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>upload images to the AWS S3 BUCKET</li>
-</ul>
+<img src='https://hosting.analythium.io/content/images/2021/06/compose-2-1.png' width=800>
 </blockquote>
 
 </div>
@@ -15181,21 +14854,7 @@ os.getenv('ENV_VAR')
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h3 id="Upload-and-Download-files-to-AWS-S3">Upload and Download files to AWS S3<a class="anchor-link" href="#Upload-and-Download-files-to-AWS-S3">&#182;</a></h3><p><a href="https://www.youtube.com/watch?v=K68AtRsNEyo">Reference: Upload and Download files from AWS S3 Bucket using python</a></p>
-</blockquote>
-<blockquote>
-<pre><code># .ENV VARS CONFIG
-load_dotenv()
-aws_bucket_name = os.getenv('AWS_STORAGE_BUCKET_NAME')   
-aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')   
-aws_secret_access_key= os.getenv('AWS_SECRET_ACCESS_KEY')    
-
-# S3 BUCKET CONFIG
-s3 = boto3.resource(&quot;s3&quot;)    
-my_bucket = s3.Bucket(aws_bucket_name)     
-my_bucket.upload_file(Key='index.html', Filename='./index.html')    
-my_bucket.download_file(Key='index.html', Filename='./index.html') 
-</code></pre>
+<img src='https://learn.nashvillesoftwareschool.com/hs-fs/hubfs/Docker%20compose%20flow%20for%20local%20execution.png?width=1250&name=Docker%20compose%20flow%20for%20local%20execution.png' width=800>
 </blockquote>
 
 </div>
@@ -15208,169 +14867,7 @@ my_bucket.download_file(Key='index.html', Filename='./index.html')
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Django-Deployment-Checklist"><a href="https://django.readthedocs.io/en/stable/howto/deployment/checklist.html">Django Deployment Checklist</a><a class="anchor-link" href="#Django-Deployment-Checklist">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Preparation">Preparation<a class="anchor-link" href="#Preparation">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li><code>pip install gunicorn</code></li>
-</ul>
-<p>-&gt; CMD: gunicorn Django_Blog_Project.wsgi:application --bind 127.0.0.1:800</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>pipenv install waitress</li>
-</ul>
-<p>-&gt; CMD: waitress-serve --listen=127.0.0.1:8000 Django_Blog_Project.wsgi:application</p>
-</blockquote>
-<blockquote>
-<ul>
-<li><code>pip install whitenoise</code></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>Procfile</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; web: gunicorn Django_Blog_Project.wsgi --log-file -</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>Create <code>runtime.txt</code> in root directory <code>Django_Blog_Project</code></li>
-</ul>
-<p>-&gt; CMD: python --version<br />
--&gt; put <code>python-3.10.8</code> into <code>runtime.txt</code></p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li><strong>go to <code>settings.py</code></strong></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>-&gt; DEBUG = (os.getenv('DEBUG_VALUE') == 'True')</p>
-</blockquote>
-<blockquote>
-<p>-&gt; ALLOWED_HOSTS = ['*']</p>
-</blockquote>
-<blockquote>
-<p>-&gt; STATIC_ROOT = os.path.join(BADE_DIR, 'staticfiles')<br />
--&gt; python manage.py collectstatic</p>
-</blockquote>
-<blockquote>
-<p>-&gt; MIDDLEWARE = [<br />
-    &quot;django.middleware.security.SecurityMiddleware&quot;,<br />
-    &quot;whitenoise.middleware.WhiteNoiseMiddleware&quot;,<br />
-]</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<ul>
-<li>Create <code>Dockerfile</code></li>
-</ul>
-<pre><code>FROM python:3.10.8-slim-buster
-WORKDIR /app
-COPY ./Django_Blog_Project ./
-
-RUN pip install --upgrade pip --no-cache-dir
-
-RUN pip install -r /app/requirements.txt --no-cache-dir
-
-CMD [&quot;python&quot;, &quot;manage.py&quot;, &quot;runserver&quot;, &quot;127.0.0.1:8000&quot;]
-CMD [&quot;waitress-serve&quot;, &quot;--listen=127.0.0.1:8000&quot;, &quot;Django_Blog_Project.wsgi:application&quot;]
-CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quot;--bind&quot;, &quot;0.0.0.0:8000&quot;]
-</code></pre>
-<p>CMD: docker build -t myimage .</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr />
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="AWS-Cloud">AWS Cloud<a class="anchor-link" href="#AWS-Cloud">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<img src='https://miro.medium.com/max/1400/1*ydRaJipW0PHBvjnqE2MG2A.jpeg' width=800>
-</blockquote>
-
+<h2 id="CICD---GitHub-+-GitHub-Actions-+-Docker-+-AWS">CICD - GitHub + GitHub Actions + Docker + AWS<a class="anchor-link" href="#CICD---GitHub-+-GitHub-Actions-+-Docker-+-AWS">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15396,7 +14893,7 @@ CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quo
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src="https://a-h.io/images/github-actions-hugo-deploy-and-amazon-s3/aws_architecture_github_actions.png" width="640">
+<img src='https://sslprod.oss-cn-shanghai.aliyuncs.com/stable/slides/Kubecon_Shanghai_CICD_Hacks_Canonical/Kubecon_Shanghai_CICD_Hacks_Canonical_1440-14.jpg' width=800>
 </blockquote>
 
 </div>
@@ -15410,7 +14907,7 @@ CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quo
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src='https://www.cmscritic.com/wp-content/themes/cmscritic/img/cloudinary/800x400-solodev-docker-aws_fistt3.jpg' width=800>
+<img src="https://blog.kiprosh.com/content/images/2019/12/github-action.jpg" width=800>
 </blockquote>
 
 </div>
@@ -15424,7 +14921,109 @@ CMD [&quot;gunicorn&quot; &quot;Django_Blog_Project.wsgi:application&quot;, &quo
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src='https://d1.awsstatic.com/partner-network/QuickStart/datasheets/solodev-dcx-on-aws-architecture-diagram.a383c1c3faad8458cde22c7573c023c89bbfb493.png' width=800>
+<img src='https://miro.medium.com/max/1400/1*ydRaJipW0PHBvjnqE2MG2A.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://s3.amazonaws.com/media-p.slid.es/uploads/560276/images/2976770/Image_72.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://www.opsmx.com/blog/wp-content/uploads/2021/02/CICD-Pipeline-e1613664546213.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://pic1.zhimg.com/v2-7c68c92717cff53534285f3725ee5150_b.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://d2908q01vomqb2.cloudfront.net/fe2ef495a1152561572949784c16bf23abb28057/2020/12/18/EKS_Docker_Hub.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://d2908q01vomqb2.cloudfront.net/fe2ef495a1152561572949784c16bf23abb28057/2020/12/18/EKS_Docker_Hub.jpeg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Ubuntu">Ubuntu<a class="anchor-link" href="#Ubuntu">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<p>ubuntu --version<br />
+Installing, this may take a few minutes...<br />
+Please create a default UNIX user account. The username does not need to match your Windows username.<br />
+For more information visit: <a href="https://aka.ms/wslusers">https://aka.ms/wslusers</a><br />
+Enter new UNIX username: ericarthuang<br />
+New password:<br />
+Retype new password:<br />
+passwd: password updated successfully</p>
 </blockquote>
 
 </div>

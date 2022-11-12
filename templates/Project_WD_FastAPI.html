@@ -14605,7 +14605,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Create-A-New-GitHub-Repository">Create A New GitHub Repository<a class="anchor-link" href="#Create-A-New-GitHub-Repository">&#182;</a></h2><blockquote>
-<p><a href="https://github.com/ericarthuang/Copy_Learning_FastAPI">GitHub Repository</a></p>
+<p><a href="https://github.com/ericarthuang/CS_WD_PythonFastAPI">GitHub Repository</a></p>
 </blockquote>
 
 </div>
@@ -14634,8 +14634,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Setup-Project-FastAPI">Setup Project FastAPI<a class="anchor-link" href="#Setup-Project-FastAPI">&#182;</a></h2><blockquote>
-<p>pip install fastapi</p>
-<p><em>from fastapi import FastAPI</em></p>
+<ul>
+<li>pip install fastapi</li>
+</ul>
+<p>-&gt;<em>from fastapi import FastAPI</em></p>
 </blockquote>
 <blockquote>
 <ul>
@@ -14678,30 +14680,8 @@ os.getenv('ENV_VAR')
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Connecting-to-Postgres">Connecting to Postgres<a class="anchor-link" href="#Connecting-to-Postgres">&#182;</a></h2><blockquote>
 <ul>
-<li>DataBase: Postgres;</li>
-<li>model: sqlalchemy;</li>
-<li>schema: Pydantic</li>
+<li>pip install psycopg2</li>
 </ul>
-</blockquote>
-<blockquote>
-<p>pip install psycopg2<br />
-pip install sqlalchemy</p>
-</blockquote>
-<blockquote>
-<p><em>import psycopg2</em>
-conn = psycopg2.connect(&quot;dbname=test user=postgres&quot;)<br />
-cur = conn.cursor()</p>
-</blockquote>
-<blockquote>
-<p>from sqlalchemy import create_engine # connect to database<br />
-from sqlalchemy.ext.declarative import declarative_base<br />
-from sqlalchemy.orm import sessionmaker<br />
-<code>SQLALCHEMY_DATABASE_URL = &quot;postgresql://&lt;username&gt;:&lt;password&gt;@&lt;ip-address/hostname:port&gt;/&lt;database_name&gt;&quot;</code></p>
-</blockquote>
-<blockquote>
-<p>from pydantic import BaseModel
-from typing import Optional
-from pydantic import EmailStr</p>
 </blockquote>
 
 </div>
@@ -14714,12 +14694,153 @@ from pydantic import EmailStr</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Hah-password">Hah password<a class="anchor-link" href="#Hah-password">&#182;</a></h2><blockquote>
-<p><code>pip install passlib[bcrypt]</code></p>
-<pre><code>from passlib.context import CryptContext
-pwd_context = CryptContext(schem=s=[&quot;bcrypt&quot;], deprecated=&quot;auto&quot;)
-user.password = pwd_context.hash(user.password)
+<blockquote>
+<p>-&gt; import psycopg2</p>
+<ul>
+<li>Connect to an existing database</li>
+</ul>
+<p>-&gt; conn = psycopg2.connect(&quot;dbname=test user=postgres&quot;)</p>
+<ul>
+<li>Open a cursor to perform database operations</li>
+</ul>
+<p>-&gt; cur = conn.cursor()</p>
+<ul>
+<li>Execute a command: this creates a new table</li>
+</ul>
+<p>-&gt; cur.execute(&quot;CREATE TABLE test (id serial PRIMARY KEY, num integer, data varchar);&quot;)</p>
+<ul>
+<li>Pass data to fill a query placeholders and let Psycopg perform</li>
+</ul>
+<p>-&gt; cur.execute(&quot;INSERT INTO test (num, data) VALUES (%s, %s)&quot;, (100, &quot;abc'def&quot;))</p>
+<ul>
+<li>Query the database and obtain data as Python objects</li>
+</ul>
+<p>-&gt; cur.execute(&quot;SELECT * FROM test;&quot;)<br />
+-&gt; cur.fetchone()<br />
+-&gt; (1, 100, &quot;abc'def&quot;)</p>
+<ul>
+<li>Make the changes to the database persistent</li>
+</ul>
+<p>-&gt; conn.commit()</p>
+<ul>
+<li>Close communication with the database</li>
+</ul>
+<p>-&gt; cur.close()<br />
+-&gt; conn.close()</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="model:-SQLALCHEMY">model: SQLALCHEMY<a class="anchor-link" href="#model:-SQLALCHEMY">&#182;</a></h2><blockquote>
+<ul>
+<li>pip install sqlalchemy</li>
+<li>setup database.py in app folder</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>-&gt; from sqlalchemy import create_engine # connect to database<br />
+-&gt; from sqlalchemy.ext.declarative import declarative_base<br />
+-&gt; from sqlalchemy.orm import sessionmaker</p>
+<pre><code>DATABASE_HOSTNAME=localhost    
+DATABASE_PORT=5433    
+DATABASE_NAME=fastapi    
+DATABASE_USERNAME=postgres    
+
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+Base = declarative_base()
+SessionLocal = sessionmaker(autocommit=False, 
+autoflush=False, bind=engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close() 
 </code></pre>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h5 id="create-table">create table<a class="anchor-link" href="#create-table">&#182;</a></h5><ul>
+<li>setup models.py in the app folder</li>
+</ul>
+<p>-&gt; from sqlalchemy import Column
+-&gt; from .database import Base</p>
+<ul>
+<li><p>setup class Post(Base) in models.py</p>
+</li>
+<li><p>To main.py</p>
+</li>
+</ul>
+<p>-&gt; from . import models
+-&gt; from .database import engine</p>
+<p>-models.Base.metadata.create_all(bind=engine)</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="schema:-Pydantic">schema: Pydantic<a class="anchor-link" href="#schema:-Pydantic">&#182;</a></h2><blockquote>
+<ul>
+<li>pip install pydantic</li>
+</ul>
+<p>-&gt; from pydantic import BaseModel<br />
+-&gt; from typing import Optional</p>
+<ul>
+<li>setup routers folder in app folder</li>
+<li>setup router in routers folder</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Hashing">Hashing<a class="anchor-link" href="#Hashing">&#182;</a></h2><blockquote>
+<ul>
+<li>User Model, Schema</li>
+</ul>
+<p>-&gt; from pydantic import EmailStr</p>
+</blockquote>
+<h2 id="Hah-password">Hah password<a class="anchor-link" href="#Hah-password">&#182;</a></h2><blockquote>
+<ul>
+<li><code>pip install passlib[bcrypt]</code></li>
+</ul>
+<p>-&gt; setup utils.py in app folder<br />
+-&gt; from passlib.context import CryptContext<br />
+-&gt; def hash(password: str):<br />
+-&gt; def verify(plain_password, hashed_password):</p>
 </blockquote>
 
 </div>
@@ -14733,22 +14854,76 @@ user.password = pwd_context.hash(user.password)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Creating-Token">Creating Token<a class="anchor-link" href="#Creating-Token">&#182;</a></h2><blockquote>
-<p><code>pip install python-jose[cryptography]</code></p>
 <ul>
-<li>SECRET_KEY</li>
-<li>Algorithm</li>
+<li><code>pip install python-jose[cryptography]</code></li>
+<li>create oauth2.py in app folder</li>
 </ul>
-<p>-Expriation time</p>
+<p>-&gt; from jose import jwt, JWTError<br />
+-&gt; from datetime import datetime, timedelta<br />
+-&gt; from . import schemas<br />
+-&gt; from fastapi import Depends, status, HTTPException<br />
+-&gt; from fastapi.security import OAuth2PasswordBearer<br />
+-&gt; oauth2_scheme = Oauth2PasswordBearer(tokenUrl='login')</p>
 </blockquote>
-<blockquote>
-<p>from fastapi.security import OAuth2PasswordBearer<br />
-from fastapi.security.oauth2 import OAU2PasswordBearer<br />
-import oauth2</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Joins-in-SqlAlchemy">Joins in SqlAlchemy<a class="anchor-link" href="#Joins-in-SqlAlchemy">&#182;</a></h3><blockquote>
+<ul>
+<li>in post.py</li>
+</ul>
+<p>-&gt; from sqlalchemy import func</p>
 </blockquote>
-<blockquote>
-<pre><code>oauth2_scheme = Oauth2PasswordBearer(tokenUrl='login')
-setup def create_access_token(data: dict)
-setup def verify_access_token(token: str, credentials_exception)
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Database-migration-tool---alembic">Database migration tool - alembic<a class="anchor-link" href="#Database-migration-tool---alembic">&#182;</a></h3><blockquote>
+<ul>
+<li>pip install alembic</li>
+<li>alembic init alembic</li>
+<li>creat alembic folder &amp; alembic.ini</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="CORS-Policy">CORS Policy<a class="anchor-link" href="#CORS-Policy">&#182;</a></h3><blockquote>
+<ul>
+<li>in main.py</li>
+</ul>
+<p>-&gt; from fastapi.middleware.cors import CORSMiddleware</p>
+<pre><code>origins = [&quot;*&quot;]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=[&quot;*&quot;],
+    allow_headers=[&quot;*&quot;],
+)
 </code></pre>
 </blockquote>
 
@@ -14762,7 +14937,8 @@ setup def verify_access_token(token: str, credentials_exception)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="database-migration-tool---alembic">database migration tool - alembic<a class="anchor-link" href="#database-migration-tool---alembic">&#182;</a></h2>
+<hr />
+
 </div>
 </div>
 </div>
@@ -14773,145 +14949,311 @@ setup def verify_access_token(token: str, credentials_exception)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<pre><code>===============================================
-database migration tool - alembic
-
-pip install alembic
-
-alembic init alembic =&gt; creat alembic folder &amp; alembic.ini
-
-# go to  alembic folder in env.py
-from app.models import Base
-from app.config import settings
-
-config.set_main_option(&quot;sqlalchemy.url&quot;, f'postgresql+psycopg2://{settings.database_username}:
-database_password}@{settings.database_hostname}:
-{settings.database_port}/{settings.database_name}')
-
-target_metadata = Base.metadata
-
-# in alembic.ini
-
-# sqlalchemy.url = 
-
-alembic revision -m &quot;create posts table&quot;
-Generating e:\CS54\Python_FastAPI_All\Python_FastAPI\alembic\versions\7506d4c94b6c_create_post
-c94b6c_create_posts_table.py ...  done
-
-
-in 7506d4c94b6c_create_posts_table.c94b6c_create_posts_table.py
-
-def upgrade() -&gt; None:
-    op.create_table(
-        'posts', 
-        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
-        sa.Column('title', sa.String(), nullable=False),
-    )
-
-def downgrade() -&gt; None:
-    op.drop_table('posts')
-
-alembic upgrade 7506d4c94b6c
-===============================================
-
-alembic revision -m &quot;add content column to the posts table&quot;
-
-
-FastAPI_All\Python_FastAPI\alembic\versions\cfbd170bf84f_add_content_column_to_the_posts_table
-
-in cfbd170bf84f_add_content_column_to_the_posts_table.py
-
-
-def upgrade() -&gt; None:
-    op.add_column(
-        &quot;posts&quot;,
-        sa.Column('content', sa.String(), nullable=False),
-
-    )
-
-def downgrade() -&gt; None:
-    op.drop_column(
-        'posts',
-        'content',
-    )
-
-alembic upgrade cfbd170bf84f
-alembic downgrade 7506d4c94b6c
-===============================================
-
-in 28a823bcbe44_create_user_table.py
-
-def upgrade() -&gt; None:
-    op.create_table(
-        'users',
-        sa.Column('id', sa.Integer(), nullable=False),
-        sa.Column('email', sa.String(), nullable=False
-        sa.Column('password', sa.String(), nullable=Fa
-        sa.Column('created_at', 
-            sa.TIMESTAMP(timezone=True),
-            server_default=sa.text('now()'),
-            nullable=False,
-        ),
-        sa.PrimaryKeyConstraint('id'),
-        sa.UniqueConstraint('email'),
-    )
-
-
-def downgrade() -&gt; None:
-    op.drop_table('users')
-
-alembic upgrade 28a823bcbe44
-===============================================
-# alembic revision -m &quot;add foreign-key to posts table&quot;
-
-Generating 
-e:\CS54\Python_FastAPI_All\Python_FastAPI\alembic\versions\142648192936_add_foreign_key_to_pos
-
-def upgrade() -&gt; None:
-    op.add_column(
-        'posts',
-        sa.Column(
-            'owner_id', 
-            sa.Integer(),
-            nullable=False,
-        )
-    )
-    op.create_foreign_key(
-        'posts_users_fk',
-        source_table='posts',
-        referent_table=&quot;users&quot;,
-        local_cols=['owner_id'], remote_cols=['id'],
-        ondelete=&quot;CASCADE&quot;,
-    )
-
-
-def downgrade() -&gt; None:
-    op.drop_constraint('posts_users_fk', table_name='posts')
-    op.drop_column('posts', 'owner_id')
-
-alembic upgrade head
-================================================
-</code></pre>
-
+<h1 id="Deployment">Deployment<a class="anchor-link" href="#Deployment">&#182;</a></h1>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">--</span> <span class="n">Memo</span> <span class="n">End</span> <span class="o">--</span>
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Push-to-Github-Repository">Push to Github Repository<a class="anchor-link" href="#Push-to-Github-Repository">&#182;</a></h2><blockquote>
+<ul>
+<li>pip freeze &gt; requirements.txt</li>
+<li>pip install -r requirements.txt(for others)</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>-&gt; git init   
+-&gt; git config --global user.email &quot;you@example.com&quot;   
+-&gt; git config --global user.name &quot;your name&quot;     
+-&gt; git add --all
+-&gt; git commit -m &quot;initial commit&quot;
+-&gt; git branch -M main
+-&gt; git remote add origin `https://github.com/ericarthuang/CS_WD_PythonFastAPI.git`
+-&gt; git push -u origin main
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>How to fix ‘fatal: remote origin already exists</li>
+</ul>
+<p>-&gt; git remote -v
+-&gt; git remote remove &quot;name&quot;</p>
+</blockquote>
 
-     </div>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Heroku-Deploy">Heroku Deploy<a class="anchor-link" href="#Heroku-Deploy">&#182;</a></h2><blockquote>
+<p>-setup Procfile<br />
+-&gt; web: uvicorn app.main:app --host=0.0.0.0 --port=${PORT:-5000}</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Heroku Postgres</li>
+<li>Adding a Postgres database in Terminal</li>
+</ul>
+<p>heroku addons:create heroku-postgresql:&lt;PLAN_NAME&gt;</p>
+</blockquote>
+<blockquote>
+<p><code>heroku --version</code><br />
+<code>heroku login</code><br />
+<code>heroku create [name of app]</code></p>
+</blockquote>
+<blockquote>
+<p><code>git remote -v</code>
+<code>git push heroku main</code></p>
+</blockquote>
 
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Gunicorn">Gunicorn<a class="anchor-link" href="#Gunicorn">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<ul>
+<li>pip install gunicron</li>
+<li>pip install httptools</li>
+<li>python.exe -m pip install --upgrade pip</li>
+<li>pip install uvloop</li>
+<li>gunicron -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://cdn.filestackcontent.com/rJf1U9MTraWZDCJWjQoE' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://tse2.mm.bing.net/th?id=OIP.l24lNB97Oy3EIAtjw2kWrwHaBx&pid=Api&P=0' width= 800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Nginx---Webserver:-Act-as-Proxy-/-Handle-SSL-Ternimation">Nginx - Webserver: Act as Proxy / Handle SSL Ternimation<a class="anchor-link" href="#Nginx---Webserver:-Act-as-Proxy-/-Handle-SSL-Ternimation">&#182;</a></h2><blockquote>
+<img src='https://miro.medium.com/max/1104/0*m_Rey9rU_HIi674J.jpg' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://miro.medium.com/max/1193/1*jIPnYxBXXvEK8OptRqj7Cw.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://cdn-1.wp.nginx.com/wp-content/uploads/2018/04/NGINX-Unit-WordPress-3-tier-architecture.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://tse2.mm.bing.net/th?id=OIP.oZe7Q1aXOlVxIvJ75qcLxgHaEV&pid=Api&P=0" width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Docker">Docker<a class="anchor-link" href="#Docker">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://blog.johnwu.cc/images/b/32.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src='https://learn.nashvillesoftwareschool.com/hs-fs/hubfs/Docker%20compose%20flow%20for%20local%20execution.png?width=1250&name=Docker%20compose%20flow%20for%20local%20execution.png' width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Creaate-Dockerfile">- Creaate Dockerfile<a class="anchor-link" href="#--Creaate-Dockerfile">&#182;</a></h3><p>-&gt; CMD: docker build -t fastapi .</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="--Creaate-docker-compose">- Creaate docker-compose<a class="anchor-link" href="#--Creaate-docker-compose">&#182;</a></h3><pre><code>
+-&gt; CMD: docker-compose up -d
+-&gt; CMD: docker-compose down
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create docker-compose-prod.yml</li>
+<li>Change docker-compose.yml to docker-compose-dev.yml</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>CMD: docker-compose -f docker-compose-dev up -d</li>
+<li>CMD: docker-compose -f docker-compose-dev down</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="CI/CD-Config---Github-Actions">CI/CD Config - Github Actions<a class="anchor-link" href="#CI/CD-Config---Github-Actions">&#182;</a></h3><blockquote>
+<ul>
+<li>Create <code>.github/workflows</code> in root directory</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Create <code>bulid-deploy.yml</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Link <code>GitHub Actions</code> with <code>Docker Hub Repository</code></li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>-- Memo End --</p>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 
