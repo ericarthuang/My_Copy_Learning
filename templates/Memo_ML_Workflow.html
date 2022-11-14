@@ -14671,21 +14671,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h3 id="Supervised-Learning-Thinking">Supervised Learning Thinking<a class="anchor-link" href="#Supervised-Learning-Thinking">&#182;</a></h3><img src="https://raw.githubusercontent.com/rasbt/pattern_classification/master/Images/supervised_learning_flowchart.png" width="640">
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Workflow-1.-Downloading-Data">Workflow 1. Downloading Data<a class="anchor-link" href="#Workflow-1.-Downloading-Data">&#182;</a></h2><blockquote>
+<h2 id="Workflow-1.-Access-and-load-Data">Workflow 1. Access and load Data<a class="anchor-link" href="#Workflow-1.-Access-and-load-Data">&#182;</a></h2><blockquote>
 <p><strong><code>import opendatasets as od</code></strong><br />
    -&gt;<em>od.download(dataset_url)</em></p>
 <p><strong><code>from urllib.request import urlretrieve</code></strong><br />
@@ -14707,7 +14693,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Workflow-2.-Exploratory-Analysis-and-Visualization--%3E-Design-Thinking">Workflow 2. Exploratory Analysis and Visualization -&gt; Design Thinking<a class="anchor-link" href="#Workflow-2.-Exploratory-Analysis-and-Visualization--%3E-Design-Thinking">&#182;</a></h2>
+<h2 id="Workflow-2.-Proprecess-the-Data--%3E-Design-Thinking">Workflow 2. Proprecess the Data -&gt; Design Thinking<a class="anchor-link" href="#Workflow-2.-Proprecess-the-Data--%3E-Design-Thinking">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14719,7 +14705,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h4 id="2.1-Exploratory-Analysis">2.1 Exploratory Analysis<a class="anchor-link" href="#2.1-Exploratory-Analysis">&#182;</a></h4><p><strong><code>import numpy as np</code></strong><br />
+<h3 id="2.1-Exploratory-Analysis">2.1 Exploratory Analysis<a class="anchor-link" href="#2.1-Exploratory-Analysis">&#182;</a></h3><p><strong><code>import numpy as np</code></strong><br />
    -&gt; <em>np.arange()</em><br />
    -&gt; <em>np.mean()</em></p>
 <p><strong><code>import pandas as pd</code></strong><br />
@@ -14737,7 +14723,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <blockquote>
 <img src="https://i.imgur.com/3XUpDlw.png" width="360">
 </blockquote>
-<h4 id="2.2-Visualization">2.2 Visualization<a class="anchor-link" href="#2.2-Visualization">&#182;</a></h4><p><strong><code>import matplotlib.pyplot as plt</code></strong><br />
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="2.2-Visualization">2.2 Visualization<a class="anchor-link" href="#2.2-Visualization">&#182;</a></h3><p><strong><code>import matplotlib.pyplot as plt</code></strong><br />
 <strong><code>import seaborn as sn</code></strong><br />
 <strong><code>import plotly.express as px</code></strong></p>
 </blockquote>
@@ -14752,11 +14751,33 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Workflow-3.-Preprocessing-and-Feature-Engineering">Workflow 3. Preprocessing and Feature Engineering<a class="anchor-link" href="#Workflow-3.-Preprocessing-and-Feature-Engineering">&#182;</a></h2><blockquote>
+<blockquote>
+<h3 id="2.3-Imputing-Missing-Numeric-Data">2.3 Imputing Missing Numeric Data<a class="anchor-link" href="#2.3-Imputing-Missing-Numeric-Data">&#182;</a></h3><ul>
+<li><p><strong><code>pandas -&gt; pd.DataFrame -&gt; df</code></strong><br />
+ -&gt; <em>df.to_datetime()</em><br />
+ -&gt; <em>df.fillna()</em><br />
+ -&gt; <em>df.dropna(subset=[])</em></p>
+</li>
+<li><p><strong><code>from sklearn.impute import SimpleImputer</code></strong></p>
+</li>
+</ul>
+<img src="https://i.imgur.com/W7cfyOp.png" width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Workflow-3.-Drive-Features-Using-the-Processed-Data">Workflow 3. Drive Features Using the Processed Data<a class="anchor-link" href="#Workflow-3.-Drive-Features-Using-the-Processed-Data">&#182;</a></h2><blockquote>
 <ul>
-<li><code>Missing values</code>: <strong><code>SimpleImputer</code></strong></li>
-<li><code>Numerical features</code>: <strong><code>StandardScaler or MinMaxScaler</code></strong></li>
-<li><code>Categorical features</code> <strong><code>OneHotEncoder</code></strong></li>
+<li><code>Numerical features</code>: StandardScaler or MinMaxScaler</li>
+<li><code>Categorical features</code> OneHotEncoder</li>
 <li><strong><code>Using Power BI to Prepare the Data</code></strong></li>
 </ul>
 </blockquote>
@@ -14772,33 +14793,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h4 id="Imputing-Missing-Numeric-Data">Imputing Missing Numeric Data<a class="anchor-link" href="#Imputing-Missing-Numeric-Data">&#182;</a></h4><p><strong><code>pandas -&gt; pd.DataFrame -&gt; df</code></strong></p>
-</blockquote>
-<pre><code>-&gt; *df.to_datetime()*   
--&gt; *df.fillna()*  
--&gt; *df.dropna(subset=[])*  
-</code></pre>
-<blockquote>
-<p><strong><code>from sklearn.impute import SimpleImputer</code></strong></p>
-<img src="https://i.imgur.com/W7cfyOp.png" width="640">
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h4 id="Scaling">Scaling<a class="anchor-link" href="#Scaling">&#182;</a></h4><p><strong><code>from sklearn.preprocessing import StandardScaler</code></strong><br />
+<h3 id="Numerical-features">Numerical features<a class="anchor-link" href="#Numerical-features">&#182;</a></h3><ul>
+<li>StandardScaler</li>
+</ul>
+<p><strong><code>from sklearn.preprocessing import StandardScaler</code></strong><br />
  -&gt; <em>df=StandardScaler().fit_transform(df)</em></p>
-<img src="https://i.stack.imgur.com/obywE.png" width="640">       
-**`from sklearn.preprocessing import MinMaxScaler`**          
- -> *df=MinMaxScaler().fit_transform(df)*        
+<img src="https://i.stack.imgur.com/obywE.png" width="640">
+</blockquote>
+<blockquote>
+<ul>
+<li>MinMaxScaler</li>
+</ul>
+<p><strong><code>from sklearn.preprocessing import MinMaxScaler</code></strong><br />
+ -&gt; <em>df=MinMaxScaler().fit_transform(df)</em></p>
 <img src="https://tse3.mm.bing.net/th?id=OIP.QjZVCDwW1TMFTWF3rubemQHaE8&pid=Api&P=0" width="640">
 </blockquote>
 
@@ -14813,7 +14820,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h4 id="Categorical-Features">Categorical Features<a class="anchor-link" href="#Categorical-Features">&#182;</a></h4><p><strong><code>df.map({})</code></strong><br />
+<h3 id="Categorical-Features">Categorical Features<a class="anchor-link" href="#Categorical-Features">&#182;</a></h3><p><strong><code>df.map({})</code></strong><br />
 <strong><code>from sklearn.preprocessing import OneHotEncoder</code></strong><br />
 One hot encoding involves adding a new binary (0/1) column for each unique category of a categorical column.</p>
 <img src="https://i.imgur.com/n8GuiOO.png" width="640">
@@ -14833,7 +14840,7 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Workflow-4.-Building-Model-and-Training">Workflow 4. Building Model and Training<a class="anchor-link" href="#Workflow-4.-Building-Model-and-Training">&#182;</a></h2>
+<h2 id="Workflow-4.-Model-Selection-and-Training">Workflow 4. Model Selection and Training<a class="anchor-link" href="#Workflow-4.-Model-Selection-and-Training">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14845,8 +14852,8 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<p>Scikit-learn offers the following cheatsheet to decide which model to pick for a given problem. 
-<img src="https://scikit-learn.org/stable/_static/ml_map.png" alt="" /></p>
+<h3 id="4.1-Model-Selection">4.1 Model Selection<a class="anchor-link" href="#4.1-Model-Selection">&#182;</a></h3><p><strong>Scikit-learn offers the following cheatsheet to decide which model to pick for a given problem</strong></p>
+<img src="https://scikit-learn.org/stable/_static/ml_map.png" width=800>
 </blockquote>
 
 </div>
@@ -14901,35 +14908,8 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Workflow-5.-Evaluating-Model">Workflow 5. Evaluating Model<a class="anchor-link" href="#Workflow-5.-Evaluating-Model">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Evaluating-Model---Train-Test-Split">Evaluating Model - Train Test Split<a class="anchor-link" href="#Evaluating-Model---Train-Test-Split">&#182;</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<p><strong><code>from sklearn.model_selection import train_test_split</code></strong></p>
-</blockquote>
-<pre><code>-&gt; *X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=20, random_state=42)*    
-</code></pre>
-<blockquote>
-<img src="https://tse1.mm.bing.net/th?id=OIP.0rMhZMRSlEYnXEmvEW0SpgHaE9&pid=Api&P=0" width="640">
+<img src="https://raw.githubusercontent.com/rasbt/pattern_classification/master/Images/supervised_learning_flowchart.png" width="640">
 </blockquote>
 
 </div>
@@ -14942,7 +14922,66 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Evaluating-Model---K-Fold-Cross-Validation">Evaluating Model - K Fold Cross Validation<a class="anchor-link" href="#Evaluating-Model---K-Fold-Cross-Validation">&#182;</a></h4>
+<blockquote>
+<h3 id="4.2-Training">4.2 Training<a class="anchor-link" href="#4.2-Training">&#182;</a></h3><p><strong><code>from sklearn.model_selection import train_test_split</code></strong><br />
+   -&gt; <em>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=20, random_state=42)</em></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://tse1.mm.bing.net/th?id=OIP.LGwQY8yHbqDcVQ3RWD826QHaCk&pid=Api&P=0" width="640">
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<img src="https://tse4.mm.bing.net/th?id=OIP.CLd06qrbrtX7A-w5xRW5EQHaD3&pid=Api&P=0" width="640">
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Workflow-5.-Evaluating-Model">Workflow 5. Evaluating Model<a class="anchor-link" href="#Workflow-5.-Evaluating-Model">&#182;</a></h2><blockquote>
+<img src="https://static.packt-cdn.com/products/9781788479042/graphics/7bfa3d4d-e715-4306-9335-0b5f8b72924d.png" width=800>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h3 id="Evaluating-Model---K-Fold-Cross-Validation">Evaluating Model - K Fold Cross Validation<a class="anchor-link" href="#Evaluating-Model---K-Fold-Cross-Validation">&#182;</a></h3></blockquote>
+
 </div>
 </div>
 </div>
@@ -14961,7 +15000,7 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 -&gt;     *y_train, y_val = y.iloc[train_index], y.iloc[val_index]*    
 </code></pre>
 <blockquote>
-<img src="https://ds100.org/sp18/assets/lectures/lec19/code/images/train_test_split.png" width="640">
+<img src="https://ds100.org/sp18/assets/lectures/lec19/code/images/train_test_split.png" width=800>
 </blockquote>
 
 </div>
@@ -14974,7 +15013,9 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Evaluating-Model---Score">Evaluating Model - Score<a class="anchor-link" href="#Evaluating-Model---Score">&#182;</a></h4>
+<blockquote>
+<h3 id="Evaluating-Model---Score">Evaluating Model - Score<a class="anchor-link" href="#Evaluating-Model---Score">&#182;</a></h3></blockquote>
+
 </div>
 </div>
 </div>
@@ -15001,7 +15042,9 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Evaluating-Model---confusion_matrix---Sensitivity-and-Specificity">Evaluating Model - confusion_matrix - Sensitivity and Specificity<a class="anchor-link" href="#Evaluating-Model---confusion_matrix---Sensitivity-and-Specificity">&#182;</a></h4>
+<blockquote>
+<h3 id="Evaluating-Model---confusion_matrix---Sensitivity-and-Specificity">Evaluating Model - confusion_matrix - Sensitivity and Specificity<a class="anchor-link" href="#Evaluating-Model---confusion_matrix---Sensitivity-and-Specificity">&#182;</a></h3></blockquote>
+
 </div>
 </div>
 </div>
@@ -15043,7 +15086,15 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Evaluating-Model---Loss/Cost">Evaluating Model - Loss/Cost<a class="anchor-link" href="#Evaluating-Model---Loss/Cost">&#182;</a></h4>
+<blockquote>
+<h3 id="Evaluating-Model---Loss/Cost:-Overfitting-/-Underfitting-in-Error-Function">Evaluating Model - Loss/Cost: Overfitting / Underfitting in Error Function<a class="anchor-link" href="#Evaluating-Model---Loss/Cost:-Overfitting-/-Underfitting-in-Error-Function">&#182;</a></h3><p>-&gt; <em>model = DecisionTreeClassifier(max_depth=3, random_state=42).fit(inputs, targets)</em><br />
+-&gt; <em>model = DecisionTreeClassifier(max_leaf_nodes=128, random_state=42).fit(inputs, targets)</em><br />
+-&gt; <em>Error_train = 1 - model.score(inputs_train, targets_train)</em><br />
+-&gt; <em>Error_test = 1 - model.score(inputs_test, targets_test)</em></p>
+<img src="https://cdn-images-1.medium.com/max/1600/1*6vPGzBNppqMHllg1o_se8Q.png" width=640>     
+<img src="https://i.imgur.com/EJCrSZw.png" width=640>
+</blockquote>
+
 </div>
 </div>
 </div>
@@ -15055,7 +15106,21 @@ One hot encoding involves adding a new binary (0/1) column for each unique categ
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<h5 id="Regression-Problems">Regression Problems<a class="anchor-link" href="#Regression-Problems">&#182;</a></h5><p><strong><code>RMSE</code></strong><br />
+<h3 id="Evaluating-Model---Loss/Cost:-Bias-vs.-Variance-in-Error-Function">Evaluating Model - Loss/Cost: Bias vs. Variance in Error Function<a class="anchor-link" href="#Evaluating-Model---Loss/Cost:-Bias-vs.-Variance-in-Error-Function">&#182;</a></h3><img src="https://media.geeksforgeeks.org/wp-content/uploads/20200305125204/variance-bias-plot.jpg" width=640>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<h4 id="Regression-Problems">Regression Problems<a class="anchor-link" href="#Regression-Problems">&#182;</a></h4><p><strong><code>RMSE</code></strong><br />
   -&gt; <em><code>np.sqrt(np.mean(np.square(targets - predictions)))</code></em><br />
   -&gt; <strong><code>from sklearn.metrics import mean_squared_error</code></strong><br />
   -&gt; <em><code>mean_squared_error(targets, predictions, squared=False)</code></em></p>
@@ -15064,7 +15129,7 @@ Geometrically, the residuals can be visualized as follows:
 <img src="https://i.imgur.com/ll3NL80.png" width="640">
 </blockquote>
 <blockquote>
-<h5 id="Classification-Problems">Classification Problems<a class="anchor-link" href="#Classification-Problems">&#182;</a></h5><p><strong><code>cross entropy loss function</code></strong></p>
+<h4 id="Classification-Problems">Classification Problems<a class="anchor-link" href="#Classification-Problems">&#182;</a></h4><p><strong><code>cross entropy loss function</code></strong></p>
 <img src="https://i.imgur.com/YMaMo5D.png" width="640">   
 <img src="https://gombru.github.io/assets/cross_entropy_loss/intro.png" width="640">
 </blockquote>
@@ -15094,70 +15159,23 @@ Geometrically, the residuals can be visualized as follows:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Evaluating-Model---Overfitting-and-Hyperparameter-Tuning">Evaluating Model - Overfitting and Hyperparameter Tuning<a class="anchor-link" href="#Evaluating-Model---Overfitting-and-Hyperparameter-Tuning">&#182;</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src="https://cdn-images-1.medium.com/max/1600/1*6vPGzBNppqMHllg1o_se8Q.png" width="640">
-</blockquote>
-<blockquote>
-<p>-&gt; <em>model = DecisionTreeClassifier(max_depth=3, random_state=42).fit(inputs, targets)</em><br />
--&gt; <em>model = DecisionTreeClassifier(max_leaf_nodes=128, random_state=42).fit(inputs, targets)</em><br />
--&gt; <em>Error_train = 1 - model.score(inputs_train, targets_train)</em><br />
--&gt; <em>Error_test = 1 - model.score(inputs_test, targets_test)</em></p>
-<img src="https://i.imgur.com/EJCrSZw.png" width="480">
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<blockquote>
-<h2 id="Gradient-Boosting">Gradient Boosting<a class="anchor-link" href="#Gradient-Boosting">&#182;</a></h2><p><em>The term &quot;gradient&quot; refers to the fact that each decision tree is trained with the purpose of reducing the loss from the previous iteration (similar to gradient descent). The term &quot;boosting&quot; refers the general technique of training new models to improve the results of an existing model.</em></p>
+<h3 id="Gradient-Boosting">Gradient Boosting<a class="anchor-link" href="#Gradient-Boosting">&#182;</a></h3><p><em>The term &quot;gradient&quot; refers to the fact that each decision tree is trained with the purpose of reducing the loss from the previous iteration (similar to gradient descent). The term &quot;boosting&quot; refers the general technique of training new models to improve the results of an existing model.</em></p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=3CC4N4z3GJc&amp;list=PLblh5JKOoLUJjeXUvUE0maghNuY2_5fY6">Video Tutorials on StatQuest</a></li>
 </ul>
-<img src="https://miro.medium.com/max/497/1*FN33ZRy7W55Rak87lBxucg.png" width="640">
-<p><img src="https://miro.medium.com/max/560/1*85QHtH-49U7ozPpmA5cAaw.png" alt="" /></p>
 </blockquote>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Evaluating-Model---Bias-vs.-Variance-in-Error-Function">Evaluating Model - Bias vs. Variance in Error Function<a class="anchor-link" href="#Evaluating-Model---Bias-vs.-Variance-in-Error-Function">&#182;</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <blockquote>
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200305125204/variance-bias-plot.jpg" width="640">
+<img src="https://cdn-images-1.medium.com/max/1200/1*8T4HEjzHto_V8PrEFLkd9A.png" width=800>
+</blockquote>
+<blockquote>
+<img src="https://www.researchgate.net/publication/336406716/figure/download/fig1/AS:812821084397570@1570803056883/Flowchart-of-proposed-genetic-based-extreme-gradient-boosting-GXGBoot-Model.png" width=800>
+</blockquote>
+<blockquote>
+<img src="https://miro.medium.com/max/497/1*FN33ZRy7W55Rak87lBxucg.png" width=800>
+</blockquote>
+<blockquote>
+<img src="https://miro.medium.com/max/560/1*85QHtH-49U7ozPpmA5cAaw.png" width=800>
 </blockquote>
 
 </div>
@@ -15188,6 +15206,9 @@ Geometrically, the residuals can be visualized as follows:
 <p><strong><code>import joblib</code></strong><br />
    -&gt; <em>joblib.dump(model, &quot;path/file&quot;)</em><br />
    -&gt; <em>joblib.load(&quot;path/file&quot;)</em></p>
+</blockquote>
+<blockquote>
+<img src="https://www.lightbringercap.com/uploads/7/2/8/8/72888973/ml-model-store-orig_orig.png" width=800>
 </blockquote>
 
 </div>
