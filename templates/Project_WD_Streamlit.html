@@ -14752,7 +14752,7 @@ st.set_page_config(
 # --- Path Settings ---
 current_dir = Path(__file__).parent if &quot;__file__&quot; in locals() else Path.cwd()
 css_file = current_dir / &quot;static&quot; / &quot;style.css&quot;
-resume_file = current_dir / &quot;static&quot; / &quot;resume.pdf&quot;
+autobiography_file = current_dir / &quot;static&quot; / &quot;Autobiography_Resume_JainWha.pdf&quot;
 profile_pic = current_dir / &quot;static&quot; / &quot;family_bythesea.jpg&quot;
 map_pic = current_dir / &quot;static&quot; / &quot;Self-Learning_Map.jpg&quot;
 
@@ -14764,10 +14764,7 @@ DESCRIPTION = &quot;&quot;&quot;
 EMAIL = &quot;ericarthuang2021@gmail.com&quot;
 SOCAIL_MEDIA = {
     &quot;GitHub&quot;: &quot;https://github.com/ericarthuang&quot;,
-    &quot;YouTube&quot;: &quot;https://www.facebook.com/ericarthuang&quot;,
-    &quot;Linkedin&quot;: &quot;https://www.linkedin.com/in/%E5%BB%BA%E6%A8%BA-%E9%BB%83-57a3b4257/&quot;,
     &quot;FB&quot;: &quot;https://www.facebook.com/ericarthuang&quot;,
-    &quot;Twitter&quot;: &quot;https://twitter.com/hungjinhu19&quot;,
 }
 
 
@@ -14778,7 +14775,7 @@ with open(css_file) as f:
         unsafe_allow_html=True,
     )
 
-with open(resume_file, &quot;rb&quot;) as pdf_file:
+with open(autobiography_file, &quot;rb&quot;) as pdf_file:
     PDFbyte = pdf_file.read()
 profile_pic = Image.open(profile_pic)
 
@@ -14796,30 +14793,28 @@ lottie_animation = load_lottieurl(&quot;https://assets2.lottiefiles.com/private_
 st.header(&quot;Copy Learning in Computer Science&quot;)
 
 with st.container():
-    right_column, left_column = st.columns((2, 3))
+    right_column, middle_column, left_column = st.columns((2, 3, 3))
     with right_column:
-        st.image(profile_pic, width=420)
+        st_lottie(
+            lottie_animation, 
+            height=240, 
+            key=&quot;learning&quot;,
+        )  
+    with middle_column:
+        st.image(profile_pic, width=380)
     with left_column:
         st.subheader(f&quot;Hi, I am {NAME} :penguin:&quot;)
         st.write(&quot;I am Passionate about Learning and Sharing.&quot;)
+        # --- Social Link ---
+        for index, (platform, link) in enumerate(SOCAIL_MEDIA.items()):
+            st.write(f&quot;[{platform}]({link})&quot;)
         st.download_button(
-            label=&quot;Download Resume&quot;,
+            label=&quot;Autobiography and Resume&quot;,
             data=PDFbyte,
-            file_name=resume_file.name,
+            file_name=autobiography_file.name,
             mime=&quot;application/octet-stream&quot;,
         )
         st.write(&quot;:e-mail:&quot;, EMAIL)
-        st_lottie(
-            lottie_animation, 
-            height=150, 
-            key=&quot;learning&quot;,
-        )
-
-
-# --- Social Link ---
-cols = st.columns(len(SOCAIL_MEDIA))
-for index, (platform, link) in enumerate(SOCAIL_MEDIA.items()):
-    cols[index].write(f&quot;[{platform}]({link})&quot;)
 
 
 # --- Main Section ---
@@ -14828,9 +14823,9 @@ with st.container():
     st.header(&quot;What I Learn&quot;)
     st.markdown(&quot;[:earth_asia:Welcome to My Copy Learning Website to Find the Memos and Projects](https://ericarthuang.github.io/My_Copy_Learning/)&quot;)
 
-    left_column, right_column = st.columns((1, 2))
+    left_column, right_column = st.columns((2, 3))
     with left_column:
-        st.image(img_learning_map, width =400)
+        st.image(img_learning_map, width=420)
     with right_column:
         st.write(&quot;&quot;&quot;
             - C, C++, Python, Data Structure and Algorithm
@@ -14841,7 +14836,7 @@ with st.container():
             - Database and Cloud: MySQL, Postgres, and AWS
             - CI/CD: Github Version Control, GitHub Actions, and Doccker Deployment
             - Gaming: Pygame
-            - Computer Architecture, Computer Organiztion, Networking, CyberSecurity, and Opeation System
+            - COA, Networking, CyberSecurity, and Opeation System
             &quot;&quot;&quot;
         ) 
 
