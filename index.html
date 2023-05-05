@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,12 @@
     <title>Copy Learning Website</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./static/style.css">
 
 </head>
+
 <body>
     <header class="sticky-top">
         <nav class="navbar navbar-expand-md navbar-dark">
@@ -20,7 +22,7 @@
                 <a href="#copy-learning" class="navbar-brand">
                     <i class="bi bi-book-half h3 me-1"></i><span class="fw-bold h3 me-2">Copy Learning</span>
                 </a>
-                <a href="https://ericarthuang-my-portfolio-website-streamlit-app-lekabj.streamlit.app/" 
+                <a href="https://ericarthuang-my-portfolio-website-streamlit-app-lekabj.streamlit.app/"
                     class="navbar-brand text-bottom fs-6" target="_blank">
                     Portfolio
                 </a>
@@ -36,10 +38,13 @@
                             <a class="nav-link" href="#learning-map">Self-Learning Map</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#memo">Self-Learning Memos</a>
+                            <a class="nav-link" href="#learning-memo">Self-Learning Memos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#project">Self-Learning Projects</a>
+                            <a class="nav-link" href="#learning-project">Self-Learning Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#learning-video">Self-Learning Videos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact</a>
@@ -56,162 +61,718 @@
                 <h1 class="text-primary">Welcome to My Copy Learning Website</h1>
                 <img class="d-block m-auto" src="./static/卡卡西.png" alt="卡卡西" width="300">
             </div>
-        </section>                                                                                   
-        
+        </section> <br></br>
         <section class="container-xl text-center mb-4" id="learning-map">
             <div>
                 <h2 class="text-primary">My Self-Learning Map</h2>
-                <img id="map" class="d-block m-auto" src="./static/Self-Learning_Map.jpg" alt="Self-Learning_Map" width="360">
+                <img id="map" class="d-block m-auto" src="./static/Self-Learning_Map.jpg" alt="Self-Learning_Map"
+                    width="360">
             </div>
         </section>
-        
-        <section class="container-xl text-center mb-4" id="memo">
+        <br></br>
+        <section class="container-xl text-center mb-4" id="learning-memo">
             <h2 class="text-primary">My Self-Learning Memos</h2>
             <div class="row d-block text-center">
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_PL_Cplusplus.pdf' 
+                    href='./templates/Memo_PL_Cplusplus.pdf'
                     role="button" target="_blank">
                     Language C<sup>++</sup>
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_Data_Structure.pdf' 
+                    href='./templates/Memo_Python_OOP_Decorator.pdf' role="button"
+                    target="_blank">
+                    Python_OOP_Decorator
+                </a>
+                <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
+                    href='./templates/Memo_Data_Structure.pdf'
                     role="button" target="_blank">
                     Data Structure
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_Operating_System.pdf' 
+                    href='./templates/Memo_Operating_System.pdf'
                     role="button" target="_blank">
                     Operating System
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_COA.pdf' 
-                    role="button" target="_blank">
+                    href='./templates/Memo_COA.pdf' role="button"
+                    target="_blank">
                     COA
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_Nerwork.pdf' 
-                        role="button" target="_blank">
+                    href='./templates/Memo_Nerwork.pdf' role="button"
+                    target="_blank">
                     Network
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_CyberSecurity_All.pdf' 
+                    href='./templates/Memo_CyberSecurity_All.pdf'
                     role="button" target="_blank">
                     CyberSecurity
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_Machine_Learning.pdf' 
+                    href='./templates/Memo_Machine_Learning.pdf'
                     role="button" target="_blank">
-                    Machine Learning 
+                    Machine Learning
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_DL_Tensorflow.pdf' 
+                    href='./templates/Memo_DL_Tensorflow.pdf'
                     role="button" target="_blank">
-                    Deep Learning
+                    Deep Learning - Tensorflow
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
+                    href='./templates/Memo_DL_Pytorch_Basics-Colaboratory.pdf'
+                    role="button" target="_blank">
+                    Deep Learning - Pytorch
+                </a>
+                <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
+                    href='./templates/Memo_DL_Pytorch Tutorial-Colab.pdf'
+                    role="button" target="_blank">
+                    Deep Learning - Pytorch
+                </a>
+                <a class="btn btn-secondary btn-sm col-3 me-1 my-1"
                     href='./templates/Memo_Natural_Language_Processing.pdf' 
                     role="button" target="_blank">
                     NL Processing
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_DevOps_CICD.pdf' 
+                    href='./templates/Memo_DevOps_CICD.pdf'
                     role="button" target="_blank">
                     DevOps & CI/CD
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_DevOps_GitHub.pdf' 
+                    href='./templates/Memo_DevOps_GitHub.pdf'
                     role="button" target="_blank">
                     DevOps - GitHub
                 </a>
                 <a class="btn btn-secondary btn-sm col-3 me-1 my-1" 
-                    href='./templates/Memo_DevOps_Docker.pdf' 
+                    href='./templates/Memo_DevOps_Docker.pdf'
                     role="button" target="_blank">
                     DevOps - Docker
                 </a>
             </div>
         </section>
-
-        <section class="container-xl text-center mb-4" id="project">
+        <br></br>
+        <section class="container-xl text-center mb-4" id="learning-project">
             <h2 class="text-primary">My Self-Learning Projects</h2>
             <div>
-                <span class="tt" data-bs-placement="bottom" 
-                    title="
+                <span class="tt" data-bs-placement="bottom" title="
                         1.Using Convolution Neural Network for Image Classification;
                         2.Using Data augmentation and Dropout to Address Overfitting;
                         3.Using Transfer Learning to Train;
                         4.Future Plan: Pytorch Project">
-                    <a class="btn btn-outline-primary btn-sm col-3 me-1 my-1" 
-                        href="./templates/Project_Computer_Vision.pdf" 
+                    <a class="btn btn-primary btn-sm col-3 me-1 my-1" href="./templates/Project_Computer_Vision.pdf"
                         role="button" target="_blank">
                         Deep Learning - CV
                     </a>
                 </span>
-                <span class="tt" data-bs-placement="bottom" 
-                        title="
+                <span class="tt" data-bs-placement="bottom" title="
                             1.Scraping Topics and Repositories on GitHub;
                             2.Grabing Topic Title, Topic Description, Topic URL, Username, Repository name, Stars and Repository URL to Pandas and CSV file;
                             3.Crawling IMDB Top 250 and Randomly Select A Movie;
                             4.Future Plan: Using A REST API to Retrieve Data as JSON and Scraping Multiple Pages">
-                    <a class="btn btn-outline-primary btn-sm col-3 me-1 my-1" 
-                        href="./templates/Project_WebScraping.pdf" 
+                    <a class="btn btn-primary btn-sm col-3 me-1 my-1" href="./templates/Project_WebScraping.pdf"
                         role="button" target="_blank">
                         Data Analysis - Scraping
                     </a>
                 </span>
-                <span class="tt" data-bs-placement="bottom" 
-                    title="
+                <span class="tt" data-bs-placement="bottom" title="
                         1.Using Python and Streamlit to design a simple website;
                         2.Integrate GitHub with Streamlit App to deploy;
                         3.Using Lottie Animations to Enhance;
                         4.Futer plan: Integrate Streamlit with Data Analysis">
-                    <a class="btn btn-outline-primary btn-sm col-3 me-1 my-1" 
-                        href="./templates/Project_WD_Streamlit.pdf" 
+                    <a class="btn btn-primary btn-sm col-3 me-1 my-1" href="./templates/Project_WD_Streamlit.pdf"
                         role="button" target="_blank">
                         Web Application - Streamlit
                     </a>
-                </span> 
-                <span class="tt" data-bs-placement="bottom" 
-                        title="
+                </span>
+                <span class="tt" data-bs-placement="bottom" title="
                                 1.Create, Update and Delete Blog Post;
                                 2.Login and Logout System, Reset Email and Pasword;
                                 3.Use AWS S3 to Storage Media Files;
                                 4.Future Plan: Deploy to Railway and AWS EC2">
-                    <a class="btn btn-outline-primary btn-sm col-3 me-1 my-1" 
-                        href="./templates/Project_WD_Django_Blog.pdf" 
+                    <a class="btn btn-primary btn-sm col-3 me-1 my-1" href="./templates/Project_WD_Django_Blog.pdf"
                         role="button" target="_blank">
                         Web Application - Django
                     </a>
                 </span>
-                <span class="tt" data-bs-placement="bottom" 
-                    title="
+                <span class="tt" data-bs-placement="bottom" title="
                         1.Integrate with Postgres;
                         2.Learning Sqlalchemy, Pydentic, Hasing Password, Token, Alembic, and Pytest;
                         3.Using Docker and GitHub Actions to Deploy;
                         4.Future Plan: Integration with AWS Cloud">
-                    <a class="btn btn-outline-primary btn-sm col-3 me-1 my-1" 
-                    href="./templates/Project_WD_FastAPI.pdf" 
+                    <a class="btn btn-primary btn-sm col-3 me-1 my-1" href="./templates/Project_WD_FastAPI.pdf"
                         role="button" target="_blank">
                         Web Application - FastAPI
                     </a>
                 </span>
-                <span class="tt" data-bs-placement="bottom" 
-                    title="
+                <span class="tt" data-bs-placement="bottom" title="
                         1.Learning NGINX;
                         2.Using Docker Compose to Deploy Django app to AWS EC2;
                         3.Integrate with AWS RDS Postgres and AWS ROUTE 53;
                         4.Future Plan: Integrate with GitHub Actions">
-                    <a class="btn btn-outline-primary btn-sm col-3 me-1 my-1" 
-                        href="./templates/Project_DevOps_DjangoToEC2.pdf"
+                    <a class="btn btn-primary btn-sm col-3 me-1 my-1" href="./templates/Project_DevOps_DjangoToEC2.pdf"
                         role="button" target="_blank">
                         DevOps - Deploy to EC2
                     </a>
                 </span>
             </div>
         </section>
-        
+        <br></br>
+        <section class="container-xl text-center mb-4" id="learning-video">
+            <h2 class="text-primary">My Self-Learning Videos</h2>
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="Mathematics">Mathematics</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr' 
+                    role="button" target="_blank">
+                    Essence of calculus
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab' 
+                    role="button" target="_blank">
+                    Essence of linear algebra
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLybg94GvOJ9En46TNCXL2n6SiqRc_iMB8' 
+                    role="button" target="_blank">
+                    Linear Algebra
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="Programming-Language">Programming Language</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLY_qIufNHc293YnIjVeEwNDuqGo8y2Emx' role="button" target="_blank">
+                    Start from C
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL2_aWCzGMAwLSqGsERZGXGkA5AfMhcknE' 
+                    role="button" target="_blank">
+                    Programming through C
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLdo5W4Nhv31a8UcMN9-35ghv8qyFWD9_S' 
+                    role="button" target="_blank">
+                    Programming in C
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR' 
+                    role="button" target="_blank">
+                    C Programming
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/embed/KJgsSFOSQv0?start=2713' role="button" target="_blank">
+                    C Programming Tutorial for Beginners
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLMHSr8fseBzUvwjKtR6pX0Vv9Q9H-V3lY' role="button" target="_blank">
+                    Programming in C<sup>++</sup>
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" 
+                    href='https://www.youtube.com/embed/vLnPwxZdW4Y'
+                    role="button" target="_blank">
+                    C++ Tutorial for Beginners
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7' 
+                    role="button" target="_blank">
+                    Python Programming Beginner Tutorials
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=UjeNA_JtXME' 
+                    role="button" target="_blank">
+                    Python for Everybody
+                </a>
+            </div>
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="DSA">Data Structure and Algorithms</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=B31LgI4Y4DQ' 
+                    role="button" target="_blank">
+                    Data Structures - Using C and C++
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=V42FBiohc6c&list=PL2_aWCzGMAwI9HK8YPVBjElbLbI3ufctn'
+                    role="button" target="_blank">
+                    Time complexity of a computer program
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U' 
+                    role="button" target="_blank">
+                    Sorting Algorithms
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLdo5W4Nhv31bbKJzrsKfMpo_grxuLl8LU' 
+                    role="button" target="_blank">
+                    Data Structures and Algorithms
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLBlnK6fEyqRj9lld8sWIUNwlKfdUoPd1Y' 
+                    role="button" target="_blank">
+                    Data Structures
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLIY8eNdw5tW_zX3OCzX7NJ8bL1p6pWfgG' 
+                    role="button" target="_blank">
+                    Data Structures and Algorithms C++
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa' 
+                    role="button" target="_blank">
+                    Design and Analysis of algorithms
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3uu_n_a__MI_KktGTLYopZ12' 
+                    role="button" target="_blank">
+                    DS and Algorithms in Python 1
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLyMom0n-MBrqFwguQhbCu0Anlxoel08dr' 
+                    role="button" target="_blank">
+                    DS and Algorithms in Python 2
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="ML">Machine Learning and Deep Learning</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi' 
+                    role="button" target="_blank">
+                    Neural networks
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" 
+                    href='https://youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF' 
+                    role="button" target="_blank">
+                    Machine Learning & Deep Learning
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" 
+                    href='https://www.youtube.com/watch?v=8Pyy2d3SZuM' 
+                    role="button" target="_blank">
+                    Artificial Intelligence Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" 
+                    href='https://www.youtube.com/embed/0B5eIE_1vpU' 
+                    role="button" target="_blank">
+                    Scikit-learn Crash Course
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3uvCeTYTeyfe0-rN5r8zn9rw' 
+                    role="button" target="_blank">
+                    Machine Learning Tutorial Python
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLyMom0n-MBrq-KvGy4TSEa3PQnZ03OoM6' role="button" target="_blank">
+                    Machine Learning with Python
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3uu7CxAacxVndI4bE_o3BDtO' 
+                    role="button" target="_blank">
+                    Deep Learning With Tensorflow
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3uvaRHZLl-jLovIjBP14QTXc' 
+                    role="button" target="_blank">
+                    DS & ML Project
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3utJFNGyBpIvjWgSDY0eOE8S' 
+                    role="button" target="_blank">
+                    Deep Learning Projects
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="ML">Natural Language Processing</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" 
+                    href='https://youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ' 
+                    role="button" target="_blank">
+                    NLP with Deep Learning
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLVcEZG2JPVhdHYbqYx_CJZNDqsWVAgJxE' 
+                    role="button" target="_blank">
+                    Introduction to NLP
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3uuvuAXhYjV2lMEShq2UYSwX' 
+                    role="button" target="_blank">
+                    NLP Tutorial Playlist Python
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="Data_Science">Data Science</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3uuKaU2nBDwr6zrSOTzNCs0l' role="button"
+                    target="_blank">
+                    Mathematics for data science
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" href='https://www.youtube.com/embed/LHBE6Q9XlzI'
+                    role="button" target="_blank">
+                    Python for Data Science
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=GPVsHOlRBBI' role="button" target="_blank">
+                    Data Analysis with Python Course
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS' 
+                    role="button" target="_blank">
+                    Pandas Tutorials
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" 
+                    href='https://youtube.com/playlist?list=PL-osiE80TeTvipOqomVEeZ1HRrcEvtZB_'         role="button" target="_blank">
+                    Matplotlib Tutorials
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1" 
+                    href='https://youtube.com/playlist?list=PL4GjoPPG4VqOAwSNw2I-PXUcjw1frHmW2' 
+                    role="button" target="_blank">
+                    Seaborn Beginner to Pro
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLeo1K3hjS3uva8pk1FI3iK9kCOKQdz1I9' role="button"
+                    target="_blank">
+                    Power BI Project For Beginners
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL6Omre3duO-OGTAMuFuDOS8wMuuxmyaiX' role="button"
+                    target="_blank">
+                    Power BI Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=I6ZNt8fszLU' role="button" target="_blank">
+                    Microsoft Power BI
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="Pygame">Pygame</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLjcN1EyupaQkAQyBCYKyf1jt1M1PiRJEp' role="button"
+                    target="_blank">
+                    Space Invader
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLjcN1EyupaQlBSrfP4_9SdpJIcfnSJgzL' role="button"
+                    target="_blank">
+                    Jumpy
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLjcN1EyupaQkz5Olxzwvo1OzDNaNLGWoJ' role="button"
+                    target="_blank">
+                    Flappy Bird
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLjcN1EyupaQnHM1I9SmiXfbT6aG4ezUvu' role="button"
+                    target="_blank">
+                    Platformer
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLjcN1EyupaQm20hlUE11y9y8EY2aXLpnv' role="button"
+                    target="_blank">
+                    Shooter Game
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLjcN1EyupaQn-x_9QuGIwIESxfV9kNUZf' role="button"
+                    target="_blank">
+                    Level Editor
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="WebA">Web Applications</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH' role="button"
+                    target="_blank">
+                    Flask Tutorials
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p' role="button"
+                    target="_blank">
+                    Django Tutorials
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=0sOvCWFmrtA' role="button" target="_blank">
+                    Python API Development
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=xr6uZDRTna0' role="button" target="_blank">
+                    Web Applications for Everybody Course
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL4cUxeGkcC9gksOX3Kd9KPo-O68ncT05o' role="button"
+                    target="_blank">
+                    PHP Tutorial for Beginners
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=OK_JCtrrv-c' role="button" target="_blank">
+                    PHP Programming Language Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=-8ORfgUa8ow&list=PLnHJACx3NwAdT_8forzXYvx0o4A2VnoHX&index=1'
+                    role="button" target="_blank">
+                    HTML & CSS Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=2Ji-clqUYnA' role="button" target="_blank">
+                    Javascript Fundamentals
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=EfAl9bwzVZk' role="button" target="_blank">
+                    JavaScript Full Course for Beginners
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=iZhV0bILFb0' role="button" target="_blank">
+                    React Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=TNV0_7QRDwY' role="button" target="_blank">
+                    Node and Express Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=c5SIG7Ie0dM&list=PLnHJACx3NwAdT_8forzXYvx0o4A2VnoHX&index=3'
+                    role="button" target="_blank">
+                    15 Vanilla Javascript Projects
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="Scraping">Web Scraping</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=a6fIbtFB46g&list=RDCMUCCezIgC97PvUuR4_gbFUs5g&index=3'
+                    role="button" target="_blank">
+                    Web Scraping with Requests
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=ng2o98k983k' role="button" target="_blank">
+                    BeautifulSoup and Requests
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=tb8gHvYlCFs' role="button" target="_blank">
+                    Python Requests Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=RKsLLG-bzEY' role="button" target="_blank">
+                    Python Web Scraping Project
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=FcW-AXsirBE' role="button" target="_blank">
+                    Selenium Web Scraping Project
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL6gx4Cwl9DGA8Vys-f48mAH9OKSUyav0q' role="button"
+                    target="_blank">
+                    Python Web Crawler Tutorials
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="DBMS">Database Management System</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=HXV3zeQKqGY' role="button" target="_blank">
+                    SQL Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLLAZ4kZ9dFpOFJ9JcVW9u4PlSWO-VFoaop' role="button"
+                    target="_blank">
+                    MongoDB - noSQL Database
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PL7_h0bRfL52oWNfE0GhwbnNjeJSmf8Q35' role="button"
+                    target="_blank">
+                    Master Using SQL with Python
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="DevOps">DevOps CI/CD</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=3fUbBnN_H2c' role="button" target="_blank">
+                    Git and GitHub Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=p28piYY_wv8' role="button" target="_blank">
+                    Docker Tutorial for Beginners
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=3c-iBn73dDE' role="button" target="_blank">
+                    Docker Tutorial
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=VmdzK2StMcA' role="button" target="_blank">
+                    Docker Course 2022
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLtGXgNsNHqPRIREAxyE47turTLeJMgXf2' role="button"
+                    target="_blank">
+                    Django deployment
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=mScd-Pc_pX0' role="button" target="_blank">
+                    Deploying with Docker Compose
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="COA">Computer Organization and Architecture</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLhwVAYxlh5dvB1MkZrcRZy6x_a2yORNAu' role="button"
+                    target="_blank">
+                    Computer Organization - Bilkent
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX' role="button"
+                    target="_blank">
+                    COA
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLBlnK6fEyqRgLLlzdgiTUKULKJPYc0A4q' role="button"
+                    target="_blank">
+                    Computer Organization & Architecture
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLylNWPMX1lPlmEeeMdbEFQo20eHAJL8hx' role="button"
+                    target="_blank">
+                    MIPS ISA (1 of 2)
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href=https://youtube.com/playlist?list=PLylNWPMX1lPnipZzKdCWRj2-un5xvLLdK' role="button"
+                    target="_blank">
+                    MIPS ISA (1 of 2)
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLiwt1iVUib9s2Uo5BeYmwkDFUh70fJPxX' role="button"
+                    target="_blank">
+                    Virtual Memory
+                </a>
+
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="OS">Operating System</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLacuG5pysFbDQU8kKxbUh4K5c1iL5_k7k' role="button"
+                    target="_blank">
+                    Operating Systems - UMass
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=p28piYY_wv8' role="button" target="_blank">
+                    Operating Systems - Bilkent
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLdo5W4Nhv31a5ucW_S1K3-x6ztBRD-PNa' role="button"
+                    target="_blank">
+                    Operating Systems
+                </a>
+            </div>
+
+            <div class="row d-block text-center mb-3">
+                <h6 class="text-secondary" id="Netwok">Network & CyberSecurity</h6>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=47NRaBVxgVM' role="button" target="_blank">
+                    Internet History and Technology
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi' role="button"
+                    target="_blank">
+                    Networking Fundamentals
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLIFyRwBY_4bQ7tJvbLA9A0v8Fq9l-H923' role="button"
+                    target="_blank">
+                    Network Address Translation
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_' role="button"
+                    target="_blank">
+                    Computer Networks
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=vrh0epPAC5w' role="button" target="_blank">
+                    CompTIA Network+ Certification
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLZ-_NHIe3LY1577D_rlfi1pXfl6YWfxi-' role="button"
+                    target="_blank">
+                    CompTIA Network+ Study Guides
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://youtube.com/playlist?list=PLZ-_NHIe3LY1_4_egUXVjpkpVTOZr27CY' role="button"
+                    target="_blank">
+                    CompTIA Security + Study Guides
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=U_P23SqJaDc' role="button" target="_blank">
+                    Cyber Security
+                </a>
+                <a class="btn btn-outline-info btn-sm col-3 me-1 my-1"
+                    href='https://www.youtube.com/watch?v=M1_v5HBVHWo' role="button" target="_blank">
+                    CISSP Certification Course
+                </a>
+            </div>
+        </section>
+        <br></br>
+        <section class="container-xl text-center mb-4" id="contact">
+            <h2 class="text-primary">Get in Touch</h2>
+            <!--<small>Questions to ask? Fill out the form to contact me directly...</small>-->
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form>
+                        <!--<label for="email" class="form-label">Email:</label>-->
+                        <div class="input-group mb-4">
+                            <span class="input-group-text">
+                                <i class="bi bi-envelope-fill text-secondary"></i>
+                            </span>
+                            <input type="text" id="email" class="form-control" placeholder="Your Email" />
+                            <span class="input-group-text">
+                                <span class="tt" data-bs-placement="bottom" title="Enter an email address">
+                                    <i class="bi bi-question-circle text-muted"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <!--<label for="name" class="form-label">Name:</label>-->
+                        <div class="mb-2 input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-person-fill text-secondary"></i>
+                            </span>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" />
+                            <span class="input-group-text">
+                                <span class="tt" data-bs-placement="bottom" title="Pretty self explanatory">
+                                    <i class="bi bi-question-circle text-muted"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <label for="subject" class="form-label text-muted"><small>What is your question
+                                about?</small></label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-chat-right-dots-fill text-secondary"></i>
+                            </span>
+                            <select class="form-select" id="subject">
+                                <option value="map" selected class="text-muted">Self-Learning Map</option>
+                                <option value="memo" selected class="text-muted">Self-Learning Memos</option>
+                                <option value="project" class="text-muted">Self-Learning Projecst</option>
+                                <option value="vedio" class="text-muted">Self-Learning Videos</option>
+                                <option value="other" class="text-muted">Others</option>
+                            </select>
+                        </div>
+                        <div class="my-2  form-floating">
+                            <textarea class="form-control" id="query" style="height: 140px"
+                                placeholder="query"></textarea>
+                            <label for="query"><small class="text-muted">Your queries...</small></label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <div class="text-center">
-            <a class="btn btn-primary btn-sm" href="mailto:ericarthuang2021@gmail.com?cc=ericarthuang2021@gmail.com&bcc=ericarthuang2021@gmail.com&subject=I%20have%20questions%20">
+            <a class="btn btn-primary btn-sm"
+                href="mailto:ericarthuang2021@gmail.com?cc=ericarthuang2021@gmail.com&bcc=ericarthuang2021@gmail.com&subject=I%20have%20questions%20">
                 Contact JainWha, Huang
             </a>
             <p class="text-muted">
@@ -219,8 +780,10 @@
             </p>
         </div>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 
     <script>
         const tooltips = document.querySelectorAll('.tt')
@@ -228,4 +791,5 @@
     </script>
 
 </body>
+
 </html>

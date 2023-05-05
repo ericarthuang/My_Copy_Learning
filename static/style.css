@@ -11,87 +11,67 @@
 } */
 
 @media screen and (max-height: 250px) {
-
     section {
             scroll-margin-top: 4rem;
         }
-
     #map {
         width: 768px;
     }
-
 }
 
-
 @media screen and (min-width:390px) {
-
     section {
             scroll-margin-top: 14rem;
         }
-
     #map {
             width: 300px;
         }
-
 }
 
 @media screen and (min-width:576px) {
-
     section {
             scroll-margin-top: 4rem;
         }
-
     #map {
         width: 481px;
     }
-
 }
 
 @media screen and (min-width:768px) {
-
     section {
             scroll-margin-top: 4rem;
         }
-
     #map {
         width: 576px;
     }
-
 }
 
 
 @media screen and (min-width:992px) {
-
     section {
             scroll-margin-top: 4rem;
         }
-
     #map {
         width: 768px;
     }
-
 }
 
 @media screen and (min-width:1200px) {
-
     section {
             scroll-margin-top: 4rem;
         }
-
     #map {
         width: 992px;
     }
-
 }
 
 @media screen and (min-width:1400px) {
-
     section {
             scroll-margin-top: 4rem;
         }
-    
     #map {
         width: 1200px;
     }
-
 }
+
+
